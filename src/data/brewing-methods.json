@@ -1,0 +1,114 @@
+[
+  {
+    "id": "v60",
+    "name": "Pour-Over V60",
+    "category": "pour-over",
+    "description": "Hario V60 conical dripper. Clean, bright, articulate cup that showcases origin character.",
+    "icon": "Droplet",
+    "equipment": ["V60 dripper", "Paper filter", "Gooseneck kettle", "Scale", "Timer"],
+    "defaultParameters": {
+      "grindSize": "medium-fine",
+      "waterTempC": 93,
+      "ratio": "1:16",
+      "brewSeconds": 210
+    }
+  },
+  {
+    "id": "chemex",
+    "name": "Chemex",
+    "category": "pour-over",
+    "description": "Thick-bonded paper filter produces an exceptionally clean, tea-like cup.",
+    "icon": "FlaskConical",
+    "equipment": ["Chemex", "Bonded filter", "Gooseneck kettle", "Scale", "Timer"],
+    "defaultParameters": {
+      "grindSize": "medium",
+      "waterTempC": 94,
+      "ratio": "1:17",
+      "brewSeconds": 270
+    }
+  },
+  {
+    "id": "kalita",
+    "name": "Kalita Wave",
+    "category": "pour-over",
+    "description": "Flat-bottom dripper with three small holes for a forgiving, even extraction.",
+    "icon": "Waves",
+    "equipment": ["Kalita Wave 155/185", "Wave filter", "Gooseneck kettle", "Scale"],
+    "defaultParameters": {
+      "grindSize": "medium",
+      "waterTempC": 93,
+      "ratio": "1:16",
+      "brewSeconds": 240
+    }
+  },
+  {
+    "id": "espresso",
+    "name": "Espresso",
+    "category": "espresso",
+    "description": "9-bar pressure extraction yielding a concentrated, syrupy shot.",
+    "icon": "Coffee",
+    "equipment": ["Espresso machine", "Portafilter", "Tamper", "Grinder", "Scale"],
+    "defaultParameters": {
+      "grindSize": "fine",
+      "waterTempC": 93,
+      "ratio": "1:2",
+      "brewSeconds": 28
+    }
+  },
+  {
+    "id": "french-press",
+    "name": "French Press",
+    "category": "immersion",
+    "description": "Full-immersion metal filter brew producing a heavy-bodied, textured cup.",
+    "icon": "CupSoda",
+    "equipment": ["French press", "Kettle", "Scale", "Timer"],
+    "defaultParameters": {
+      "grindSize": "coarse",
+      "waterTempC": 95,
+      "ratio": "1:15",
+      "brewSeconds": 240
+    }
+  },
+  {
+    "id": "aeropress",
+    "name": "AeroPress",
+    "category": "immersion",
+    "description": "Versatile pressure-assisted immersion. Fast, clean, and travel-friendly.",
+    "icon": "Syringe",
+    "equipment": ["AeroPress", "Paper filter", "Kettle", "Scale", "Stirrer"],
+    "defaultParameters": {
+      "grindSize": "medium-fine",
+      "waterTempC": 85,
+      "ratio": "1:14",
+      "brewSeconds": 90
+    }
+  },
+  {
+    "id": "cold-brew",
+    "name": "Cold Brew",
+    "category": "cold",
+    "description": "Long-steep cold extraction producing a smooth, low-acidity concentrate.",
+    "icon": "Snowflake",
+    "equipment": ["Cold brew vessel", "Filter", "Scale", "Fridge"],
+    "defaultParameters": {
+      "grindSize": "coarse",
+      "waterTempC": 20,
+      "ratio": "1:8",
+      "brewSeconds": 43200
+    }
+  },
+  {
+    "id": "moka",
+    "name": "Moka Pot",
+    "category": "stovetop",
+    "description": "Stovetop steam-pressure brew. Bold, concentrated, reminiscent of espresso.",
+    "icon": "Flame",
+    "equipment": ["Moka pot", "Stove", "Kettle"],
+    "defaultParameters": {
+      "grindSize": "fine",
+      "waterTempC": 100,
+      "ratio": "1:7",
+      "brewSeconds": 300
+    }
+  }
+]

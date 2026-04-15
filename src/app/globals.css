@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme inline {
+  /* Coffee palette */
+  --color-cream: #faf6f1;
+  --color-parchment: #f0e8dc;
+  --color-tan: #d4c4a8;
+  --color-roast-light: #a67c52;
+  --color-roast-medium: #6f4e37;
+  --color-roast-dark: #3b2314;
+  --color-espresso: #1a0f09;
+  --color-cherry-red: #c1440e;
+  --color-leaf-green: #4a7c59;
+  --color-water-blue: #5b8fa8;
+
+  /* Semantic tokens */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+
+  /* Fonts */
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+:root {
+  --background: #faf6f1;
+  --foreground: #1a0f09;
+  --surface: #ffffff;
+  --border: #e6dbc9;
+  --muted: #6b6054;
+  --accent: #6f4e37;
+}
+
+.dark {
+  --background: #1a0f09;
+  --foreground: #f0e8dc;
+  --surface: #231611;
+  --border: #3b2314;
+  --muted: #a1958a;
+  --accent: #a67c52;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+code,
+pre,
+.mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}

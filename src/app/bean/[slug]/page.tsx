@@ -1,0 +1,190 @@
+import type { Metadata } from "next";
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import {
+  getBeanBySlug,
+  getBeans,
+  getBrewingMethods,
+  getBeanById,
+} from "@/lib/data";
+import {
+  countryFlagEmoji,
+  formatAltitude,
+  monthName,
+} from "@/lib/utils";
+
+interface Params {
+  params: Promise<{ slug: string }>;
+}
+
+export async function generateStaticParams() {
+  return getBeans().map((b) => ({ slug: b.slug }));
+}
+
+export async function generateMetadata({ params }: Params): Promise<Metadata> {
+  const { slug } = await params;
+  const bean = getBeanBySlug(slug);
+  if (!bean) return { title: "Bean not found — BrewMap" };
+  return {
+    title: `${bean.name} — BrewMap`,
+    description: bean.description,
+    openGraph: {
+      title: `${bean.name} · ${bean.country}`,
+      description: bean.description,
+      type: "article",
+    },
+  };
+}
+
+export default async function BeanDetailPage({ params }: Params) {
+  const { slug } = await params;
+  const bean = getBeanBySlug(slug);
+  if (!bean) notFound();
+
+  const methods = getBrewingMethods();
+  const methodById = new Map(methods.map((m) => [m.id, m]));
+  const related = bean.relatedBeanIds
+    .map((id) => getBeanById(id))
+    .filter((b): b is NonNullable<typeof b> => Boolean(b));
+
+  return (
+    <article className="mx-auto w-full max-w-3xl px-5 py-10">
+      <Link
+        href={`/?bean=${bean.slug}`}
+        className="text-sm text-roast-medium hover:underline"
+      >
+        ← View on map
+      </Link>
+
+      <header className="mt-4 border-b border-border pb-6">
+        <div className="flex items-center gap-2 text-sm text-muted">
+          <span aria-hidden className="text-lg leading-none">
+            {countryFlagEmoji(bean.countryCode)}
+          </span>
+          <span>{bean.country}</span>
+        </div>
+        <h1 className="mt-1 font-display text-4xl leading-tight">
+          {bean.name}
+        </h1>
+        <p className="mt-2 text-muted">
+          {bean.region} · {formatAltitude(bean.altitudeMasl)} · {bean.processing}
+        </p>
+      </header>
+
+      <section className="py-6">
+        <p className="text-base leading-relaxed">{bean.description}</p>
+      </section>
+
+      <section className="grid gap-6 border-t border-border py-6 sm:grid-cols-2">
+        <div>
+          <h2 className="font-display text-xl">Flavor profile</h2>
+          <ul className="mt-2 space-y-1 font-mono text-sm">
+            {Object.entries(bean.flavorProfile).map(([k, v]) => (
+              <li key={k} className="flex justify-between">
+                <span className="capitalize">{k}</span>
+                <span>{v}/10</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <h2 className="font-display text-xl">Details</h2>
+          <dl className="mt-2 space-y-1 text-sm">
+            <div className="flex justify-between">
+              <dt className="text-muted">Varieties</dt>
+              <dd className="text-right">{bean.varieties.join(", ")}</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt className="text-muted">Roast</dt>
+              <dd className="capitalize">{bean.roastRecommendation}</dd>
+            </div>
+            <div className="flex justify-between">
+              <dt className="text-muted">Harvest</dt>
+              <dd>{bean.harvestMonths.map(monthName).join(", ")}</dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <section className="border-t border-border py-6">
+        <h2 className="font-display text-xl">Tasting notes</h2>
+        <div className="mt-2 flex flex-wrap gap-1.5">
+          {bean.flavorNotes.map((n) => (
+            <span
+              key={n}
+              className="rounded-full bg-parchment px-2.5 py-0.5 text-xs text-roast-dark dark:bg-roast-dark dark:text-parchment"
+            >
+              {n}
+            </span>
+          ))}
+        </div>
+      </section>
+
+      <section className="border-t border-border py-6">
+        <h2 className="font-display text-xl">Brewing recommendations</h2>
+        <div className="mt-3 grid gap-3 sm:grid-cols-2">
+          {[...bean.brewingRecommendations]
+            .sort((a, b) => b.affinity - a.affinity)
+            .map((rec) => {
+              const method = methodById.get(rec.methodId);
+              return (
+                <div
+                  key={rec.methodId}
+                  className="rounded-md border border-border bg-surface/60 p-4"
+                >
+                  <div className="flex items-baseline justify-between">
+                    <span className="font-medium">
+                      {method?.name ?? rec.methodId}
+                    </span>
+                    <span className="font-mono text-xs text-muted">
+                      affinity {rec.affinity}/10
+                    </span>
+                  </div>
+                  <dl className="mt-2 grid grid-cols-2 gap-1 font-mono text-xs text-muted">
+                    <div>Grind</div>
+                    <div className="text-right text-foreground">
+                      {rec.grindSize} ({rec.grindMicrons}µm)
+                    </div>
+                    <div>Temp</div>
+                    <div className="text-right text-foreground">
+                      {rec.waterTempC}°C
+                    </div>
+                    <div>Ratio</div>
+                    <div className="text-right text-foreground">
+                      {rec.ratio}
+                    </div>
+                    <div>Brew</div>
+                    <div className="text-right text-foreground">
+                      {rec.brewSeconds >= 600
+                        ? `${Math.round(rec.brewSeconds / 3600)}h`
+                        : `${rec.brewSeconds}s`}
+                    </div>
+                  </dl>
+                  <p className="mt-2 text-sm">{rec.tastingNotes}</p>
+                </div>
+              );
+            })}
+        </div>
+      </section>
+
+      {related.length > 0 && (
+        <section className="border-t border-border py-6">
+          <h2 className="font-display text-xl">Similar beans</h2>
+          <ul className="mt-3 grid gap-2 sm:grid-cols-3">
+            {related.map((r) => (
+              <li key={r.id}>
+                <Link
+                  href={`/bean/${r.slug}`}
+                  className="block rounded-md border border-border bg-surface/60 p-3 hover:border-roast-medium"
+                >
+                  <div className="text-sm font-medium">{r.name}</div>
+                  <div className="text-xs text-muted">{r.region}</div>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
+    </article>
+  );
+}
