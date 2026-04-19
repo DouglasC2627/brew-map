@@ -2,7 +2,7 @@
 
 An interactive world map of specialty coffee — origins, flavor profiles, and brewing recommendations tailored to each bean.
 
-**Status:** Phase 1 complete. 30 bean profiles, custom Mapbox styles, SSR bean pages, responsive panel, dark/light mode.
+**Status:** *Still Under Development* — Phase 1 complete. 30 bean profiles, custom Mapbox styles, SSR bean pages, responsive panel, dark/light mode.
 
 ## Tech stack
 
