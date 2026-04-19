@@ -1,36 +1,123 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BrewMap
 
-## Getting Started
+An interactive world map of specialty coffee — origins, flavor profiles, and brewing recommendations tailored to each bean.
 
-First, run the development server:
+**Status:** Phase 1 complete. 30 bean profiles, custom Mapbox styles, SSR bean pages, responsive panel, dark/light mode.
+
+## Tech stack
+
+- **Framework:** Next.js 16 (App Router, Turbopack) + React 19 + TypeScript
+- **Map:** react-map-gl + Mapbox GL JS (globe projection, clustering, custom Studio styles)
+- **Styling:** Tailwind CSS v4 + shadcn/ui + custom coffee color palette
+- **State:** Zustand
+- **Data:** JSON seed files validated with Zod at build time
+- **Theme:** next-themes (Mapbox style swaps on toggle)
+- **Deploy:** Vercel
+
+## Local development
+
+### Prerequisites
+
+- Node.js 20+
+- A [Mapbox account](https://account.mapbox.com/) and access token
+
+### Setup
 
 ```bash
+git clone https://github.com/DouglasC2627/brew-map.git
+cd brew-map
+npm install
+cp .env.example .env.local
+# edit .env.local with your Mapbox token (see below)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Environment variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Name | Required | Purpose |
+|---|---|---|
+| `NEXT_PUBLIC_MAPBOX_TOKEN` | Yes | Mapbox public access token (`pk.*`) |
+| `NEXT_PUBLIC_MAPBOX_STYLE_LIGHT` | No | Custom Mapbox Studio style URL for light mode. Falls back to `mapbox://styles/mapbox/light-v11` |
+| `NEXT_PUBLIC_MAPBOX_STYLE_DARK` | No | Custom Mapbox Studio style URL for dark mode. Falls back to `mapbox://styles/mapbox/dark-v11` |
 
-## Learn More
+All three are inlined into the client bundle at build time — changing them requires a full rebuild.
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Command | Purpose |
+|---|---|
+| `npm run dev` | Start dev server (Turbopack) |
+| `npm run build` | Run Zod validation, then production build |
+| `npm run start` | Start production server |
+| `npm run lint` | Run ESLint |
+| `npm run validate:data` | Validate [src/data/](src/data/) against Zod schemas |
+| `npm run expand:brewing` | Regenerate missing brewing recommendations via affinity weights |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project structure
 
-## Deploy on Vercel
+```
+brew-map/
+├── src/
+│   ├── app/        # Next.js App Router
+│   │   ├── bean/[slug]/          # SSR bean detail page (generateStaticParams)
+│   │   ├── layout.tsx            # Root layout — fonts, ThemeProvider, TopNav
+│   │   ├── page.tsx              # Home (map view)
+│   │   └── globals.css           # Tailwind v4 theme + coffee palette
+│   │
+│   ├── components/
+│   │   ├── map/                  # CoffeeMap, MapView, RegionHighlight
+│   │   ├── bean/                 # BeanPanel (responsive sheet)
+│   │   ├── layout/               # TopNav
+│   │   ├── shared/               # ThemeProvider, ThemeToggle
+│   │   └── ui/                   # shadcn/ui primitives
+│   │
+│   ├── lib/
+│   │   ├── data.ts               # Cached bean / method / region loaders
+│   │   ├── schemas.ts            # Zod schemas mirroring src/types
+│   │   └── utils.ts              # cn(), country flags, formatters
+│   │
+│   ├── store/      # Zustand store + filter selectors
+│   ├── types/      # TypeScript interfaces
+│   └── data/       # beans.json, brewing-methods.json, regions.geojson
+│
+├── public/
+│   └── data/       # regions.geojson (fetched at runtime by the map)
+│
+├── scripts/
+│   ├── validate-data.ts          # Zod validation — runs before `next build`
+│   ├── expand-brewing-recs.mjs   # Generate missing brewing recs by affinity
+│   └── generate-regions.mjs      # Generate placeholder region polygons
+│
+├── .env.example    # Env var template
+├── AGENTS.md       # Agent-facing notes (Next.js 16 caveats)
+├── CLAUDE.md       # Claude Code project instructions
+├── TASKS.md        # Phased roadmap (source of truth)
+└── package.json
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing data
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Bean profiles live in [src/data/beans.json](src/data/beans.json). To add a bean:
+
+1. Pick a unique `id` (kebab-case, e.g. `ethiopian-guji`) and `slug`.
+2. Fill in origin fields: `country`, `countryCode` (ISO-2), `region`, `coordinates: [lng, lat]`, `altitudeMasl: { min, max }`.
+3. Fill in the 6-axis `flavorProfile` (1–10 each), `flavorNotes`, `varieties`, `processing`, `roastRecommendation`, `harvestMonths`.
+4. Add at least one entry to `brewingRecommendations`. Run `npm run expand:brewing` to algorithmically fill the remaining methods.
+5. Run `npm run validate:data` — Zod will catch any missing or malformed fields.
+
+Region polygons live in [public/data/regions.geojson](public/data/regions.geojson) and are fetched client-side for hover highlights.
+
+## Deployment
+
+The project deploys to Vercel with no configuration beyond environment variables:
+
+1. Import the GitHub repo into Vercel.
+2. Add the three `NEXT_PUBLIC_MAPBOX_*` env vars across Production/Preview/Development.
+3. Deploy. The build runs `npm run validate:data && next build`.
+4. In your Mapbox account, restrict the token to your Vercel domains + `localhost:3000` to prevent scraping.
+
+## License
+
+Released under the [MIT License](LICENSE).
