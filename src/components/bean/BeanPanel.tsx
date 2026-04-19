@@ -29,7 +29,7 @@ interface Props {
 }
 
 export function BeanPanel({ beans, methods }: Props) {
-  const { selectedBeanId, clearSelection } = useBrewMap();
+  const { selectedBeanId, clearSelection, selectBean } = useBrewMap();
   const bean = beans.find((b) => b.id === selectedBeanId);
   const methodById = new Map(methods.map((m) => [m.id, m]));
   const isOpen = Boolean(bean);
@@ -56,7 +56,7 @@ export function BeanPanel({ beans, methods }: Props) {
           // mobile: bottom sheet
           "bottom-0 left-0 right-0 max-h-[85vh] rounded-t-2xl border-t border-border",
           // tablet+: right sheet (50vw); desktop: 420px fixed
-          "sm:top-14 sm:right-0 sm:bottom-0 sm:left-auto sm:w-[50vw] sm:max-w-none sm:max-h-none sm:rounded-none sm:border-t-0 sm:border-l lg:w-[420px]",
+          "sm:top-14 sm:right-0 sm:bottom-0 sm:left-auto sm:w-[50vw] sm:max-w-none sm:max-h-none sm:rounded-none sm:border-t-0 sm:border-l lg:w-105",
           isOpen
             ? "translate-y-0 sm:translate-x-0"
             : "translate-y-full sm:translate-y-0 sm:translate-x-full",
@@ -188,6 +188,34 @@ export function BeanPanel({ beans, methods }: Props) {
                   })}
               </ul>
             </section>
+
+            {bean.relatedBeanIds.length > 0 && (
+              <section className="border-t border-border p-5">
+                <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Similar beans
+                </h3>
+                <ul className="grid grid-cols-1 gap-2">
+                  {bean.relatedBeanIds
+                    .map((id) => beans.find((b) => b.id === id))
+                    .filter((b): b is CoffeeBean => Boolean(b))
+                    .slice(0, 3)
+                    .map((r) => (
+                      <li key={r.id}>
+                        <button
+                          type="button"
+                          onClick={() => selectBean(r.id)}
+                          className="w-full rounded-md border border-border bg-surface/60 p-2 text-left hover:border-roast-medium"
+                        >
+                          <div className="text-sm font-medium">{r.name}</div>
+                          <div className="text-xs text-muted-foreground">
+                            {r.flavorNotes.slice(0, 2).join(" · ")}
+                          </div>
+                        </button>
+                      </li>
+                    ))}
+                </ul>
+              </section>
+            )}
 
             <section className="border-t border-border p-5 text-sm">
               <p>{bean.description}</p>
