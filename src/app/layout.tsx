@@ -1,13 +1,11 @@
 import type { Metadata } from "next";
-import { DM_Serif_Display, Inter, JetBrains_Mono } from "next/font/google";
+import { DM_Serif_Display, Inter, JetBrains_Mono, Geist } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import { TopNav } from "@/components/layout/TopNav";
+import { cn } from "@/lib/utils";
 
-const inter = Inter({
-  variable: "--font-sans",
-  subsets: ["latin"],
-});
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
 const dmSerif = DM_Serif_Display({
   variable: "--font-display",
@@ -33,7 +31,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${inter.variable} ${dmSerif.variable} ${jetbrains.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", dmSerif.variable, jetbrains.variable, "font-sans", geist.variable)}
     >
       <body className="min-h-full flex flex-col">
         <ThemeProvider

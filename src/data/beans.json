@@ -6,20 +6,138 @@
     "country": "Ethiopia",
     "countryCode": "ET",
     "region": "Yirgacheffe, Gedeo Zone",
-    "coordinates": [38.2, 6.15],
-    "altitudeMasl": [1750, 2200],
-    "varieties": ["Heirloom (Kudhume, Dega, Wolisho)"],
+    "coordinates": [
+      38.2,
+      6.15
+    ],
+    "altitudeMasl": [
+      1750,
+      2200
+    ],
+    "varieties": [
+      "Heirloom (Kudhume, Dega, Wolisho)"
+    ],
     "processing": "washed",
     "roastRecommendation": "light",
-    "flavorProfile": { "acidity": 9, "body": 4, "sweetness": 8, "bitterness": 2, "complexity": 9, "fruitiness": 9 },
-    "flavorNotes": ["bergamot", "jasmine", "lemon", "black tea", "honey"],
-    "harvestMonths": [10, 11, 12, 1],
+    "flavorProfile": {
+      "acidity": 9,
+      "body": 4,
+      "sweetness": 8,
+      "bitterness": 2,
+      "complexity": 9,
+      "fruitiness": 9
+    },
+    "flavorNotes": [
+      "bergamot",
+      "jasmine",
+      "lemon",
+      "black tea",
+      "honey"
+    ],
+    "harvestMonths": [
+      10,
+      11,
+      12,
+      1
+    ],
     "description": "The floral benchmark of East African coffee. Delicate jasmine and bergamot aromatics over a tea-like body, with a sparkling citric acidity.",
-    "relatedBeanIds": ["et-sidamo", "et-guji", "ke-nyeri"],
+    "relatedBeanIds": [
+      "et-sidamo",
+      "et-guji",
+      "ke-nyeri"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 210, "difficulty": 3, "affinity": 10, "tastingNotes": "Lifts the florals and keeps the acidity sparkling." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 95, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 300, "difficulty": 3, "affinity": 9, "tastingNotes": "Tea-like clarity; emphasizes bergamot and lemon zest." },
-      { "methodId": "aeropress", "grindSize": "medium-fine", "grindMicrons": 550, "waterTempC": 85, "ratio": "1:15", "brewSeconds": 90, "difficulty": 2, "affinity": 8, "tastingNotes": "Concentrated stone-fruit sweetness with soft acidity." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 210,
+        "difficulty": 3,
+        "affinity": 10,
+        "tastingNotes": "Lifts the florals and keeps the acidity sparkling."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 95,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 300,
+        "difficulty": 3,
+        "affinity": 9,
+        "tastingNotes": "Tea-like clarity; emphasizes bergamot and lemon zest."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Balanced extraction; bergamot and jasmine with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 94,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 4,
+        "tastingNotes": "Concentrated bergamot and jasmine; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 96,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 3,
+        "tastingNotes": "Heavy body; bergamot and jasmine with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 550,
+        "waterTempC": 85,
+        "ratio": "1:15",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Concentrated stone-fruit sweetness with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Smooth and sweet; bergamot and jasmine without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 3,
+        "tastingNotes": "Bold and rich; bergamot and jasmine in a concentrated cup."
+      }
     ]
   },
   {
@@ -29,20 +147,136 @@
     "country": "Ethiopia",
     "countryCode": "ET",
     "region": "Sidamo, SNNPR",
-    "coordinates": [38.5, 6.78],
-    "altitudeMasl": [1550, 2200],
-    "varieties": ["Heirloom"],
+    "coordinates": [
+      38.5,
+      6.78
+    ],
+    "altitudeMasl": [
+      1550,
+      2200
+    ],
+    "varieties": [
+      "Heirloom"
+    ],
     "processing": "natural",
     "roastRecommendation": "light",
-    "flavorProfile": { "acidity": 8, "body": 6, "sweetness": 9, "bitterness": 3, "complexity": 8, "fruitiness": 10 },
-    "flavorNotes": ["blueberry", "strawberry", "cocoa", "dried apricot"],
-    "harvestMonths": [10, 11, 12, 1],
+    "flavorProfile": {
+      "acidity": 8,
+      "body": 6,
+      "sweetness": 9,
+      "bitterness": 3,
+      "complexity": 8,
+      "fruitiness": 10
+    },
+    "flavorNotes": [
+      "blueberry",
+      "strawberry",
+      "cocoa",
+      "dried apricot"
+    ],
+    "harvestMonths": [
+      10,
+      11,
+      12,
+      1
+    ],
     "description": "Sun-dried naturals with signature berry-forward sweetness and a juicy, wine-like body.",
-    "relatedBeanIds": ["et-yirgacheffe", "et-guji"],
+    "relatedBeanIds": [
+      "et-yirgacheffe",
+      "et-guji"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 220, "difficulty": 3, "affinity": 9, "tastingNotes": "Ripe berry syrup with cocoa finish." },
-      { "methodId": "aeropress", "grindSize": "medium-fine", "grindMicrons": 550, "waterTempC": 85, "ratio": "1:14", "brewSeconds": 90, "difficulty": 2, "affinity": 8, "tastingNotes": "Jammy, dense, strawberry jam character." },
-      { "methodId": "cold-brew", "grindSize": "coarse", "grindMicrons": 1100, "waterTempC": 20, "ratio": "1:8", "brewSeconds": 43200, "difficulty": 1, "affinity": 7, "tastingNotes": "Blueberry-soda sweetness; excellent iced." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 220,
+        "difficulty": 3,
+        "affinity": 9,
+        "tastingNotes": "Ripe berry syrup with cocoa finish."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 8,
+        "tastingNotes": "Tea-like clarity; blueberry and strawberry shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Balanced extraction; blueberry and strawberry with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 6,
+        "tastingNotes": "Concentrated blueberry and strawberry; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; blueberry and strawberry with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 550,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Jammy, dense, strawberry jam character."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1100,
+        "waterTempC": 20,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Blueberry-soda sweetness; excellent iced."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; blueberry and strawberry in a concentrated cup."
+      }
     ]
   },
   {
@@ -52,20 +286,137 @@
     "country": "Ethiopia",
     "countryCode": "ET",
     "region": "Guji Zone, Oromia",
-    "coordinates": [38.65, 5.7],
-    "altitudeMasl": [1900, 2300],
-    "varieties": ["Heirloom"],
+    "coordinates": [
+      38.65,
+      5.7
+    ],
+    "altitudeMasl": [
+      1900,
+      2300
+    ],
+    "varieties": [
+      "Heirloom"
+    ],
     "processing": "washed",
     "roastRecommendation": "light",
-    "flavorProfile": { "acidity": 9, "body": 5, "sweetness": 8, "bitterness": 2, "complexity": 9, "fruitiness": 9 },
-    "flavorNotes": ["peach", "jasmine", "lime", "honey", "black tea"],
-    "harvestMonths": [11, 12, 1, 2],
+    "flavorProfile": {
+      "acidity": 9,
+      "body": 5,
+      "sweetness": 8,
+      "bitterness": 2,
+      "complexity": 9,
+      "fruitiness": 9
+    },
+    "flavorNotes": [
+      "peach",
+      "jasmine",
+      "lime",
+      "honey",
+      "black tea"
+    ],
+    "harvestMonths": [
+      11,
+      12,
+      1,
+      2
+    ],
     "description": "High-altitude Guji lots are prized for their stone-fruit sweetness and crystalline lime acidity.",
-    "relatedBeanIds": ["et-yirgacheffe", "et-sidamo"],
+    "relatedBeanIds": [
+      "et-yirgacheffe",
+      "et-sidamo"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 210, "difficulty": 3, "affinity": 10, "tastingNotes": "Peach-forward, silky, floral finish." },
-      { "methodId": "kalita", "grindSize": "medium", "grindMicrons": 750, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 240, "difficulty": 2, "affinity": 9, "tastingNotes": "Rounded sweetness; forgiving extraction." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 850, "waterTempC": 95, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 300, "difficulty": 3, "affinity": 8, "tastingNotes": "Lifted floral clarity." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 210,
+        "difficulty": 3,
+        "affinity": 10,
+        "tastingNotes": "Peach-forward, silky, floral finish."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 850,
+        "waterTempC": 95,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 300,
+        "difficulty": 3,
+        "affinity": 8,
+        "tastingNotes": "Lifted floral clarity."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 750,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Rounded sweetness; forgiving extraction."
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 94,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 4,
+        "tastingNotes": "Concentrated peach and jasmine; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 96,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 4,
+        "tastingNotes": "Heavy body; peach and jasmine with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 86,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Versatile cup; peach and jasmine with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; peach and jasmine without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 3,
+        "tastingNotes": "Bold and rich; peach and jasmine in a concentrated cup."
+      }
     ]
   },
   {
@@ -75,20 +426,138 @@
     "country": "Kenya",
     "countryCode": "KE",
     "region": "Nyeri County",
-    "coordinates": [36.95, -0.42],
-    "altitudeMasl": [1700, 2000],
-    "varieties": ["SL28", "SL34", "Ruiru 11"],
+    "coordinates": [
+      36.95,
+      -0.42
+    ],
+    "altitudeMasl": [
+      1700,
+      2000
+    ],
+    "varieties": [
+      "SL28",
+      "SL34",
+      "Ruiru 11"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 10, "body": 7, "sweetness": 8, "bitterness": 3, "complexity": 9, "fruitiness": 8 },
-    "flavorNotes": ["blackcurrant", "tomato", "grapefruit", "brown sugar"],
-    "harvestMonths": [10, 11, 12, 1],
+    "flavorProfile": {
+      "acidity": 10,
+      "body": 7,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 9,
+      "fruitiness": 8
+    },
+    "flavorNotes": [
+      "blackcurrant",
+      "tomato",
+      "grapefruit",
+      "brown sugar"
+    ],
+    "harvestMonths": [
+      10,
+      11,
+      12,
+      1
+    ],
     "description": "The classic Kenyan profile: ripping blackcurrant acidity, syrupy body, and intense savoury-sweet complexity.",
-    "relatedBeanIds": ["ke-kirinyaga", "rw-nyamasheke"],
+    "relatedBeanIds": [
+      "ke-kirinyaga",
+      "rw-nyamasheke"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 580, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 220, "difficulty": 3, "affinity": 10, "tastingNotes": "Ribena-like blackcurrant with a grapefruit snap." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 95, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 300, "difficulty": 3, "affinity": 9, "tastingNotes": "Clean, intense, juicy." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 250, "waterTempC": 92, "ratio": "1:2.5", "brewSeconds": 30, "difficulty": 4, "affinity": 6, "tastingNotes": "Punchy and acidic; best as a black espresso, not milk." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 580,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 220,
+        "difficulty": 3,
+        "affinity": 10,
+        "tastingNotes": "Ribena-like blackcurrant with a grapefruit snap."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 95,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 300,
+        "difficulty": 3,
+        "affinity": 9,
+        "tastingNotes": "Clean, intense, juicy."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Balanced extraction; blackcurrant and tomato with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 250,
+        "waterTempC": 92,
+        "ratio": "1:2.5",
+        "brewSeconds": 30,
+        "difficulty": 4,
+        "affinity": 6,
+        "tastingNotes": "Punchy and acidic; best as a black espresso, not milk."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; blackcurrant and tomato with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Versatile cup; blackcurrant and tomato with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; blackcurrant and tomato without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; blackcurrant and tomato in a concentrated cup."
+      }
     ]
   },
   {
@@ -98,20 +567,137 @@
     "country": "Kenya",
     "countryCode": "KE",
     "region": "Kirinyaga County",
-    "coordinates": [37.3, -0.55],
-    "altitudeMasl": [1650, 1900],
-    "varieties": ["SL28", "SL34", "Batian"],
+    "coordinates": [
+      37.3,
+      -0.55
+    ],
+    "altitudeMasl": [
+      1650,
+      1900
+    ],
+    "varieties": [
+      "SL28",
+      "SL34",
+      "Batian"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 10, "body": 7, "sweetness": 8, "bitterness": 3, "complexity": 9, "fruitiness": 8 },
-    "flavorNotes": ["blackberry", "plum", "lime", "molasses"],
-    "harvestMonths": [10, 11, 12, 1],
+    "flavorProfile": {
+      "acidity": 10,
+      "body": 7,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 9,
+      "fruitiness": 8
+    },
+    "flavorNotes": [
+      "blackberry",
+      "plum",
+      "lime",
+      "molasses"
+    ],
+    "harvestMonths": [
+      10,
+      11,
+      12,
+      1
+    ],
     "description": "Kirinyaga's volcanic soils produce dense, structured cups with layered dark-fruit character.",
-    "relatedBeanIds": ["ke-nyeri"],
+    "relatedBeanIds": [
+      "ke-nyeri"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 220, "difficulty": 3, "affinity": 10, "tastingNotes": "Plum and blackberry; molasses sweetness." },
-      { "methodId": "aeropress", "grindSize": "medium-fine", "grindMicrons": 550, "waterTempC": 88, "ratio": "1:15", "brewSeconds": 90, "difficulty": 2, "affinity": 8, "tastingNotes": "Concentrated dark fruit and sugarcane." },
-      { "methodId": "kalita", "grindSize": "medium", "grindMicrons": 750, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 240, "difficulty": 2, "affinity": 9, "tastingNotes": "Even extraction highlights its density." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 220,
+        "difficulty": 3,
+        "affinity": 10,
+        "tastingNotes": "Plum and blackberry; molasses sweetness."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 9,
+        "tastingNotes": "Tea-like clarity; blackberry and plum shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 750,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Even extraction highlights its density."
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 5,
+        "tastingNotes": "Concentrated blackberry and plum; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; blackberry and plum with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 550,
+        "waterTempC": 88,
+        "ratio": "1:15",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Concentrated dark fruit and sugarcane."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; blackberry and plum without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; blackberry and plum in a concentrated cup."
+      }
     ]
   },
   {
@@ -121,20 +707,136 @@
     "country": "Rwanda",
     "countryCode": "RW",
     "region": "Nyamasheke, Western Province",
-    "coordinates": [29.1, -2.4],
-    "altitudeMasl": [1600, 1950],
-    "varieties": ["Red Bourbon"],
+    "coordinates": [
+      29.1,
+      -2.4
+    ],
+    "altitudeMasl": [
+      1600,
+      1950
+    ],
+    "varieties": [
+      "Red Bourbon"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 7, "body": 6, "sweetness": 8, "bitterness": 3, "complexity": 7, "fruitiness": 7 },
-    "flavorNotes": ["red apple", "caramel", "orange", "cocoa"],
-    "harvestMonths": [3, 4, 5, 6],
+    "flavorProfile": {
+      "acidity": 7,
+      "body": 6,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 7,
+      "fruitiness": 7
+    },
+    "flavorNotes": [
+      "red apple",
+      "caramel",
+      "orange",
+      "cocoa"
+    ],
+    "harvestMonths": [
+      3,
+      4,
+      5,
+      6
+    ],
     "description": "Red Bourbon from Lake Kivu's shores: clean, balanced, with orchard-fruit sweetness and gentle acidity.",
-    "relatedBeanIds": ["bu-kayanza", "ke-nyeri"],
+    "relatedBeanIds": [
+      "bu-kayanza",
+      "ke-nyeri"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 9, "tastingNotes": "Balanced; apple-caramel sweetness." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 94, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 270, "difficulty": 2, "affinity": 8, "tastingNotes": "Clean and orchard-fruit forward." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2.3", "brewSeconds": 28, "difficulty": 3, "affinity": 7, "tastingNotes": "Cocoa, caramel, orange peel; pairs nicely with milk." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Balanced; apple-caramel sweetness."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 270,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Clean and orchard-fruit forward."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced extraction; red apple and caramel with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2.3",
+        "brewSeconds": 28,
+        "difficulty": 3,
+        "affinity": 7,
+        "tastingNotes": "Cocoa, caramel, orange peel; pairs nicely with milk."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; red apple and caramel with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; red apple and caramel with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; red apple and caramel without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; red apple and caramel in a concentrated cup."
+      }
     ]
   },
   {
@@ -144,20 +846,138 @@
     "country": "Tanzania",
     "countryCode": "TZ",
     "region": "Kilimanjaro slopes",
-    "coordinates": [37.35, -3.08],
-    "altitudeMasl": [1400, 1900],
-    "varieties": ["Kent", "Bourbon", "N39"],
+    "coordinates": [
+      37.35,
+      -3.08
+    ],
+    "altitudeMasl": [
+      1400,
+      1900
+    ],
+    "varieties": [
+      "Kent",
+      "Bourbon",
+      "N39"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium",
-    "flavorProfile": { "acidity": 7, "body": 6, "sweetness": 7, "bitterness": 4, "complexity": 6, "fruitiness": 6 },
-    "flavorNotes": ["lemon", "black tea", "almond", "red grape"],
-    "harvestMonths": [7, 8, 9, 10],
+    "flavorProfile": {
+      "acidity": 7,
+      "body": 6,
+      "sweetness": 7,
+      "bitterness": 4,
+      "complexity": 6,
+      "fruitiness": 6
+    },
+    "flavorNotes": [
+      "lemon",
+      "black tea",
+      "almond",
+      "red grape"
+    ],
+    "harvestMonths": [
+      7,
+      8,
+      9,
+      10
+    ],
     "description": "Bright, tea-like cups from the southern Kilimanjaro slopes with a gentle citric lift.",
-    "relatedBeanIds": ["ke-nyeri", "rw-nyamasheke"],
+    "relatedBeanIds": [
+      "ke-nyeri",
+      "rw-nyamasheke"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 8, "tastingNotes": "Bright lemon-tea cup." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 94, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 6, "tastingNotes": "Rounded and nutty." },
-      { "methodId": "aeropress", "grindSize": "medium", "grindMicrons": 700, "waterTempC": 88, "ratio": "1:15", "brewSeconds": 90, "difficulty": 2, "affinity": 7, "tastingNotes": "Smooth, almond and grape." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Bright lemon-tea cup."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 6,
+        "tastingNotes": "Tea-like clarity; lemon and black tea shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Balanced extraction; lemon and black tea with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 5,
+        "tastingNotes": "Concentrated lemon and black tea; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 94,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Rounded and nutty."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium",
+        "grindMicrons": 700,
+        "waterTempC": 88,
+        "ratio": "1:15",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Smooth, almond and grape."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Smooth and sweet; lemon and black tea without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Bold and rich; lemon and black tea in a concentrated cup."
+      }
     ]
   },
   {
@@ -167,20 +987,135 @@
     "country": "Burundi",
     "countryCode": "BI",
     "region": "Kayanza Province",
-    "coordinates": [29.62, -2.93],
-    "altitudeMasl": [1700, 2000],
-    "varieties": ["Red Bourbon"],
+    "coordinates": [
+      29.62,
+      -2.93
+    ],
+    "altitudeMasl": [
+      1700,
+      2000
+    ],
+    "varieties": [
+      "Red Bourbon"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 7, "body": 6, "sweetness": 8, "bitterness": 3, "complexity": 7, "fruitiness": 7 },
-    "flavorNotes": ["pink grapefruit", "honey", "black tea", "raisin"],
-    "harvestMonths": [4, 5, 6, 7],
+    "flavorProfile": {
+      "acidity": 7,
+      "body": 6,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 7,
+      "fruitiness": 7
+    },
+    "flavorNotes": [
+      "pink grapefruit",
+      "honey",
+      "black tea",
+      "raisin"
+    ],
+    "harvestMonths": [
+      4,
+      5,
+      6,
+      7
+    ],
     "description": "Washed Bourbon with a juicy grapefruit acidity and a lingering honeyed sweetness.",
-    "relatedBeanIds": ["rw-nyamasheke"],
+    "relatedBeanIds": [
+      "rw-nyamasheke"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 210, "difficulty": 2, "affinity": 9, "tastingNotes": "Grapefruit-forward, honey finish." },
-      { "methodId": "kalita", "grindSize": "medium", "grindMicrons": 750, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 240, "difficulty": 2, "affinity": 8, "tastingNotes": "Balanced and sweet." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 94, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 270, "difficulty": 2, "affinity": 7, "tastingNotes": "Clean tea-like finish." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Grapefruit-forward, honey finish."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 270,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Clean tea-like finish."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 750,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Balanced and sweet."
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 5,
+        "tastingNotes": "Concentrated pink grapefruit and honey; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; pink grapefruit and honey with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; pink grapefruit and honey with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; pink grapefruit and honey without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; pink grapefruit and honey in a concentrated cup."
+      }
     ]
   },
   {
@@ -190,20 +1125,138 @@
     "country": "Guatemala",
     "countryCode": "GT",
     "region": "Antigua Valley, Sacatepéquez",
-    "coordinates": [-90.73, 14.56],
-    "altitudeMasl": [1500, 1700],
-    "varieties": ["Bourbon", "Caturra", "Catuai"],
+    "coordinates": [
+      -90.73,
+      14.56
+    ],
+    "altitudeMasl": [
+      1500,
+      1700
+    ],
+    "varieties": [
+      "Bourbon",
+      "Caturra",
+      "Catuai"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium",
-    "flavorProfile": { "acidity": 7, "body": 7, "sweetness": 8, "bitterness": 4, "complexity": 7, "fruitiness": 5 },
-    "flavorNotes": ["chocolate", "orange", "toffee", "roasted almond"],
-    "harvestMonths": [12, 1, 2, 3],
+    "flavorProfile": {
+      "acidity": 7,
+      "body": 7,
+      "sweetness": 8,
+      "bitterness": 4,
+      "complexity": 7,
+      "fruitiness": 5
+    },
+    "flavorNotes": [
+      "chocolate",
+      "orange",
+      "toffee",
+      "roasted almond"
+    ],
+    "harvestMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
     "description": "Volcanic-soil Antigua lots yield velvety chocolate-and-orange cups with a rounded body.",
-    "relatedBeanIds": ["gt-huehue", "cr-tarrazu"],
+    "relatedBeanIds": [
+      "gt-huehue",
+      "cr-tarrazu"
+    ],
     "brewingRecommendations": [
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 3, "affinity": 9, "tastingNotes": "Classic chocolate-orange espresso." },
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 8, "tastingNotes": "Balanced, cocoa-forward." },
-      { "methodId": "moka", "grindSize": "fine", "grindMicrons": 300, "waterTempC": 100, "ratio": "1:7", "brewSeconds": 300, "difficulty": 2, "affinity": 7, "tastingNotes": "Rich chocolate and toffee." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Balanced, cocoa-forward."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 7,
+        "tastingNotes": "Tea-like clarity; chocolate and orange shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced extraction; chocolate and orange with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 3,
+        "affinity": 9,
+        "tastingNotes": "Classic chocolate-orange espresso."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Heavy body; chocolate and orange with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; chocolate and orange with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; chocolate and orange without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 300,
+        "waterTempC": 100,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Rich chocolate and toffee."
+      }
     ]
   },
   {
@@ -213,20 +1266,138 @@
     "country": "Guatemala",
     "countryCode": "GT",
     "region": "Huehuetenango",
-    "coordinates": [-91.47, 15.32],
-    "altitudeMasl": [1600, 2000],
-    "varieties": ["Bourbon", "Caturra", "Pache"],
+    "coordinates": [
+      -91.47,
+      15.32
+    ],
+    "altitudeMasl": [
+      1600,
+      2000
+    ],
+    "varieties": [
+      "Bourbon",
+      "Caturra",
+      "Pache"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 8, "body": 6, "sweetness": 8, "bitterness": 3, "complexity": 8, "fruitiness": 7 },
-    "flavorNotes": ["red apple", "cocoa", "grapefruit", "honey"],
-    "harvestMonths": [1, 2, 3, 4],
+    "flavorProfile": {
+      "acidity": 8,
+      "body": 6,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 8,
+      "fruitiness": 7
+    },
+    "flavorNotes": [
+      "red apple",
+      "cocoa",
+      "grapefruit",
+      "honey"
+    ],
+    "harvestMonths": [
+      1,
+      2,
+      3,
+      4
+    ],
     "description": "Mountainous, dry-wind terroir yields bright, complex cups with pronounced apple and honey sweetness.",
-    "relatedBeanIds": ["gt-antigua", "mx-chiapas"],
+    "relatedBeanIds": [
+      "gt-antigua",
+      "mx-chiapas"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 210, "difficulty": 2, "affinity": 9, "tastingNotes": "Apple-honey brightness with cocoa finish." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 94, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 270, "difficulty": 2, "affinity": 8, "tastingNotes": "Clean, juicy, floral edge." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2.2", "brewSeconds": 28, "difficulty": 3, "affinity": 7, "tastingNotes": "Bright, red-fruited shot." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Apple-honey brightness with cocoa finish."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 270,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Clean, juicy, floral edge."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced extraction; red apple and cocoa with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2.2",
+        "brewSeconds": 28,
+        "difficulty": 3,
+        "affinity": 7,
+        "tastingNotes": "Bright, red-fruited shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; red apple and cocoa with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Versatile cup; red apple and cocoa with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; red apple and cocoa without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; red apple and cocoa in a concentrated cup."
+      }
     ]
   },
   {
@@ -236,20 +1407,137 @@
     "country": "Costa Rica",
     "countryCode": "CR",
     "region": "Tarrazú, San José",
-    "coordinates": [-84.02, 9.66],
-    "altitudeMasl": [1500, 1900],
-    "varieties": ["Caturra", "Villa Sarchi"],
+    "coordinates": [
+      -84.02,
+      9.66
+    ],
+    "altitudeMasl": [
+      1500,
+      1900
+    ],
+    "varieties": [
+      "Caturra",
+      "Villa Sarchi"
+    ],
     "processing": "honey",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 8, "body": 6, "sweetness": 9, "bitterness": 3, "complexity": 8, "fruitiness": 7 },
-    "flavorNotes": ["honey", "stone fruit", "brown sugar", "citrus zest"],
-    "harvestMonths": [11, 12, 1, 2],
+    "flavorProfile": {
+      "acidity": 8,
+      "body": 6,
+      "sweetness": 9,
+      "bitterness": 3,
+      "complexity": 8,
+      "fruitiness": 7
+    },
+    "flavorNotes": [
+      "honey",
+      "stone fruit",
+      "brown sugar",
+      "citrus zest"
+    ],
+    "harvestMonths": [
+      11,
+      12,
+      1,
+      2
+    ],
     "description": "Honey-processed Tarrazú lots show dense sweetness, stone-fruit character, and a clean citric finish.",
-    "relatedBeanIds": ["pa-boquete", "gt-huehue"],
+    "relatedBeanIds": [
+      "pa-boquete",
+      "gt-huehue"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 210, "difficulty": 2, "affinity": 9, "tastingNotes": "Syrupy honey-peach cup." },
-      { "methodId": "aeropress", "grindSize": "medium-fine", "grindMicrons": 550, "waterTempC": 85, "ratio": "1:15", "brewSeconds": 90, "difficulty": 2, "affinity": 8, "tastingNotes": "Concentrated sweetness." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 3, "affinity": 7, "tastingNotes": "Balanced, brown-sugar sweetness." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Syrupy honey-peach cup."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 8,
+        "tastingNotes": "Tea-like clarity; honey and stone fruit shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Balanced extraction; honey and stone fruit with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 3,
+        "affinity": 7,
+        "tastingNotes": "Balanced, brown-sugar sweetness."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; honey and stone fruit with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 550,
+        "waterTempC": 85,
+        "ratio": "1:15",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Concentrated sweetness."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; honey and stone fruit without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; honey and stone fruit in a concentrated cup."
+      }
     ]
   },
   {
@@ -259,20 +1547,137 @@
     "country": "Panama",
     "countryCode": "PA",
     "region": "Boquete, Chiriquí",
-    "coordinates": [-82.44, 8.78],
-    "altitudeMasl": [1600, 1900],
-    "varieties": ["Gesha"],
+    "coordinates": [
+      -82.44,
+      8.78
+    ],
+    "altitudeMasl": [
+      1600,
+      1900
+    ],
+    "varieties": [
+      "Gesha"
+    ],
     "processing": "washed",
     "roastRecommendation": "light",
-    "flavorProfile": { "acidity": 9, "body": 4, "sweetness": 9, "bitterness": 2, "complexity": 10, "fruitiness": 9 },
-    "flavorNotes": ["jasmine", "bergamot", "peach", "honeysuckle", "lemon"],
-    "harvestMonths": [12, 1, 2, 3],
+    "flavorProfile": {
+      "acidity": 9,
+      "body": 4,
+      "sweetness": 9,
+      "bitterness": 2,
+      "complexity": 10,
+      "fruitiness": 9
+    },
+    "flavorNotes": [
+      "jasmine",
+      "bergamot",
+      "peach",
+      "honeysuckle",
+      "lemon"
+    ],
+    "harvestMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
     "description": "The iconic Panama Gesha: ethereal florals, tea-like body, and a perfumed finish that lingers for minutes.",
-    "relatedBeanIds": ["cr-tarrazu", "et-yirgacheffe"],
+    "relatedBeanIds": [
+      "cr-tarrazu",
+      "et-yirgacheffe"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 620, "waterTempC": 94, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 210, "difficulty": 4, "affinity": 10, "tastingNotes": "Jasmine-bergamot aromatic bomb." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 850, "waterTempC": 95, "ratio": "1:18", "bloomSeconds": 45, "brewSeconds": 300, "difficulty": 4, "affinity": 9, "tastingNotes": "Tea-clean, floral, elongated finish." },
-      { "methodId": "kalita", "grindSize": "medium", "grindMicrons": 750, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 240, "difficulty": 3, "affinity": 9, "tastingNotes": "Rounded, peach-forward." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 620,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 210,
+        "difficulty": 4,
+        "affinity": 10,
+        "tastingNotes": "Jasmine-bergamot aromatic bomb."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 850,
+        "waterTempC": 95,
+        "ratio": "1:18",
+        "bloomSeconds": 45,
+        "brewSeconds": 300,
+        "difficulty": 4,
+        "affinity": 9,
+        "tastingNotes": "Tea-clean, floral, elongated finish."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 750,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 240,
+        "difficulty": 3,
+        "affinity": 9,
+        "tastingNotes": "Rounded, peach-forward."
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 94,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 4,
+        "tastingNotes": "Concentrated jasmine and bergamot; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 96,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 3,
+        "tastingNotes": "Heavy body; jasmine and bergamot with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 86,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Versatile cup; jasmine and bergamot with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; jasmine and bergamot without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 3,
+        "tastingNotes": "Bold and rich; jasmine and bergamot in a concentrated cup."
+      }
     ]
   },
   {
@@ -282,20 +1687,139 @@
     "country": "Honduras",
     "countryCode": "HN",
     "region": "Copán",
-    "coordinates": [-88.93, 14.83],
-    "altitudeMasl": [1200, 1700],
-    "varieties": ["Bourbon", "Catuai", "Lempira"],
+    "coordinates": [
+      -88.93,
+      14.83
+    ],
+    "altitudeMasl": [
+      1200,
+      1700
+    ],
+    "varieties": [
+      "Bourbon",
+      "Catuai",
+      "Lempira"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium",
-    "flavorProfile": { "acidity": 6, "body": 6, "sweetness": 7, "bitterness": 4, "complexity": 6, "fruitiness": 5 },
-    "flavorNotes": ["milk chocolate", "hazelnut", "caramel", "apple"],
-    "harvestMonths": [11, 12, 1, 2, 3],
+    "flavorProfile": {
+      "acidity": 6,
+      "body": 6,
+      "sweetness": 7,
+      "bitterness": 4,
+      "complexity": 6,
+      "fruitiness": 5
+    },
+    "flavorNotes": [
+      "milk chocolate",
+      "hazelnut",
+      "caramel",
+      "apple"
+    ],
+    "harvestMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
     "description": "Approachable, chocolate-and-nut profile making it a versatile daily-drinker.",
-    "relatedBeanIds": ["gt-antigua", "ni-jinotega"],
+    "relatedBeanIds": [
+      "gt-antigua",
+      "ni-jinotega"
+    ],
     "brewingRecommendations": [
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 3, "affinity": 8, "tastingNotes": "Milk-chocolate-hazelnut shot." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 95, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 7, "tastingNotes": "Full-bodied, nutty, easy-drinking." },
-      { "methodId": "moka", "grindSize": "fine", "grindMicrons": 300, "waterTempC": 100, "ratio": "1:7", "brewSeconds": 300, "difficulty": 2, "affinity": 7, "tastingNotes": "Rich and caramelly." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 210,
+        "difficulty": 3,
+        "affinity": 5,
+        "tastingNotes": "Highlights milk chocolate and hazelnut; clean and articulate.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 6,
+        "tastingNotes": "Tea-like clarity; milk chocolate and hazelnut shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Balanced extraction; milk chocolate and hazelnut with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 3,
+        "affinity": 8,
+        "tastingNotes": "Milk-chocolate-hazelnut shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Full-bodied, nutty, easy-drinking."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; milk chocolate and hazelnut with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Smooth and sweet; milk chocolate and hazelnut without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 300,
+        "waterTempC": 100,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Rich and caramelly."
+      }
     ]
   },
   {
@@ -305,20 +1829,137 @@
     "country": "El Salvador",
     "countryCode": "SV",
     "region": "Apaneca-Ilamatepec range",
-    "coordinates": [-89.82, 13.85],
-    "altitudeMasl": [1300, 1700],
-    "varieties": ["Pacamara", "Bourbon"],
+    "coordinates": [
+      -89.82,
+      13.85
+    ],
+    "altitudeMasl": [
+      1300,
+      1700
+    ],
+    "varieties": [
+      "Pacamara",
+      "Bourbon"
+    ],
     "processing": "natural",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 7, "body": 7, "sweetness": 9, "bitterness": 3, "complexity": 8, "fruitiness": 8 },
-    "flavorNotes": ["tropical fruit", "maple", "cocoa nib", "red wine"],
-    "harvestMonths": [12, 1, 2, 3],
+    "flavorProfile": {
+      "acidity": 7,
+      "body": 7,
+      "sweetness": 9,
+      "bitterness": 3,
+      "complexity": 8,
+      "fruitiness": 8
+    },
+    "flavorNotes": [
+      "tropical fruit",
+      "maple",
+      "cocoa nib",
+      "red wine"
+    ],
+    "harvestMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
     "description": "Pacamara naturals from Apaneca produce big-bodied, wine-like cups with tropical sweetness.",
-    "relatedBeanIds": ["gt-antigua", "hn-copan"],
+    "relatedBeanIds": [
+      "gt-antigua",
+      "hn-copan"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 220, "difficulty": 3, "affinity": 8, "tastingNotes": "Tropical juice with cocoa finish." },
-      { "methodId": "aeropress", "grindSize": "medium-fine", "grindMicrons": 550, "waterTempC": 88, "ratio": "1:14", "brewSeconds": 90, "difficulty": 2, "affinity": 8, "tastingNotes": "Dense, wine-like concentrate." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 92, "ratio": "1:2.2", "brewSeconds": 28, "difficulty": 3, "affinity": 7, "tastingNotes": "Fruity and syrupy." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 220,
+        "difficulty": 3,
+        "affinity": 8,
+        "tastingNotes": "Tropical juice with cocoa finish."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 7,
+        "tastingNotes": "Tea-like clarity; tropical fruit and maple shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 92,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced extraction; tropical fruit and maple with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 92,
+        "ratio": "1:2.2",
+        "brewSeconds": 28,
+        "difficulty": 3,
+        "affinity": 7,
+        "tastingNotes": "Fruity and syrupy."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 94,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Heavy body; tropical fruit and maple with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 550,
+        "waterTempC": 88,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Dense, wine-like concentrate."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 8,
+        "tastingNotes": "Smooth and sweet; tropical fruit and maple without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Bold and rich; tropical fruit and maple in a concentrated cup."
+      }
     ]
   },
   {
@@ -328,20 +1969,138 @@
     "country": "Nicaragua",
     "countryCode": "NI",
     "region": "Jinotega",
-    "coordinates": [-85.99, 13.09],
-    "altitudeMasl": [1100, 1600],
-    "varieties": ["Caturra", "Catuai", "Maragogype"],
+    "coordinates": [
+      -85.99,
+      13.09
+    ],
+    "altitudeMasl": [
+      1100,
+      1600
+    ],
+    "varieties": [
+      "Caturra",
+      "Catuai",
+      "Maragogype"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium",
-    "flavorProfile": { "acidity": 6, "body": 6, "sweetness": 7, "bitterness": 4, "complexity": 6, "fruitiness": 5 },
-    "flavorNotes": ["chocolate", "cashew", "orange", "brown sugar"],
-    "harvestMonths": [12, 1, 2, 3],
+    "flavorProfile": {
+      "acidity": 6,
+      "body": 6,
+      "sweetness": 7,
+      "bitterness": 4,
+      "complexity": 6,
+      "fruitiness": 5
+    },
+    "flavorNotes": [
+      "chocolate",
+      "cashew",
+      "orange",
+      "brown sugar"
+    ],
+    "harvestMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
     "description": "Balanced, comforting Central American profile with cocoa and soft citrus.",
-    "relatedBeanIds": ["hn-copan", "gt-antigua"],
+    "relatedBeanIds": [
+      "hn-copan",
+      "gt-antigua"
+    ],
     "brewingRecommendations": [
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 2, "affinity": 8, "tastingNotes": "Smooth chocolate shot; milk-friendly." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 95, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 7, "tastingNotes": "Nutty and full." },
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 7, "tastingNotes": "Balanced cocoa-orange cup." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced cocoa-orange cup."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 6,
+        "tastingNotes": "Tea-like clarity; chocolate and cashew shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Balanced extraction; chocolate and cashew with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Smooth chocolate shot; milk-friendly."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Nutty and full."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; chocolate and cashew with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Smooth and sweet; chocolate and cashew without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Bold and rich; chocolate and cashew in a concentrated cup."
+      }
     ]
   },
   {
@@ -351,20 +2110,139 @@
     "country": "Mexico",
     "countryCode": "MX",
     "region": "Chiapas Highlands",
-    "coordinates": [-92.3, 15.5],
-    "altitudeMasl": [1200, 1700],
-    "varieties": ["Bourbon", "Typica", "Mundo Novo"],
+    "coordinates": [
+      -92.3,
+      15.5
+    ],
+    "altitudeMasl": [
+      1200,
+      1700
+    ],
+    "varieties": [
+      "Bourbon",
+      "Typica",
+      "Mundo Novo"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium",
-    "flavorProfile": { "acidity": 6, "body": 5, "sweetness": 7, "bitterness": 4, "complexity": 6, "fruitiness": 5 },
-    "flavorNotes": ["milk chocolate", "almond", "vanilla", "apple"],
-    "harvestMonths": [11, 12, 1, 2, 3],
+    "flavorProfile": {
+      "acidity": 6,
+      "body": 5,
+      "sweetness": 7,
+      "bitterness": 4,
+      "complexity": 6,
+      "fruitiness": 5
+    },
+    "flavorNotes": [
+      "milk chocolate",
+      "almond",
+      "vanilla",
+      "apple"
+    ],
+    "harvestMonths": [
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
     "description": "Soft, mellow Chiapas lots with gentle acidity and a reliable chocolate-almond base.",
-    "relatedBeanIds": ["gt-huehue", "hn-copan"],
+    "relatedBeanIds": [
+      "gt-huehue",
+      "hn-copan"
+    ],
     "brewingRecommendations": [
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 95, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 8, "tastingNotes": "Soft, nutty daily brew." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 2, "affinity": 7, "tastingNotes": "Mild, milk-chocolate shot." },
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 7, "tastingNotes": "Balanced and gentle." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced and gentle."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 6,
+        "tastingNotes": "Tea-like clarity; milk chocolate and almond shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Balanced extraction; milk chocolate and almond with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Mild, milk-chocolate shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 8,
+        "tastingNotes": "Soft, nutty daily brew."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; milk chocolate and almond with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Smooth and sweet; milk chocolate and almond without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; milk chocolate and almond in a concentrated cup."
+      }
     ]
   },
   {
@@ -374,20 +2252,140 @@
     "country": "Colombia",
     "countryCode": "CO",
     "region": "Huila",
-    "coordinates": [-75.52, 2.53],
-    "altitudeMasl": [1500, 1900],
-    "varieties": ["Caturra", "Colombia", "Castillo"],
+    "coordinates": [
+      -75.52,
+      2.53
+    ],
+    "altitudeMasl": [
+      1500,
+      1900
+    ],
+    "varieties": [
+      "Caturra",
+      "Colombia",
+      "Castillo"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 7, "body": 7, "sweetness": 8, "bitterness": 3, "complexity": 8, "fruitiness": 7 },
-    "flavorNotes": ["red fruit", "caramel", "chocolate", "orange"],
-    "harvestMonths": [4, 5, 6, 10, 11, 12],
+    "flavorProfile": {
+      "acidity": 7,
+      "body": 7,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 8,
+      "fruitiness": 7
+    },
+    "flavorNotes": [
+      "red fruit",
+      "caramel",
+      "chocolate",
+      "orange"
+    ],
+    "harvestMonths": [
+      4,
+      5,
+      6,
+      10,
+      11,
+      12
+    ],
     "description": "The quintessential Colombian: balanced, sweet, with red-fruit and caramel notes.",
-    "relatedBeanIds": ["co-narino", "co-tolima"],
+    "relatedBeanIds": [
+      "co-narino",
+      "co-tolima"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 9, "tastingNotes": "Balanced red-fruit cup." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 2, "affinity": 9, "tastingNotes": "Caramel-orange shot; great with milk." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 94, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 270, "difficulty": 2, "affinity": 8, "tastingNotes": "Clean and sweet." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Balanced red-fruit cup."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 270,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Clean and sweet."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced extraction; red fruit and caramel with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Caramel-orange shot; great with milk."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Heavy body; red fruit and caramel with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Versatile cup; red fruit and caramel with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; red fruit and caramel without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Bold and rich; red fruit and caramel in a concentrated cup."
+      }
     ]
   },
   {
@@ -397,20 +2395,137 @@
     "country": "Colombia",
     "countryCode": "CO",
     "region": "Nariño",
-    "coordinates": [-77.3, 1.2],
-    "altitudeMasl": [1800, 2300],
-    "varieties": ["Caturra", "Typica"],
+    "coordinates": [
+      -77.3,
+      1.2
+    ],
+    "altitudeMasl": [
+      1800,
+      2300
+    ],
+    "varieties": [
+      "Caturra",
+      "Typica"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 8, "body": 6, "sweetness": 8, "bitterness": 3, "complexity": 8, "fruitiness": 7 },
-    "flavorNotes": ["lime", "honey", "tropical fruit", "cane sugar"],
-    "harvestMonths": [4, 5, 6, 7],
+    "flavorProfile": {
+      "acidity": 8,
+      "body": 6,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 8,
+      "fruitiness": 7
+    },
+    "flavorNotes": [
+      "lime",
+      "honey",
+      "tropical fruit",
+      "cane sugar"
+    ],
+    "harvestMonths": [
+      4,
+      5,
+      6,
+      7
+    ],
     "description": "High-altitude Nariño lots show vivid citric acidity and dense honeyed sweetness.",
-    "relatedBeanIds": ["co-huila", "co-tolima"],
+    "relatedBeanIds": [
+      "co-huila",
+      "co-tolima"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 210, "difficulty": 3, "affinity": 9, "tastingNotes": "Lime-honey brightness." },
-      { "methodId": "aeropress", "grindSize": "medium-fine", "grindMicrons": 550, "waterTempC": 88, "ratio": "1:15", "brewSeconds": 90, "difficulty": 2, "affinity": 8, "tastingNotes": "Juicy, tropical." },
-      { "methodId": "kalita", "grindSize": "medium", "grindMicrons": 750, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 240, "difficulty": 2, "affinity": 8, "tastingNotes": "Rounded and sweet." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 210,
+        "difficulty": 3,
+        "affinity": 9,
+        "tastingNotes": "Lime-honey brightness."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 8,
+        "tastingNotes": "Tea-like clarity; lime and honey shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 750,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Rounded and sweet."
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 5,
+        "tastingNotes": "Concentrated lime and honey; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; lime and honey with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 550,
+        "waterTempC": 88,
+        "ratio": "1:15",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Juicy, tropical."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; lime and honey without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; lime and honey in a concentrated cup."
+      }
     ]
   },
   {
@@ -420,20 +2535,138 @@
     "country": "Colombia",
     "countryCode": "CO",
     "region": "Tolima",
-    "coordinates": [-75.2, 4.1],
-    "altitudeMasl": [1400, 2000],
-    "varieties": ["Caturra", "Castillo", "Colombia"],
+    "coordinates": [
+      -75.2,
+      4.1
+    ],
+    "altitudeMasl": [
+      1400,
+      2000
+    ],
+    "varieties": [
+      "Caturra",
+      "Castillo",
+      "Colombia"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium",
-    "flavorProfile": { "acidity": 7, "body": 6, "sweetness": 8, "bitterness": 3, "complexity": 7, "fruitiness": 6 },
-    "flavorNotes": ["panela", "peach", "cocoa", "orange"],
-    "harvestMonths": [4, 5, 6, 10, 11],
+    "flavorProfile": {
+      "acidity": 7,
+      "body": 6,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 7,
+      "fruitiness": 6
+    },
+    "flavorNotes": [
+      "panela",
+      "peach",
+      "cocoa",
+      "orange"
+    ],
+    "harvestMonths": [
+      4,
+      5,
+      6,
+      10,
+      11
+    ],
     "description": "Small-grower Tolima lots with panela sweetness and soft stone-fruit character.",
-    "relatedBeanIds": ["co-huila"],
+    "relatedBeanIds": [
+      "co-huila"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 8, "tastingNotes": "Panela and peach." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 2, "affinity": 8, "tastingNotes": "Sweet, cocoa-forward." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 94, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 270, "difficulty": 2, "affinity": 7, "tastingNotes": "Clean and balanced." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Panela and peach."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 270,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Clean and balanced."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced extraction; panela and peach with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Sweet, cocoa-forward."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; panela and peach with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; panela and peach with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; panela and peach without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; panela and peach in a concentrated cup."
+      }
     ]
   },
   {
@@ -443,20 +2676,139 @@
     "country": "Brazil",
     "countryCode": "BR",
     "region": "Cerrado Mineiro, MG",
-    "coordinates": [-46.99, -18.95],
-    "altitudeMasl": [900, 1250],
-    "varieties": ["Yellow Bourbon", "Mundo Novo", "Catuai"],
+    "coordinates": [
+      -46.99,
+      -18.95
+    ],
+    "altitudeMasl": [
+      900,
+      1250
+    ],
+    "varieties": [
+      "Yellow Bourbon",
+      "Mundo Novo",
+      "Catuai"
+    ],
     "processing": "natural",
     "roastRecommendation": "medium-dark",
-    "flavorProfile": { "acidity": 4, "body": 8, "sweetness": 8, "bitterness": 5, "complexity": 5, "fruitiness": 5 },
-    "flavorNotes": ["peanut", "dark chocolate", "caramel", "hazelnut"],
-    "harvestMonths": [5, 6, 7, 8, 9],
+    "flavorProfile": {
+      "acidity": 4,
+      "body": 8,
+      "sweetness": 8,
+      "bitterness": 5,
+      "complexity": 5,
+      "fruitiness": 5
+    },
+    "flavorNotes": [
+      "peanut",
+      "dark chocolate",
+      "caramel",
+      "hazelnut"
+    ],
+    "harvestMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
     "description": "Classic Brazilian naturals: low acidity, nutty-chocolate body, and a crowd-pleasing sweetness.",
-    "relatedBeanIds": ["br-sul-minas", "hn-copan"],
+    "relatedBeanIds": [
+      "br-sul-minas",
+      "hn-copan"
+    ],
     "brewingRecommendations": [
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 2, "affinity": 10, "tastingNotes": "The quintessential milk-espresso base." },
-      { "methodId": "moka", "grindSize": "fine", "grindMicrons": 300, "waterTempC": 100, "ratio": "1:7", "brewSeconds": 300, "difficulty": 2, "affinity": 9, "tastingNotes": "Chocolatey and full." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 95, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 8, "tastingNotes": "Rich and nutty." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 90,
+        "ratio": "1:16",
+        "brewSeconds": 210,
+        "difficulty": 3,
+        "affinity": 3,
+        "tastingNotes": "Highlights peanut and dark chocolate; full-bodied and articulate.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 91,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 4,
+        "tastingNotes": "Tea-like clarity; peanut and dark chocolate shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 90,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Balanced extraction; peanut and dark chocolate with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 2,
+        "affinity": 10,
+        "tastingNotes": "The quintessential milk-espresso base."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 8,
+        "tastingNotes": "Rich and nutty."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 82,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; peanut and dark chocolate with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; peanut and dark chocolate without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 300,
+        "waterTempC": 100,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Chocolatey and full."
+      }
     ]
   },
   {
@@ -466,20 +2818,137 @@
     "country": "Brazil",
     "countryCode": "BR",
     "region": "Sul de Minas, MG",
-    "coordinates": [-45.43, -21.55],
-    "altitudeMasl": [850, 1200],
-    "varieties": ["Yellow Catuai", "Mundo Novo"],
+    "coordinates": [
+      -45.43,
+      -21.55
+    ],
+    "altitudeMasl": [
+      850,
+      1200
+    ],
+    "varieties": [
+      "Yellow Catuai",
+      "Mundo Novo"
+    ],
     "processing": "natural",
     "roastRecommendation": "medium",
-    "flavorProfile": { "acidity": 5, "body": 7, "sweetness": 8, "bitterness": 4, "complexity": 6, "fruitiness": 5 },
-    "flavorNotes": ["milk chocolate", "peanut", "red apple", "toffee"],
-    "harvestMonths": [5, 6, 7, 8, 9],
+    "flavorProfile": {
+      "acidity": 5,
+      "body": 7,
+      "sweetness": 8,
+      "bitterness": 4,
+      "complexity": 6,
+      "fruitiness": 5
+    },
+    "flavorNotes": [
+      "milk chocolate",
+      "peanut",
+      "red apple",
+      "toffee"
+    ],
+    "harvestMonths": [
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
     "description": "Smooth Sul de Minas profile with balanced nuttiness and soft orchard fruit.",
-    "relatedBeanIds": ["br-cerrado"],
+    "relatedBeanIds": [
+      "br-cerrado"
+    ],
     "brewingRecommendations": [
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 2, "affinity": 9, "tastingNotes": "Creamy, chocolatey." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 95, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 8, "tastingNotes": "Full and smooth." },
-      { "methodId": "moka", "grindSize": "fine", "grindMicrons": 300, "waterTempC": 100, "ratio": "1:7", "brewSeconds": 300, "difficulty": 2, "affinity": 8, "tastingNotes": "Dessert-like." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 92,
+        "ratio": "1:16",
+        "brewSeconds": 210,
+        "difficulty": 3,
+        "affinity": 4,
+        "tastingNotes": "Highlights milk chocolate and peanut; full-bodied and articulate.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 5,
+        "tastingNotes": "Tea-like clarity; milk chocolate and peanut shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 92,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Balanced extraction; milk chocolate and peanut with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Creamy, chocolatey."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 8,
+        "tastingNotes": "Full and smooth."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 84,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; milk chocolate and peanut with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; milk chocolate and peanut without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 300,
+        "waterTempC": 100,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Dessert-like."
+      }
     ]
   },
   {
@@ -489,20 +2958,139 @@
     "country": "Peru",
     "countryCode": "PE",
     "region": "Cajamarca",
-    "coordinates": [-78.51, -7.16],
-    "altitudeMasl": [1500, 1900],
-    "varieties": ["Typica", "Bourbon", "Caturra"],
+    "coordinates": [
+      -78.51,
+      -7.16
+    ],
+    "altitudeMasl": [
+      1500,
+      1900
+    ],
+    "varieties": [
+      "Typica",
+      "Bourbon",
+      "Caturra"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 6, "body": 6, "sweetness": 8, "bitterness": 3, "complexity": 6, "fruitiness": 6 },
-    "flavorNotes": ["brown sugar", "tangerine", "almond", "cocoa"],
-    "harvestMonths": [4, 5, 6, 7, 8],
+    "flavorProfile": {
+      "acidity": 6,
+      "body": 6,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 6,
+      "fruitiness": 6
+    },
+    "flavorNotes": [
+      "brown sugar",
+      "tangerine",
+      "almond",
+      "cocoa"
+    ],
+    "harvestMonths": [
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
     "description": "Clean, sweet Cajamarca lots with gentle citrus and a rounded cocoa finish.",
-    "relatedBeanIds": ["co-huila", "bo-caranavi"],
+    "relatedBeanIds": [
+      "co-huila",
+      "bo-caranavi"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 8, "tastingNotes": "Sweet and balanced." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 94, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 270, "difficulty": 2, "affinity": 8, "tastingNotes": "Clean, citric, soft." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 94, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 6, "tastingNotes": "Rounded and nutty." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Sweet and balanced."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 270,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Clean, citric, soft."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Balanced extraction; brown sugar and tangerine with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 6,
+        "tastingNotes": "Concentrated brown sugar and tangerine; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 94,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Rounded and nutty."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; brown sugar and tangerine with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; brown sugar and tangerine without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Bold and rich; brown sugar and tangerine in a concentrated cup."
+      }
     ]
   },
   {
@@ -512,20 +3100,137 @@
     "country": "Bolivia",
     "countryCode": "BO",
     "region": "Caranavi, La Paz",
-    "coordinates": [-67.57, -15.83],
-    "altitudeMasl": [1400, 1800],
-    "varieties": ["Typica", "Caturra"],
+    "coordinates": [
+      -67.57,
+      -15.83
+    ],
+    "altitudeMasl": [
+      1400,
+      1800
+    ],
+    "varieties": [
+      "Typica",
+      "Caturra"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 7, "body": 6, "sweetness": 8, "bitterness": 3, "complexity": 7, "fruitiness": 7 },
-    "flavorNotes": ["apricot", "honey", "floral", "almond"],
-    "harvestMonths": [7, 8, 9, 10],
+    "flavorProfile": {
+      "acidity": 7,
+      "body": 6,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 7,
+      "fruitiness": 7
+    },
+    "flavorNotes": [
+      "apricot",
+      "honey",
+      "floral",
+      "almond"
+    ],
+    "harvestMonths": [
+      7,
+      8,
+      9,
+      10
+    ],
     "description": "Small-lot Andean coffees with honeyed stone-fruit character and a soft floral lift.",
-    "relatedBeanIds": ["pe-cajamarca", "co-huila"],
+    "relatedBeanIds": [
+      "pe-cajamarca",
+      "co-huila"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 94, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 210, "difficulty": 2, "affinity": 9, "tastingNotes": "Apricot-honey cup." },
-      { "methodId": "kalita", "grindSize": "medium", "grindMicrons": 750, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 240, "difficulty": 2, "affinity": 8, "tastingNotes": "Balanced and floral." },
-      { "methodId": "aeropress", "grindSize": "medium-fine", "grindMicrons": 550, "waterTempC": 88, "ratio": "1:15", "brewSeconds": 90, "difficulty": 2, "affinity": 7, "tastingNotes": "Concentrated sweetness." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 94,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 9,
+        "tastingNotes": "Apricot-honey cup."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 7,
+        "tastingNotes": "Tea-like clarity; apricot and honey shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 750,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Balanced and floral."
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 5,
+        "tastingNotes": "Concentrated apricot and honey; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 5,
+        "tastingNotes": "Heavy body; apricot and honey with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 550,
+        "waterTempC": 88,
+        "ratio": "1:15",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Concentrated sweetness."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; apricot and honey without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 4,
+        "tastingNotes": "Bold and rich; apricot and honey in a concentrated cup."
+      }
     ]
   },
   {
@@ -535,20 +3240,141 @@
     "country": "Indonesia",
     "countryCode": "ID",
     "region": "Lintong, North Sumatra",
-    "coordinates": [99.15, 2.5],
-    "altitudeMasl": [1100, 1600],
-    "varieties": ["Typica", "Ateng", "Tim Tim"],
+    "coordinates": [
+      99.15,
+      2.5
+    ],
+    "altitudeMasl": [
+      1100,
+      1600
+    ],
+    "varieties": [
+      "Typica",
+      "Ateng",
+      "Tim Tim"
+    ],
     "processing": "wet-hulled",
     "roastRecommendation": "medium-dark",
-    "flavorProfile": { "acidity": 3, "body": 10, "sweetness": 6, "bitterness": 6, "complexity": 7, "fruitiness": 3 },
-    "flavorNotes": ["earthy", "cedar", "dark chocolate", "tobacco", "herbal"],
-    "harvestMonths": [10, 11, 12, 1, 2, 3],
+    "flavorProfile": {
+      "acidity": 3,
+      "body": 10,
+      "sweetness": 6,
+      "bitterness": 6,
+      "complexity": 7,
+      "fruitiness": 3
+    },
+    "flavorNotes": [
+      "earthy",
+      "cedar",
+      "dark chocolate",
+      "tobacco",
+      "herbal"
+    ],
+    "harvestMonths": [
+      10,
+      11,
+      12,
+      1,
+      2,
+      3
+    ],
     "description": "Wet-hulled (Giling Basah) Sumatran coffee: heavy-bodied, earthy, herbal, low-acid, and distinctive.",
-    "relatedBeanIds": ["id-java", "in-malabar"],
+    "relatedBeanIds": [
+      "id-java",
+      "in-malabar"
+    ],
     "brewingRecommendations": [
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 95, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 10, "tastingNotes": "The classic heavy-bodied Sumatra cup." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 94, "ratio": "1:2", "brewSeconds": 30, "difficulty": 3, "affinity": 8, "tastingNotes": "Earthy, tobacco-dark-chocolate shot." },
-      { "methodId": "cold-brew", "grindSize": "coarse", "grindMicrons": 1100, "waterTempC": 20, "ratio": "1:8", "brewSeconds": 43200, "difficulty": 1, "affinity": 8, "tastingNotes": "Smooth and cocoa-rich." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 90,
+        "ratio": "1:16",
+        "brewSeconds": 210,
+        "difficulty": 3,
+        "affinity": 2,
+        "tastingNotes": "Highlights earthy and cedar; full-bodied and articulate.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 91,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 3,
+        "tastingNotes": "Tea-like clarity; earthy and cedar shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 90,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Balanced extraction; earthy and cedar with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 94,
+        "ratio": "1:2",
+        "brewSeconds": 30,
+        "difficulty": 3,
+        "affinity": 8,
+        "tastingNotes": "Earthy, tobacco-dark-chocolate shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 10,
+        "tastingNotes": "The classic heavy-bodied Sumatra cup."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 82,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Versatile cup; earthy and cedar with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1100,
+        "waterTempC": 20,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 8,
+        "tastingNotes": "Smooth and cocoa-rich."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Bold and rich; earthy and cedar in a concentrated cup."
+      }
     ]
   },
   {
@@ -558,20 +3384,136 @@
     "country": "Indonesia",
     "countryCode": "ID",
     "region": "Ijen Plateau, East Java",
-    "coordinates": [114.24, -8.06],
-    "altitudeMasl": [1200, 1700],
-    "varieties": ["Typica", "Lini S-795"],
+    "coordinates": [
+      114.24,
+      -8.06
+    ],
+    "altitudeMasl": [
+      1200,
+      1700
+    ],
+    "varieties": [
+      "Typica",
+      "Lini S-795"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium",
-    "flavorProfile": { "acidity": 5, "body": 7, "sweetness": 7, "bitterness": 5, "complexity": 6, "fruitiness": 4 },
-    "flavorNotes": ["cedar", "dark chocolate", "brown spice", "nut"],
-    "harvestMonths": [7, 8, 9, 10],
+    "flavorProfile": {
+      "acidity": 5,
+      "body": 7,
+      "sweetness": 7,
+      "bitterness": 5,
+      "complexity": 6,
+      "fruitiness": 4
+    },
+    "flavorNotes": [
+      "cedar",
+      "dark chocolate",
+      "brown spice",
+      "nut"
+    ],
+    "harvestMonths": [
+      7,
+      8,
+      9,
+      10
+    ],
     "description": "Estate-grown Java with a smooth, woody-spicy profile and lower acidity than African washed coffees.",
-    "relatedBeanIds": ["id-sumatra"],
+    "relatedBeanIds": [
+      "id-sumatra"
+    ],
     "brewingRecommendations": [
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 94, "ratio": "1:2", "brewSeconds": 28, "difficulty": 3, "affinity": 9, "tastingNotes": "Key component of classic Mocha-Java blends." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 95, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 8, "tastingNotes": "Smooth and full." },
-      { "methodId": "moka", "grindSize": "fine", "grindMicrons": 300, "waterTempC": 100, "ratio": "1:7", "brewSeconds": 300, "difficulty": 2, "affinity": 8, "tastingNotes": "Dark chocolate and spice." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 210,
+        "difficulty": 3,
+        "affinity": 4,
+        "tastingNotes": "Highlights cedar and dark chocolate; full-bodied and articulate.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 5,
+        "tastingNotes": "Tea-like clarity; cedar and dark chocolate shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Balanced extraction; cedar and dark chocolate with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 94,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 3,
+        "affinity": 9,
+        "tastingNotes": "Key component of classic Mocha-Java blends."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 8,
+        "tastingNotes": "Smooth and full."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; cedar and dark chocolate with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Smooth and sweet; cedar and dark chocolate without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 300,
+        "waterTempC": 100,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Dark chocolate and spice."
+      }
     ]
   },
   {
@@ -581,20 +3523,138 @@
     "country": "Yemen",
     "countryCode": "YE",
     "region": "Haraz Mountains",
-    "coordinates": [43.8, 15.0],
-    "altitudeMasl": [1800, 2400],
-    "varieties": ["Udaini", "Dawairi", "Tufahi"],
+    "coordinates": [
+      43.8,
+      15
+    ],
+    "altitudeMasl": [
+      1800,
+      2400
+    ],
+    "varieties": [
+      "Udaini",
+      "Dawairi",
+      "Tufahi"
+    ],
     "processing": "natural",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 7, "body": 8, "sweetness": 8, "bitterness": 4, "complexity": 10, "fruitiness": 8 },
-    "flavorNotes": ["date", "dark chocolate", "cardamom", "raisin", "red wine"],
-    "harvestMonths": [10, 11, 12],
+    "flavorProfile": {
+      "acidity": 7,
+      "body": 8,
+      "sweetness": 8,
+      "bitterness": 4,
+      "complexity": 10,
+      "fruitiness": 8
+    },
+    "flavorNotes": [
+      "date",
+      "dark chocolate",
+      "cardamom",
+      "raisin",
+      "red wine"
+    ],
+    "harvestMonths": [
+      10,
+      11,
+      12
+    ],
     "description": "Ancient heirloom varieties grown on Yemeni terraces; deeply complex, wine-like, with dried-fruit sweetness.",
-    "relatedBeanIds": ["et-sidamo", "id-java"],
+    "relatedBeanIds": [
+      "et-sidamo",
+      "id-java"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 45, "brewSeconds": 220, "difficulty": 4, "affinity": 9, "tastingNotes": "Date-raisin wine cup." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 92, "ratio": "1:2.2", "brewSeconds": 30, "difficulty": 4, "affinity": 9, "tastingNotes": "Intense, chocolate-date shot." },
-      { "methodId": "aeropress", "grindSize": "medium-fine", "grindMicrons": 550, "waterTempC": 88, "ratio": "1:14", "brewSeconds": 90, "difficulty": 3, "affinity": 8, "tastingNotes": "Dense and winey." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 45,
+        "brewSeconds": 220,
+        "difficulty": 4,
+        "affinity": 9,
+        "tastingNotes": "Date-raisin wine cup."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 8,
+        "tastingNotes": "Tea-like clarity; date and dark chocolate shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 92,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Balanced extraction; date and dark chocolate with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 92,
+        "ratio": "1:2.2",
+        "brewSeconds": 30,
+        "difficulty": 4,
+        "affinity": 9,
+        "tastingNotes": "Intense, chocolate-date shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 94,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Heavy body; date and dark chocolate with textured mouthfeel."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 550,
+        "waterTempC": 88,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 3,
+        "affinity": 8,
+        "tastingNotes": "Dense and winey."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; date and dark chocolate without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Bold and rich; date and dark chocolate in a concentrated cup."
+      }
     ]
   },
   {
@@ -604,20 +3664,138 @@
     "country": "India",
     "countryCode": "IN",
     "region": "Malabar Coast, Karnataka",
-    "coordinates": [75.74, 12.42],
-    "altitudeMasl": [900, 1500],
-    "varieties": ["Kent", "S-795"],
+    "coordinates": [
+      75.74,
+      12.42
+    ],
+    "altitudeMasl": [
+      900,
+      1500
+    ],
+    "varieties": [
+      "Kent",
+      "S-795"
+    ],
     "processing": "natural",
     "roastRecommendation": "medium-dark",
-    "flavorProfile": { "acidity": 2, "body": 9, "sweetness": 7, "bitterness": 6, "complexity": 6, "fruitiness": 3 },
-    "flavorNotes": ["musty", "tobacco", "dark chocolate", "spice", "nut"],
-    "harvestMonths": [12, 1, 2, 3],
+    "flavorProfile": {
+      "acidity": 2,
+      "body": 9,
+      "sweetness": 7,
+      "bitterness": 6,
+      "complexity": 6,
+      "fruitiness": 3
+    },
+    "flavorNotes": [
+      "musty",
+      "tobacco",
+      "dark chocolate",
+      "spice",
+      "nut"
+    ],
+    "harvestMonths": [
+      12,
+      1,
+      2,
+      3
+    ],
     "description": "Green beans exposed to monsoon winds for months, resulting in a low-acid, heavy, musty-sweet cup.",
-    "relatedBeanIds": ["id-sumatra", "id-java"],
+    "relatedBeanIds": [
+      "id-sumatra",
+      "id-java"
+    ],
     "brewingRecommendations": [
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 94, "ratio": "1:2", "brewSeconds": 28, "difficulty": 3, "affinity": 9, "tastingNotes": "Bold, low-acid espresso; excellent blend base." },
-      { "methodId": "moka", "grindSize": "fine", "grindMicrons": 300, "waterTempC": 100, "ratio": "1:7", "brewSeconds": 300, "difficulty": 2, "affinity": 8, "tastingNotes": "Smoky and rich." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 95, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 7, "tastingNotes": "Heavy and chocolatey." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 90,
+        "ratio": "1:16",
+        "brewSeconds": 210,
+        "difficulty": 3,
+        "affinity": 1,
+        "tastingNotes": "Highlights musty and tobacco; full-bodied and articulate.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 91,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 3,
+        "tastingNotes": "Tea-like clarity; musty and tobacco shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 90,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Balanced extraction; musty and tobacco with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 94,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 3,
+        "affinity": 9,
+        "tastingNotes": "Bold, low-acid espresso; excellent blend base."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Heavy and chocolatey."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 82,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Versatile cup; musty and tobacco with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; musty and tobacco without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 300,
+        "waterTempC": 100,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Smoky and rich."
+      }
     ]
   },
   {
@@ -627,20 +3805,139 @@
     "country": "Papua New Guinea",
     "countryCode": "PG",
     "region": "Eastern Highlands (Goroka)",
-    "coordinates": [145.4, -6.08],
-    "altitudeMasl": [1400, 1900],
-    "varieties": ["Typica", "Bourbon", "Arusha"],
+    "coordinates": [
+      145.4,
+      -6.08
+    ],
+    "altitudeMasl": [
+      1400,
+      1900
+    ],
+    "varieties": [
+      "Typica",
+      "Bourbon",
+      "Arusha"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium",
-    "flavorProfile": { "acidity": 6, "body": 7, "sweetness": 8, "bitterness": 4, "complexity": 7, "fruitiness": 6 },
-    "flavorNotes": ["tropical fruit", "cocoa", "herbal", "brown sugar"],
-    "harvestMonths": [4, 5, 6, 7, 8, 9],
+    "flavorProfile": {
+      "acidity": 6,
+      "body": 7,
+      "sweetness": 8,
+      "bitterness": 4,
+      "complexity": 7,
+      "fruitiness": 6
+    },
+    "flavorNotes": [
+      "tropical fruit",
+      "cocoa",
+      "herbal",
+      "brown sugar"
+    ],
+    "harvestMonths": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9
+    ],
     "description": "Smallholder Highlands coffees with tropical-fruit sweetness and a distinctive herbal undercurrent.",
-    "relatedBeanIds": ["id-sumatra"],
+    "relatedBeanIds": [
+      "id-sumatra"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 8, "tastingNotes": "Tropical fruit and cocoa." },
-      { "methodId": "espresso", "grindSize": "fine", "grindMicrons": 260, "waterTempC": 93, "ratio": "1:2", "brewSeconds": 28, "difficulty": 3, "affinity": 7, "tastingNotes": "Balanced, fruited shot." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 95, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 7, "tastingNotes": "Herbal and full." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Tropical fruit and cocoa."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "brewSeconds": 270,
+        "difficulty": 3,
+        "affinity": 6,
+        "tastingNotes": "Tea-like clarity; tropical fruit and cocoa shine through.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced extraction; tropical fruit and cocoa with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 3,
+        "affinity": 7,
+        "tastingNotes": "Balanced, fruited shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 95,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Herbal and full."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; tropical fruit and cocoa with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; tropical fruit and cocoa without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Bold and rich; tropical fruit and cocoa in a concentrated cup."
+      }
     ]
   },
   {
@@ -650,20 +3947,136 @@
     "country": "United States",
     "countryCode": "US",
     "region": "Kona, Big Island",
-    "coordinates": [-155.99, 19.63],
-    "altitudeMasl": [250, 900],
-    "varieties": ["Typica"],
+    "coordinates": [
+      -155.99,
+      19.63
+    ],
+    "altitudeMasl": [
+      250,
+      900
+    ],
+    "varieties": [
+      "Typica"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 6, "body": 6, "sweetness": 8, "bitterness": 3, "complexity": 7, "fruitiness": 6 },
-    "flavorNotes": ["macadamia", "brown sugar", "butter", "apple"],
-    "harvestMonths": [9, 10, 11, 12, 1],
+    "flavorProfile": {
+      "acidity": 6,
+      "body": 6,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 7,
+      "fruitiness": 6
+    },
+    "flavorNotes": [
+      "macadamia",
+      "brown sugar",
+      "butter",
+      "apple"
+    ],
+    "harvestMonths": [
+      9,
+      10,
+      11,
+      12,
+      1
+    ],
     "description": "Volcanic-slope estate coffee with a smooth, buttery-nutty profile and mellow sweetness.",
-    "relatedBeanIds": ["jm-blue-mountain"],
+    "relatedBeanIds": [
+      "jm-blue-mountain"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 8, "tastingNotes": "Delicate, nutty, sweet." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 94, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 270, "difficulty": 2, "affinity": 8, "tastingNotes": "Clean and buttery." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 94, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 6, "tastingNotes": "Rounded, mild." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Delicate, nutty, sweet."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 270,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Clean and buttery."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced extraction; macadamia and brown sugar with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 6,
+        "tastingNotes": "Concentrated macadamia and brown sugar; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 94,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 6,
+        "tastingNotes": "Rounded, mild."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; macadamia and brown sugar with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; macadamia and brown sugar without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Bold and rich; macadamia and brown sugar in a concentrated cup."
+      }
     ]
   },
   {
@@ -673,20 +4086,138 @@
     "country": "Jamaica",
     "countryCode": "JM",
     "region": "Blue Mountains",
-    "coordinates": [-76.65, 18.05],
-    "altitudeMasl": [900, 1700],
-    "varieties": ["Typica"],
+    "coordinates": [
+      -76.65,
+      18.05
+    ],
+    "altitudeMasl": [
+      900,
+      1700
+    ],
+    "varieties": [
+      "Typica"
+    ],
     "processing": "washed",
     "roastRecommendation": "medium-light",
-    "flavorProfile": { "acidity": 6, "body": 6, "sweetness": 8, "bitterness": 3, "complexity": 7, "fruitiness": 5 },
-    "flavorNotes": ["chocolate", "walnut", "herbal", "cane sugar"],
-    "harvestMonths": [8, 9, 10, 11, 12, 1, 2],
+    "flavorProfile": {
+      "acidity": 6,
+      "body": 6,
+      "sweetness": 8,
+      "bitterness": 3,
+      "complexity": 7,
+      "fruitiness": 5
+    },
+    "flavorNotes": [
+      "chocolate",
+      "walnut",
+      "herbal",
+      "cane sugar"
+    ],
+    "harvestMonths": [
+      8,
+      9,
+      10,
+      11,
+      12,
+      1,
+      2
+    ],
     "description": "Mist-shrouded Blue Mountain slopes produce a famously smooth, balanced cup with a gentle herbal note.",
-    "relatedBeanIds": ["us-kona"],
+    "relatedBeanIds": [
+      "us-kona"
+    ],
     "brewingRecommendations": [
-      { "methodId": "v60", "grindSize": "medium-fine", "grindMicrons": 600, "waterTempC": 93, "ratio": "1:16", "bloomSeconds": 40, "brewSeconds": 210, "difficulty": 2, "affinity": 8, "tastingNotes": "Smooth, refined cup." },
-      { "methodId": "chemex", "grindSize": "medium", "grindMicrons": 800, "waterTempC": 94, "ratio": "1:17", "bloomSeconds": 45, "brewSeconds": 270, "difficulty": 2, "affinity": 8, "tastingNotes": "Clean and mellow." },
-      { "methodId": "french-press", "grindSize": "coarse", "grindMicrons": 1000, "waterTempC": 94, "ratio": "1:15", "brewSeconds": 240, "difficulty": 1, "affinity": 7, "tastingNotes": "Soft and nutty." }
+      {
+        "methodId": "v60",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "bloomSeconds": 40,
+        "brewSeconds": 210,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Smooth, refined cup."
+      },
+      {
+        "methodId": "chemex",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 94,
+        "ratio": "1:17",
+        "bloomSeconds": 45,
+        "brewSeconds": 270,
+        "difficulty": 2,
+        "affinity": 8,
+        "tastingNotes": "Clean and mellow."
+      },
+      {
+        "methodId": "kalita",
+        "grindSize": "medium",
+        "grindMicrons": 800,
+        "waterTempC": 93,
+        "ratio": "1:16",
+        "brewSeconds": 240,
+        "difficulty": 2,
+        "affinity": 7,
+        "tastingNotes": "Balanced extraction; chocolate and walnut with rounded sweetness.",
+        "bloomSeconds": 40
+      },
+      {
+        "methodId": "espresso",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 93,
+        "ratio": "1:2",
+        "brewSeconds": 28,
+        "difficulty": 4,
+        "affinity": 6,
+        "tastingNotes": "Concentrated chocolate and walnut; syrupy shot."
+      },
+      {
+        "methodId": "french-press",
+        "grindSize": "coarse",
+        "grindMicrons": 1000,
+        "waterTempC": 94,
+        "ratio": "1:15",
+        "brewSeconds": 240,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Soft and nutty."
+      },
+      {
+        "methodId": "aeropress",
+        "grindSize": "medium-fine",
+        "grindMicrons": 600,
+        "waterTempC": 85,
+        "ratio": "1:14",
+        "brewSeconds": 90,
+        "difficulty": 2,
+        "affinity": 6,
+        "tastingNotes": "Versatile cup; chocolate and walnut with soft acidity."
+      },
+      {
+        "methodId": "cold-brew",
+        "grindSize": "coarse",
+        "grindMicrons": 1050,
+        "waterTempC": 80,
+        "ratio": "1:8",
+        "brewSeconds": 43200,
+        "difficulty": 1,
+        "affinity": 7,
+        "tastingNotes": "Smooth and sweet; chocolate and walnut without the bite."
+      },
+      {
+        "methodId": "moka",
+        "grindSize": "fine",
+        "grindMicrons": 260,
+        "waterTempC": 96,
+        "ratio": "1:7",
+        "brewSeconds": 300,
+        "difficulty": 2,
+        "affinity": 5,
+        "tastingNotes": "Bold and rich; chocolate and walnut in a concentrated cup."
+      }
     ]
   }
 ]

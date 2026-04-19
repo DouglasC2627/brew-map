@@ -40,6 +40,10 @@ export interface BrewMapState {
   selectBean: (id: string | null) => void;
   clearSelection: () => void;
 
+  // hover (region highlight)
+  hoveredRegionId: string | null;
+  setHoveredRegion: (id: string | null) => void;
+
   // filters
   filters: FilterState;
   setRegions: (r: string[]) => void;
@@ -92,6 +96,9 @@ export const useBrewMap = create<BrewMapState>((set) => ({
     set({ selectedBeanId: id, isBeanPanelOpen: id !== null }),
   clearSelection: () =>
     set({ selectedBeanId: null, isBeanPanelOpen: false }),
+
+  hoveredRegionId: null,
+  setHoveredRegion: (id) => set({ hoveredRegionId: id }),
 
   filters: DEFAULT_FILTERS,
   setRegions: (regions) =>

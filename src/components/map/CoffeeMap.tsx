@@ -15,6 +15,7 @@ import "mapbox-gl/dist/mapbox-gl.css";
 import { useTheme } from "next-themes";
 import type { CoffeeBean } from "@/types";
 import { useBrewMap, filterBeans } from "@/store";
+import { RegionHighlight } from "./RegionHighlight";
 
 const LIGHT_STYLE =
   process.env.NEXT_PUBLIC_MAPBOX_STYLE_LIGHT ??
@@ -92,7 +93,8 @@ export function CoffeeMap({ beans }: Props) {
   const [cursor, setCursor] = useState<string>("grab");
 
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-  const { viewport, setViewport, selectBean, filters } = useBrewMap();
+  const { viewport, setViewport, selectBean, filters, setHoveredRegion } =
+    useBrewMap();
 
   const matchingIds = useMemo(
     () => new Set(filterBeans(beans, filters).map((b) => b.id)),
@@ -184,8 +186,26 @@ export function CoffeeMap({ beans }: Props) {
         initialViewState={viewport}
         onMove={(e) => setViewport(e.viewState)}
         onClick={onClick}
-        onMouseEnter={() => setCursor("pointer")}
-        onMouseLeave={() => setCursor("grab")}
+        onMouseMove={(e) => {
+          const feature = e.features?.[0];
+          const props = feature?.properties as
+            | { id?: string; cluster?: boolean }
+            | undefined;
+          if (props?.id && !props.cluster) {
+            setCursor("pointer");
+            setHoveredRegion(props.id);
+          } else if (props?.cluster) {
+            setCursor("pointer");
+            setHoveredRegion(null);
+          } else {
+            setCursor("grab");
+            setHoveredRegion(null);
+          }
+        }}
+        onMouseLeave={() => {
+          setCursor("grab");
+          setHoveredRegion(null);
+        }}
         cursor={cursor}
         interactiveLayerIds={["bean-clusters", "bean-points"]}
         fog={{
@@ -195,6 +215,7 @@ export function CoffeeMap({ beans }: Props) {
         }}
         style={{ width: "100%", height: "100%" }}
       >
+        <RegionHighlight />
         <Source
           id="beans"
           type="geojson"
