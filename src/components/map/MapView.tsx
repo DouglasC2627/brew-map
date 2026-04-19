@@ -9,7 +9,7 @@ const CoffeeMap = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="flex h-full min-h-[70vh] flex-1 animate-pulse items-center justify-center bg-parchment text-muted dark:bg-roast-dark">
+      <div className="flex h-full min-h-[70vh] flex-1 animate-pulse items-center justify-center bg-parchment text-muted-foreground dark:bg-roast-dark">
         Loading map…
       </div>
     ),

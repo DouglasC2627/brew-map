@@ -55,8 +55,8 @@ export function BeanPanel({ beans, methods }: Props) {
           "fixed z-30 overflow-y-auto bg-background/95 shadow-xl backdrop-blur-sm transition-transform duration-300 ease-out",
           // mobile: bottom sheet
           "bottom-0 left-0 right-0 max-h-[85vh] rounded-t-2xl border-t border-border",
-          // desktop: right sheet
-          "sm:top-14 sm:right-0 sm:bottom-0 sm:left-auto sm:w-[90vw] sm:max-w-[420px] sm:max-h-none sm:rounded-none sm:border-t-0 sm:border-l",
+          // tablet+: right sheet (50vw); desktop: 420px fixed
+          "sm:top-14 sm:right-0 sm:bottom-0 sm:left-auto sm:w-[50vw] sm:max-w-none sm:max-h-none sm:rounded-none sm:border-t-0 sm:border-l lg:w-[420px]",
           isOpen
             ? "translate-y-0 sm:translate-x-0"
             : "translate-y-full sm:translate-y-0 sm:translate-x-full",
@@ -66,7 +66,7 @@ export function BeanPanel({ beans, methods }: Props) {
           <>
             <div className="flex items-start justify-between border-b border-border p-5">
               <div>
-                <div className="mb-1 flex items-center gap-2 text-sm text-muted">
+                <div className="mb-1 flex items-center gap-2 text-sm text-muted-foreground">
                   <span aria-hidden className="text-lg leading-none">
                     {countryFlagEmoji(bean.countryCode)}
                   </span>
@@ -75,7 +75,7 @@ export function BeanPanel({ beans, methods }: Props) {
                 <h2 className="font-display text-2xl leading-tight">
                   {bean.name}
                 </h2>
-                <p className="mt-1 text-sm text-muted">
+                <p className="mt-1 text-sm text-muted-foreground">
                   {bean.region} · {formatAltitude(bean.altitudeMasl)}
                 </p>
               </div>
@@ -83,14 +83,14 @@ export function BeanPanel({ beans, methods }: Props) {
                 type="button"
                 onClick={clearSelection}
                 aria-label="Close panel"
-                className="rounded-md p-1 text-muted hover:bg-parchment hover:text-foreground dark:hover:bg-roast-dark"
+                className="rounded-md p-1 text-muted-foreground hover:bg-parchment hover:text-foreground dark:hover:bg-roast-dark"
               >
                 <X className="h-5 w-5" />
               </button>
             </div>
 
             <section className="space-y-2 p-5">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Flavor Profile
               </h3>
               <div className="space-y-1.5">
@@ -105,7 +105,7 @@ export function BeanPanel({ beans, methods }: Props) {
                           style={{ width: `${(value / 10) * 100}%` }}
                         />
                       </div>
-                      <span className="w-6 text-right font-mono text-xs text-muted">
+                      <span className="w-6 text-right font-mono text-xs text-muted-foreground">
                         {value}
                       </span>
                     </div>
@@ -115,7 +115,7 @@ export function BeanPanel({ beans, methods }: Props) {
             </section>
 
             <section className="space-y-2 border-t border-border p-5">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Tasting Notes
               </h3>
               <div className="flex flex-wrap gap-1.5">
@@ -132,25 +132,25 @@ export function BeanPanel({ beans, methods }: Props) {
 
             <section className="grid grid-cols-2 gap-4 border-t border-border p-5 text-sm">
               <div>
-                <div className="text-xs uppercase tracking-wider text-muted">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">
                   Processing
                 </div>
                 <div className="capitalize">{bean.processing}</div>
               </div>
               <div>
-                <div className="text-xs uppercase tracking-wider text-muted">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">
                   Roast
                 </div>
                 <div className="capitalize">{bean.roastRecommendation}</div>
               </div>
               <div className="col-span-2">
-                <div className="text-xs uppercase tracking-wider text-muted">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">
                   Varieties
                 </div>
                 <div>{bean.varieties.join(", ")}</div>
               </div>
               <div className="col-span-2">
-                <div className="text-xs uppercase tracking-wider text-muted">
+                <div className="text-xs uppercase tracking-wider text-muted-foreground">
                   Harvest
                 </div>
                 <div>{bean.harvestMonths.map(monthName).join(", ")}</div>
@@ -158,7 +158,7 @@ export function BeanPanel({ beans, methods }: Props) {
             </section>
 
             <section className="space-y-3 border-t border-border p-5">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted">
+              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                 Top brewing methods
               </h3>
               <ul className="space-y-2">
@@ -176,11 +176,11 @@ export function BeanPanel({ beans, methods }: Props) {
                           <span className="font-medium">
                             {method?.name ?? rec.methodId}
                           </span>
-                          <span className="font-mono text-xs text-muted">
+                          <span className="font-mono text-xs text-muted-foreground">
                             {rec.ratio} · {rec.waterTempC}°C
                           </span>
                         </div>
-                        <div className="mt-1 text-xs text-muted">
+                        <div className="mt-1 text-xs text-muted-foreground">
                           {rec.tastingNotes}
                         </div>
                       </li>

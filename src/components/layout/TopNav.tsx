@@ -14,7 +14,7 @@ export function TopNav() {
         <button
           type="button"
           disabled
-          className="hidden items-center gap-2 rounded-md border border-border bg-surface/60 px-3 py-1.5 text-sm text-muted md:inline-flex"
+          className="hidden items-center gap-2 rounded-md border border-border bg-surface/60 px-3 py-1.5 text-sm text-muted-foreground md:inline-flex"
           aria-label="Search (coming in Phase 2)"
         >
           <Search className="h-4 w-4" />

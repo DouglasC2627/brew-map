@@ -57,7 +57,7 @@ export default async function BeanDetailPage({ params }: Params) {
       </Link>
 
       <header className="mt-4 border-b border-border pb-6">
-        <div className="flex items-center gap-2 text-sm text-muted">
+        <div className="flex items-center gap-2 text-sm text-muted-foreground">
           <span aria-hidden className="text-lg leading-none">
             {countryFlagEmoji(bean.countryCode)}
           </span>
@@ -66,7 +66,7 @@ export default async function BeanDetailPage({ params }: Params) {
         <h1 className="mt-1 font-display text-4xl leading-tight">
           {bean.name}
         </h1>
-        <p className="mt-2 text-muted">
+        <p className="mt-2 text-muted-foreground">
           {bean.region} · {formatAltitude(bean.altitudeMasl)} · {bean.processing}
         </p>
       </header>
@@ -91,15 +91,15 @@ export default async function BeanDetailPage({ params }: Params) {
           <h2 className="font-display text-xl">Details</h2>
           <dl className="mt-2 space-y-1 text-sm">
             <div className="flex justify-between">
-              <dt className="text-muted">Varieties</dt>
+              <dt className="text-muted-foreground">Varieties</dt>
               <dd className="text-right">{bean.varieties.join(", ")}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-muted">Roast</dt>
+              <dt className="text-muted-foreground">Roast</dt>
               <dd className="capitalize">{bean.roastRecommendation}</dd>
             </div>
             <div className="flex justify-between">
-              <dt className="text-muted">Harvest</dt>
+              <dt className="text-muted-foreground">Harvest</dt>
               <dd>{bean.harvestMonths.map(monthName).join(", ")}</dd>
             </div>
           </dl>
@@ -136,11 +136,11 @@ export default async function BeanDetailPage({ params }: Params) {
                     <span className="font-medium">
                       {method?.name ?? rec.methodId}
                     </span>
-                    <span className="font-mono text-xs text-muted">
+                    <span className="font-mono text-xs text-muted-foreground">
                       affinity {rec.affinity}/10
                     </span>
                   </div>
-                  <dl className="mt-2 grid grid-cols-2 gap-1 font-mono text-xs text-muted">
+                  <dl className="mt-2 grid grid-cols-2 gap-1 font-mono text-xs text-muted-foreground">
                     <div>Grind</div>
                     <div className="text-right text-foreground">
                       {rec.grindSize} ({rec.grindMicrons}µm)
@@ -178,7 +178,7 @@ export default async function BeanDetailPage({ params }: Params) {
                   className="block rounded-md border border-border bg-surface/60 p-3 hover:border-roast-medium"
                 >
                   <div className="text-sm font-medium">{r.name}</div>
-                  <div className="text-xs text-muted">{r.region}</div>
+                  <div className="text-xs text-muted-foreground">{r.region}</div>
                 </Link>
               </li>
             ))}

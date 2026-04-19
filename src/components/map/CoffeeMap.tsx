@@ -165,7 +165,7 @@ export function CoffeeMap({ beans }: Props) {
       <div className="flex h-full min-h-[60vh] flex-1 items-center justify-center bg-parchment p-8 text-center dark:bg-roast-dark">
         <div className="max-w-md space-y-2">
           <h2 className="font-display text-2xl">Mapbox token missing</h2>
-          <p className="text-sm text-muted">
+          <p className="text-sm text-muted-foreground">
             Add <code className="mono">NEXT_PUBLIC_MAPBOX_TOKEN</code> to{" "}
             <code className="mono">.env.local</code> (see{" "}
             <code className="mono">.env.example</code>) and restart the dev
