@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Serif_Display, Inter, JetBrains_Mono } from "next/font/google";
+import { NuqsAdapter } from "nuqs/adapters/next/app";
 import "./globals.css";
 import { ThemeProvider } from "@/components/shared/ThemeProvider";
 import { TopNav } from "@/components/layout/TopNav";
@@ -42,8 +43,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <TopNav />
-          <main className="flex-1 flex flex-col">{children}</main>
+          <NuqsAdapter>
+            <TopNav />
+            <main className="flex-1 flex flex-col">{children}</main>
+          </NuqsAdapter>
         </ThemeProvider>
       </body>
     </html>

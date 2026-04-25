@@ -1,8 +1,12 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import type { CoffeeBean, BrewingMethod } from "@/types";
+import { Suspense } from "react";
+import type { CoffeeBean, BrewingMethod, FlavorNotesData } from "@/types";
 import { BeanPanel } from "@/components/bean/BeanPanel";
+import { FilterPanel } from "@/components/filter/FilterPanel";
+import { SearchCommand } from "@/components/shared/SearchCommand";
+import { UrlStateSync } from "@/components/shared/UrlStateSync";
 
 const CoffeeMap = dynamic(
   () => import("./CoffeeMap").then((m) => m.CoffeeMap),
@@ -19,13 +23,19 @@ const CoffeeMap = dynamic(
 interface Props {
   beans: CoffeeBean[];
   methods: BrewingMethod[];
+  flavorNotes: FlavorNotesData;
 }
 
-export function MapView({ beans, methods }: Props) {
+export function MapView({ beans, methods, flavorNotes }: Props) {
   return (
     <div className="relative flex flex-1 flex-col">
+      <Suspense fallback={null}>
+        <UrlStateSync beans={beans} />
+      </Suspense>
       <CoffeeMap beans={beans} />
-      <BeanPanel beans={beans} methods={methods} />
+      <FilterPanel beans={beans} />
+      <BeanPanel beans={beans} methods={methods} flavorNotes={flavorNotes} />
+      <SearchCommand beans={beans} flavorNotes={flavorNotes} />
     </div>
   );
 }
