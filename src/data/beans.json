@@ -1124,7 +1124,7 @@
     "name": "Guatemala Antigua",
     "country": "Guatemala",
     "countryCode": "GT",
-    "region": "Antigua Valley, Sacatepéquez",
+    "region": "Antigua Valley, Sacatep\u00e9quez",
     "coordinates": [
       -90.73,
       14.56
@@ -1403,10 +1403,10 @@
   {
     "id": "cr-tarrazu",
     "slug": "costa-rica-tarrazu",
-    "name": "Costa Rica Tarrazú",
+    "name": "Costa Rica Tarraz\u00fa",
     "country": "Costa Rica",
     "countryCode": "CR",
-    "region": "Tarrazú, San José",
+    "region": "Tarraz\u00fa, San Jos\u00e9",
     "coordinates": [
       -84.02,
       9.66
@@ -1441,7 +1441,7 @@
       1,
       2
     ],
-    "description": "Honey-processed Tarrazú lots show dense sweetness, stone-fruit character, and a clean citric finish.",
+    "description": "Honey-processed Tarraz\u00fa lots show dense sweetness, stone-fruit character, and a clean citric finish.",
     "relatedBeanIds": [
       "pa-boquete",
       "gt-huehue"
@@ -1546,7 +1546,7 @@
     "name": "Panama Boquete Gesha",
     "country": "Panama",
     "countryCode": "PA",
-    "region": "Boquete, Chiriquí",
+    "region": "Boquete, Chiriqu\u00ed",
     "coordinates": [
       -82.44,
       8.78
@@ -1683,10 +1683,10 @@
   {
     "id": "hn-copan",
     "slug": "honduras-copan",
-    "name": "Honduras Copán",
+    "name": "Honduras Cop\u00e1n",
     "country": "Honduras",
     "countryCode": "HN",
-    "region": "Copán",
+    "region": "Cop\u00e1n",
     "coordinates": [
       -88.93,
       14.83
@@ -2391,10 +2391,10 @@
   {
     "id": "co-narino",
     "slug": "colombia-narino",
-    "name": "Colombia Nariño",
+    "name": "Colombia Nari\u00f1o",
     "country": "Colombia",
     "countryCode": "CO",
-    "region": "Nariño",
+    "region": "Nari\u00f1o",
     "coordinates": [
       -77.3,
       1.2
@@ -2429,7 +2429,7 @@
       6,
       7
     ],
-    "description": "High-altitude Nariño lots show vivid citric acidity and dense honeyed sweetness.",
+    "description": "High-altitude Nari\u00f1o lots show vivid citric acidity and dense honeyed sweetness.",
     "relatedBeanIds": [
       "co-huila",
       "co-tolima"
@@ -3948,8 +3948,8 @@
     "countryCode": "US",
     "region": "Kona, Big Island",
     "coordinates": [
-      -155.99,
-      19.63
+      -155.9873,
+      19.6386
     ],
     "altitudeMasl": [
       250,
