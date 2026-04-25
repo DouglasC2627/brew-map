@@ -65,6 +65,10 @@ export interface BrewMapState {
   setBeanPanelOpen: (open: boolean) => void;
   isFilterPanelOpen: boolean;
   setFilterPanelOpen: (open: boolean) => void;
+
+  // events
+  fitBoundsRequestId: number;
+  requestFitBounds: () => void;
 }
 
 const DEFAULT_FILTERS: FilterState = {
@@ -156,6 +160,10 @@ export const useBrewMap = create<BrewMapState>((set) => ({
   setBeanPanelOpen: (open) => set({ isBeanPanelOpen: open }),
   isFilterPanelOpen: false,
   setFilterPanelOpen: (open) => set({ isFilterPanelOpen: open }),
+
+  fitBoundsRequestId: 0,
+  requestFitBounds: () =>
+    set((s) => ({ fitBoundsRequestId: s.fitBoundsRequestId + 1 })),
 }));
 
 export function filterBeans(

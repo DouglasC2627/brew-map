@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { SlidersHorizontal, X } from "lucide-react";
+import { Crosshair, SlidersHorizontal, X } from "lucide-react";
 import type { CoffeeBean, ProcessingMethod, RoastLevel } from "@/types";
 import { useBrewMap, filterBeans } from "@/store";
 import { Slider } from "@/components/ui/slider";
@@ -64,6 +64,7 @@ export function FilterPanel({ beans }: Props) {
     toggleRoast,
     setAltitudeRange,
     resetFilters,
+    requestFitBounds,
     isFilterPanelOpen,
     setFilterPanelOpen,
   } = useBrewMap();
@@ -180,11 +181,20 @@ export function FilterPanel({ beans }: Props) {
           </div>
         </header>
 
-        <div className="px-4 pt-3 pb-1 text-xs text-muted-foreground">
-          <span className="font-mono">
-            {matching}
-          </span>{" "}
-          of {beans.length} beans match
+        <div className="flex items-center justify-between gap-2 px-4 pt-3 pb-2">
+          <div className="text-xs text-muted-foreground">
+            <span className="font-mono">{matching}</span> of {beans.length} beans
+            match
+          </div>
+          <button
+            type="button"
+            onClick={requestFitBounds}
+            disabled={matching === 0}
+            className="inline-flex items-center gap-1 rounded-md border border-border bg-roast-medium px-2 py-1 text-xs text-cream transition hover:bg-roast-dark disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground"
+          >
+            <Crosshair className="h-3 w-3" />
+            Show on map
+          </button>
         </div>
 
         {/* Region */}
