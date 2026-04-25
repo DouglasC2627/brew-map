@@ -1,0 +1,150 @@
+{
+  "categories": [
+    { "id": "floral", "name": "Floral", "color": "#E27396" },
+    { "id": "fruity", "name": "Fruity", "color": "#C1440E" },
+    { "id": "sour-fermented", "name": "Sour / Fermented", "color": "#E8B14E" },
+    { "id": "green-vegetative", "name": "Green / Vegetative", "color": "#4A7C59" },
+    { "id": "roasted", "name": "Roasted", "color": "#6F4E37" },
+    { "id": "spices", "name": "Spices", "color": "#A8443A" },
+    { "id": "nutty-cocoa", "name": "Nutty / Cocoa", "color": "#8B6F47" },
+    { "id": "sweet", "name": "Sweet", "color": "#D4A574" },
+    { "id": "other", "name": "Other", "color": "#7B7B7B" }
+  ],
+  "subcategories": [
+    { "id": "black-tea", "categoryId": "floral", "name": "Black Tea" },
+    { "id": "floral-aromatic", "categoryId": "floral", "name": "Floral" },
+
+    { "id": "berry", "categoryId": "fruity", "name": "Berry" },
+    { "id": "dried-fruit", "categoryId": "fruity", "name": "Dried Fruit" },
+    { "id": "other-fruit", "categoryId": "fruity", "name": "Other Fruit" },
+    { "id": "citrus", "categoryId": "fruity", "name": "Citrus" },
+
+    { "id": "sour", "categoryId": "sour-fermented", "name": "Sour Aromatics" },
+    { "id": "alcohol-fermented", "categoryId": "sour-fermented", "name": "Alcohol / Fermented" },
+
+    { "id": "olive-oil", "categoryId": "green-vegetative", "name": "Olive Oil" },
+    { "id": "raw", "categoryId": "green-vegetative", "name": "Raw" },
+    { "id": "green-vegetal", "categoryId": "green-vegetative", "name": "Green / Vegetal" },
+    { "id": "beany", "categoryId": "green-vegetative", "name": "Beany" },
+
+    { "id": "tobacco-pipe", "categoryId": "roasted", "name": "Pipe Tobacco" },
+    { "id": "tobacco", "categoryId": "roasted", "name": "Tobacco" },
+    { "id": "burnt", "categoryId": "roasted", "name": "Burnt" },
+    { "id": "cereal", "categoryId": "roasted", "name": "Cereal" },
+    { "id": "earthy-mineral", "categoryId": "roasted", "name": "Earthy / Mineral" },
+
+    { "id": "pungent", "categoryId": "spices", "name": "Pungent" },
+    { "id": "pepper", "categoryId": "spices", "name": "Pepper" },
+    { "id": "brown-spice", "categoryId": "spices", "name": "Brown Spice" },
+    { "id": "woody", "categoryId": "spices", "name": "Woody" },
+
+    { "id": "nutty", "categoryId": "nutty-cocoa", "name": "Nutty" },
+    { "id": "cocoa", "categoryId": "nutty-cocoa", "name": "Cocoa" },
+
+    { "id": "brown-sugar", "categoryId": "sweet", "name": "Brown Sugar" },
+    { "id": "vanilla", "categoryId": "sweet", "name": "Vanilla" },
+    { "id": "overall-sweet", "categoryId": "sweet", "name": "Overall Sweet" },
+    { "id": "sweet-aromatics", "categoryId": "sweet", "name": "Sweet Aromatics" },
+
+    { "id": "musty", "categoryId": "other", "name": "Papery / Musty" },
+    { "id": "chemical", "categoryId": "other", "name": "Chemical" }
+  ],
+  "notes": [
+    { "id": "black-tea", "subcategoryId": "black-tea", "name": "Black Tea" },
+    { "id": "jasmine", "subcategoryId": "floral-aromatic", "name": "Jasmine" },
+    { "id": "honeysuckle", "subcategoryId": "floral-aromatic", "name": "Honeysuckle" },
+    { "id": "rose", "subcategoryId": "floral-aromatic", "name": "Rose" },
+    { "id": "chamomile", "subcategoryId": "floral-aromatic", "name": "Chamomile" },
+    { "id": "floral", "subcategoryId": "floral-aromatic", "name": "Floral" },
+
+    { "id": "blackberry", "subcategoryId": "berry", "name": "Blackberry" },
+    { "id": "raspberry", "subcategoryId": "berry", "name": "Raspberry" },
+    { "id": "blueberry", "subcategoryId": "berry", "name": "Blueberry" },
+    { "id": "strawberry", "subcategoryId": "berry", "name": "Strawberry" },
+    { "id": "blackcurrant", "subcategoryId": "berry", "name": "Blackcurrant" },
+    { "id": "red-fruit", "subcategoryId": "berry", "name": "Red Fruit" },
+
+    { "id": "raisin", "subcategoryId": "dried-fruit", "name": "Raisin" },
+    { "id": "prune", "subcategoryId": "dried-fruit", "name": "Prune" },
+    { "id": "date", "subcategoryId": "dried-fruit", "name": "Date" },
+    { "id": "dried-apricot", "subcategoryId": "dried-fruit", "name": "Dried Apricot" },
+    { "id": "fig", "subcategoryId": "dried-fruit", "name": "Fig" },
+
+    { "id": "apple", "subcategoryId": "other-fruit", "name": "Apple" },
+    { "id": "red-apple", "subcategoryId": "other-fruit", "name": "Red Apple" },
+    { "id": "peach", "subcategoryId": "other-fruit", "name": "Peach" },
+    { "id": "pear", "subcategoryId": "other-fruit", "name": "Pear" },
+    { "id": "apricot", "subcategoryId": "other-fruit", "name": "Apricot" },
+    { "id": "plum", "subcategoryId": "other-fruit", "name": "Plum" },
+    { "id": "stone-fruit", "subcategoryId": "other-fruit", "name": "Stone Fruit" },
+    { "id": "tropical-fruit", "subcategoryId": "other-fruit", "name": "Tropical Fruit" },
+    { "id": "pineapple", "subcategoryId": "other-fruit", "name": "Pineapple" },
+    { "id": "mango", "subcategoryId": "other-fruit", "name": "Mango" },
+    { "id": "red-grape", "subcategoryId": "other-fruit", "name": "Red Grape" },
+    { "id": "tomato", "subcategoryId": "other-fruit", "name": "Tomato" },
+
+    { "id": "lemon", "subcategoryId": "citrus", "name": "Lemon" },
+    { "id": "lime", "subcategoryId": "citrus", "name": "Lime" },
+    { "id": "orange", "subcategoryId": "citrus", "name": "Orange" },
+    { "id": "tangerine", "subcategoryId": "citrus", "name": "Tangerine" },
+    { "id": "grapefruit", "subcategoryId": "citrus", "name": "Grapefruit" },
+    { "id": "pink-grapefruit", "subcategoryId": "citrus", "name": "Pink Grapefruit" },
+    { "id": "bergamot", "subcategoryId": "citrus", "name": "Bergamot" },
+    { "id": "citrus-zest", "subcategoryId": "citrus", "name": "Citrus Zest" },
+
+    { "id": "winey", "subcategoryId": "alcohol-fermented", "name": "Winey" },
+    { "id": "red-wine", "subcategoryId": "alcohol-fermented", "name": "Red Wine" },
+    { "id": "whiskey", "subcategoryId": "alcohol-fermented", "name": "Whiskey" },
+    { "id": "fermented", "subcategoryId": "alcohol-fermented", "name": "Fermented" },
+
+    { "id": "herbal", "subcategoryId": "green-vegetal", "name": "Herbal" },
+    { "id": "grassy", "subcategoryId": "green-vegetal", "name": "Grassy" },
+    { "id": "vegetal", "subcategoryId": "green-vegetal", "name": "Vegetal" },
+
+    { "id": "tobacco", "subcategoryId": "tobacco", "name": "Tobacco" },
+    { "id": "smoky", "subcategoryId": "burnt", "name": "Smoky" },
+    { "id": "earthy", "subcategoryId": "earthy-mineral", "name": "Earthy" },
+    { "id": "musty", "subcategoryId": "musty", "name": "Musty" },
+    { "id": "malt", "subcategoryId": "cereal", "name": "Malt" },
+    { "id": "grain", "subcategoryId": "cereal", "name": "Grain" },
+
+    { "id": "pepper", "subcategoryId": "pepper", "name": "Pepper" },
+    { "id": "cinnamon", "subcategoryId": "brown-spice", "name": "Cinnamon" },
+    { "id": "clove", "subcategoryId": "brown-spice", "name": "Clove" },
+    { "id": "cardamom", "subcategoryId": "brown-spice", "name": "Cardamom" },
+    { "id": "nutmeg", "subcategoryId": "brown-spice", "name": "Nutmeg" },
+    { "id": "anise", "subcategoryId": "brown-spice", "name": "Anise" },
+    { "id": "brown-spice", "subcategoryId": "brown-spice", "name": "Brown Spice" },
+    { "id": "spice", "subcategoryId": "brown-spice", "name": "Spice" },
+    { "id": "cedar", "subcategoryId": "woody", "name": "Cedar" },
+
+    { "id": "almond", "subcategoryId": "nutty", "name": "Almond" },
+    { "id": "roasted-almond", "subcategoryId": "nutty", "name": "Roasted Almond" },
+    { "id": "hazelnut", "subcategoryId": "nutty", "name": "Hazelnut" },
+    { "id": "peanut", "subcategoryId": "nutty", "name": "Peanut" },
+    { "id": "cashew", "subcategoryId": "nutty", "name": "Cashew" },
+    { "id": "walnut", "subcategoryId": "nutty", "name": "Walnut" },
+    { "id": "macadamia", "subcategoryId": "nutty", "name": "Macadamia" },
+    { "id": "pecan", "subcategoryId": "nutty", "name": "Pecan" },
+    { "id": "nut", "subcategoryId": "nutty", "name": "Nut" },
+
+    { "id": "cocoa", "subcategoryId": "cocoa", "name": "Cocoa" },
+    { "id": "cocoa-nib", "subcategoryId": "cocoa", "name": "Cocoa Nib" },
+    { "id": "chocolate", "subcategoryId": "cocoa", "name": "Chocolate" },
+    { "id": "milk-chocolate", "subcategoryId": "cocoa", "name": "Milk Chocolate" },
+    { "id": "dark-chocolate", "subcategoryId": "cocoa", "name": "Dark Chocolate" },
+
+    { "id": "brown-sugar", "subcategoryId": "brown-sugar", "name": "Brown Sugar" },
+    { "id": "cane-sugar", "subcategoryId": "brown-sugar", "name": "Cane Sugar" },
+    { "id": "panela", "subcategoryId": "brown-sugar", "name": "Panela" },
+    { "id": "molasses", "subcategoryId": "brown-sugar", "name": "Molasses" },
+    { "id": "maple", "subcategoryId": "brown-sugar", "name": "Maple" },
+    { "id": "honey", "subcategoryId": "brown-sugar", "name": "Honey" },
+    { "id": "caramel", "subcategoryId": "brown-sugar", "name": "Caramel" },
+    { "id": "toffee", "subcategoryId": "brown-sugar", "name": "Toffee" },
+
+    { "id": "vanilla", "subcategoryId": "vanilla", "name": "Vanilla" },
+    { "id": "butter", "subcategoryId": "sweet-aromatics", "name": "Butter" },
+    { "id": "cream", "subcategoryId": "sweet-aromatics", "name": "Cream" }
+  ]
+}
