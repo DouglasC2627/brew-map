@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import Map, {
   Layer,
   Source,
@@ -31,9 +31,10 @@ const CLUSTER_LAYER: CircleLayerSpecification = {
   filter: ["has", "point_count"],
   paint: {
     "circle-color": "#6f4e37",
+    // Size by matching count (falls back to total when no filter is active).
     "circle-radius": [
       "step",
-      ["get", "point_count"],
+      ["get", "matching"],
       18,
       5,
       24,
@@ -42,7 +43,20 @@ const CLUSTER_LAYER: CircleLayerSpecification = {
     ],
     "circle-stroke-width": 2,
     "circle-stroke-color": "#faf6f1",
-    "circle-opacity": 0.9,
+    "circle-opacity": [
+      "case",
+      [">", ["get", "matching"], 0],
+      0.9,
+      0.15,
+    ],
+    "circle-opacity-transition": { duration: 200, delay: 0 },
+    "circle-stroke-opacity": [
+      "case",
+      [">", ["get", "matching"], 0],
+      1,
+      0.15,
+    ],
+    "circle-stroke-opacity-transition": { duration: 200, delay: 0 },
   },
 };
 
@@ -52,7 +66,13 @@ const CLUSTER_COUNT_LAYER: SymbolLayerSpecification = {
   source: "beans",
   filter: ["has", "point_count"],
   layout: {
-    "text-field": ["get", "point_count_abbreviated"],
+    // Hide the count label when no beans in the cluster match the filters.
+    "text-field": [
+      "case",
+      [">", ["get", "matching"], 0],
+      ["to-string", ["get", "matching"]],
+      "",
+    ],
     "text-size": 12,
     "text-font": ["Open Sans Bold", "Arial Unicode MS Bold"],
   },
@@ -101,13 +121,58 @@ export function CoffeeMap({ beans }: Props) {
   const [cursor, setCursor] = useState<string>("grab");
 
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
-  const { viewport, setViewport, selectBean, filters, setHoveredRegion } =
-    useBrewMap();
+  const {
+    viewport,
+    setViewport,
+    selectBean,
+    filters,
+    setHoveredRegion,
+    fitBoundsRequestId,
+  } = useBrewMap();
 
-  const matchingIds = useMemo(
-    () => new Set(filterBeans(beans, filters).map((b) => b.id)),
+  const matchingBeans = useMemo(
+    () => filterBeans(beans, filters),
     [beans, filters],
   );
+  const matchingIds = useMemo(
+    () => new Set(matchingBeans.map((b) => b.id)),
+    [matchingBeans],
+  );
+
+  // Fit map to filtered results when a fit-bounds request is dispatched.
+  useEffect(() => {
+    if (fitBoundsRequestId === 0) return;
+    const map = mapRef.current;
+    if (!map || matchingBeans.length === 0) return;
+
+    if (matchingBeans.length === 1) {
+      map.flyTo({
+        center: matchingBeans[0].coordinates,
+        zoom: 5,
+        duration: 900,
+      });
+      return;
+    }
+
+    let minLng = Infinity,
+      minLat = Infinity,
+      maxLng = -Infinity,
+      maxLat = -Infinity;
+    for (const b of matchingBeans) {
+      const [lng, lat] = b.coordinates;
+      if (lng < minLng) minLng = lng;
+      if (lat < minLat) minLat = lat;
+      if (lng > maxLng) maxLng = lng;
+      if (lat > maxLat) maxLat = lat;
+    }
+    map.fitBounds(
+      [
+        [minLng, minLat],
+        [maxLng, maxLat],
+      ],
+      { padding: 80, duration: 900, maxZoom: 6 },
+    );
+  }, [fitBoundsRequestId, matchingBeans]);
 
   const geojson = useMemo(
     () => ({
@@ -231,6 +296,9 @@ export function CoffeeMap({ beans }: Props) {
           cluster
           clusterMaxZoom={6}
           clusterRadius={45}
+          clusterProperties={{
+            matching: ["+", ["case", ["get", "filtered"], 1, 0]],
+          }}
         >
           <Layer {...CLUSTER_LAYER} />
           <Layer {...CLUSTER_COUNT_LAYER} />
