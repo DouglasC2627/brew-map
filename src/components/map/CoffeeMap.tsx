@@ -80,6 +80,14 @@ const POINT_LAYER: CircleLayerSpecification = {
       1,
       0.15,
     ],
+    "circle-opacity-transition": { duration: 200, delay: 0 },
+    "circle-stroke-opacity": [
+      "case",
+      ["boolean", ["get", "filtered"], true],
+      1,
+      0.15,
+    ],
+    "circle-stroke-opacity-transition": { duration: 200, delay: 0 },
   },
 };
 
