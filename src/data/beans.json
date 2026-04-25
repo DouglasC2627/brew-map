@@ -31,7 +31,7 @@
       "bergamot",
       "jasmine",
       "lemon",
-      "black tea",
+      "black-tea",
       "honey"
     ],
     "harvestMonths": [
@@ -172,7 +172,7 @@
       "blueberry",
       "strawberry",
       "cocoa",
-      "dried apricot"
+      "dried-apricot"
     ],
     "harvestMonths": [
       10,
@@ -312,7 +312,7 @@
       "jasmine",
       "lime",
       "honey",
-      "black tea"
+      "black-tea"
     ],
     "harvestMonths": [
       11,
@@ -453,7 +453,7 @@
       "blackcurrant",
       "tomato",
       "grapefruit",
-      "brown sugar"
+      "brown-sugar"
     ],
     "harvestMonths": [
       10,
@@ -729,7 +729,7 @@
       "fruitiness": 7
     },
     "flavorNotes": [
-      "red apple",
+      "red-apple",
       "caramel",
       "orange",
       "cocoa"
@@ -871,9 +871,9 @@
     },
     "flavorNotes": [
       "lemon",
-      "black tea",
+      "black-tea",
       "almond",
-      "red grape"
+      "red-grape"
     ],
     "harvestMonths": [
       7,
@@ -1009,9 +1009,9 @@
       "fruitiness": 7
     },
     "flavorNotes": [
-      "pink grapefruit",
+      "pink-grapefruit",
       "honey",
-      "black tea",
+      "black-tea",
       "raisin"
     ],
     "harvestMonths": [
@@ -1152,7 +1152,7 @@
       "chocolate",
       "orange",
       "toffee",
-      "roasted almond"
+      "roasted-almond"
     ],
     "harvestMonths": [
       12,
@@ -1290,7 +1290,7 @@
       "fruitiness": 7
     },
     "flavorNotes": [
-      "red apple",
+      "red-apple",
       "cocoa",
       "grapefruit",
       "honey"
@@ -1431,9 +1431,9 @@
     },
     "flavorNotes": [
       "honey",
-      "stone fruit",
-      "brown sugar",
-      "citrus zest"
+      "stone-fruit",
+      "brown-sugar",
+      "citrus-zest"
     ],
     "harvestMonths": [
       11,
@@ -1711,7 +1711,7 @@
       "fruitiness": 5
     },
     "flavorNotes": [
-      "milk chocolate",
+      "milk-chocolate",
       "hazelnut",
       "caramel",
       "apple"
@@ -1852,10 +1852,10 @@
       "fruitiness": 8
     },
     "flavorNotes": [
-      "tropical fruit",
+      "tropical-fruit",
       "maple",
-      "cocoa nib",
-      "red wine"
+      "cocoa-nib",
+      "red-wine"
     ],
     "harvestMonths": [
       12,
@@ -1996,7 +1996,7 @@
       "chocolate",
       "cashew",
       "orange",
-      "brown sugar"
+      "brown-sugar"
     ],
     "harvestMonths": [
       12,
@@ -2134,7 +2134,7 @@
       "fruitiness": 5
     },
     "flavorNotes": [
-      "milk chocolate",
+      "milk-chocolate",
       "almond",
       "vanilla",
       "apple"
@@ -2276,7 +2276,7 @@
       "fruitiness": 7
     },
     "flavorNotes": [
-      "red fruit",
+      "red-fruit",
       "caramel",
       "chocolate",
       "orange"
@@ -2420,8 +2420,8 @@
     "flavorNotes": [
       "lime",
       "honey",
-      "tropical fruit",
-      "cane sugar"
+      "tropical-fruit",
+      "cane-sugar"
     ],
     "harvestMonths": [
       4,
@@ -2701,7 +2701,7 @@
     },
     "flavorNotes": [
       "peanut",
-      "dark chocolate",
+      "dark-chocolate",
       "caramel",
       "hazelnut"
     ],
@@ -2841,9 +2841,9 @@
       "fruitiness": 5
     },
     "flavorNotes": [
-      "milk chocolate",
+      "milk-chocolate",
       "peanut",
-      "red apple",
+      "red-apple",
       "toffee"
     ],
     "harvestMonths": [
@@ -2982,7 +2982,7 @@
       "fruitiness": 6
     },
     "flavorNotes": [
-      "brown sugar",
+      "brown-sugar",
       "tangerine",
       "almond",
       "cocoa"
@@ -3266,7 +3266,7 @@
     "flavorNotes": [
       "earthy",
       "cedar",
-      "dark chocolate",
+      "dark-chocolate",
       "tobacco",
       "herbal"
     ],
@@ -3408,8 +3408,8 @@
     },
     "flavorNotes": [
       "cedar",
-      "dark chocolate",
-      "brown spice",
+      "dark-chocolate",
+      "brown-spice",
       "nut"
     ],
     "harvestMonths": [
@@ -3548,10 +3548,10 @@
     },
     "flavorNotes": [
       "date",
-      "dark chocolate",
+      "dark-chocolate",
       "cardamom",
       "raisin",
-      "red wine"
+      "red-wine"
     ],
     "harvestMonths": [
       10,
@@ -3689,7 +3689,7 @@
     "flavorNotes": [
       "musty",
       "tobacco",
-      "dark chocolate",
+      "dark-chocolate",
       "spice",
       "nut"
     ],
@@ -3829,10 +3829,10 @@
       "fruitiness": 6
     },
     "flavorNotes": [
-      "tropical fruit",
+      "tropical-fruit",
       "cocoa",
       "herbal",
-      "brown sugar"
+      "brown-sugar"
     ],
     "harvestMonths": [
       4,
@@ -3970,7 +3970,7 @@
     },
     "flavorNotes": [
       "macadamia",
-      "brown sugar",
+      "brown-sugar",
       "butter",
       "apple"
     ],
@@ -4111,7 +4111,7 @@
       "chocolate",
       "walnut",
       "herbal",
-      "cane sugar"
+      "cane-sugar"
     ],
     "harvestMonths": [
       8,
