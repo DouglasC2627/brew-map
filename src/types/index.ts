@@ -99,3 +99,27 @@ export interface CoffeeRegion {
   name: string;
   altitudeRange: [number, number];
 }
+
+export interface FlavorCategory {
+  id: string;
+  name: string;
+  color: string;
+}
+
+export interface FlavorSubcategory {
+  id: string;
+  categoryId: string;
+  name: string;
+}
+
+export interface FlavorNote {
+  id: string;
+  subcategoryId: string;
+  name: string;
+}
+
+export interface FlavorNotesData {
+  categories: FlavorCategory[];
+  subcategories: FlavorSubcategory[];
+  notes: FlavorNote[];
+}

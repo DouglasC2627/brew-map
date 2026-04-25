@@ -5,13 +5,15 @@ import {
   getBeanBySlug,
   getBeans,
   getBrewingMethods,
-  getBeanById,
+  getFlavorNotes,
 } from "@/lib/data";
 import {
   countryFlagEmoji,
+  flavorNoteLabel,
   formatAltitude,
   monthName,
 } from "@/lib/utils";
+import { findSimilarBeans } from "@/lib/similar";
 
 interface Params {
   params: Promise<{ slug: string }>;
@@ -43,9 +45,8 @@ export default async function BeanDetailPage({ params }: Params) {
 
   const methods = getBrewingMethods();
   const methodById = new Map(methods.map((m) => [m.id, m]));
-  const related = bean.relatedBeanIds
-    .map((id) => getBeanById(id))
-    .filter((b): b is NonNullable<typeof b> => Boolean(b));
+  const related = findSimilarBeans(bean, getBeans(), 3);
+  const flavorNotes = getFlavorNotes();
 
   return (
     <article className="mx-auto w-full max-w-3xl px-5 py-10">
@@ -109,12 +110,12 @@ export default async function BeanDetailPage({ params }: Params) {
       <section className="border-t border-border py-6">
         <h2 className="font-display text-xl">Tasting notes</h2>
         <div className="mt-2 flex flex-wrap gap-1.5">
-          {bean.flavorNotes.map((n) => (
+          {bean.flavorNotes.map((id) => (
             <span
-              key={n}
+              key={id}
               className="rounded-full bg-parchment px-2.5 py-0.5 text-xs text-roast-dark dark:bg-roast-dark dark:text-parchment"
             >
-              {n}
+              {flavorNoteLabel(flavorNotes, id)}
             </span>
           ))}
         </div>

@@ -117,5 +117,29 @@ export const coffeeRegionSchema = z.object({
   altitudeRange: z.tuple([z.number(), z.number()]),
 });
 
+export const flavorCategorySchema = z.object({
+  id: z.string(),
+  name: z.string(),
+  color: z.string().regex(/^#[0-9A-Fa-f]{6}$/),
+});
+
+export const flavorSubcategorySchema = z.object({
+  id: z.string(),
+  categoryId: z.string(),
+  name: z.string(),
+});
+
+export const flavorNoteSchema = z.object({
+  id: z.string(),
+  subcategoryId: z.string(),
+  name: z.string(),
+});
+
+export const flavorNotesDataSchema = z.object({
+  categories: z.array(flavorCategorySchema),
+  subcategories: z.array(flavorSubcategorySchema),
+  notes: z.array(flavorNoteSchema),
+});
+
 export const beansDataSchema = z.array(coffeeBeanSchema);
 export const brewingMethodsDataSchema = z.array(brewingMethodSchema);
