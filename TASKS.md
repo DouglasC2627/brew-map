@@ -164,54 +164,54 @@ An interactive world map showcasing coffee beans from around the world, their or
 **Goal**: Full filtering, search, brewing recommendations with calculator, expanded data, and URL state sync.
 
 ### 2.1 Filter Panel
-- [ ] Build `src/components/filter/FilterPanel.tsx`
-- [ ] Desktop: Collapsible left sidebar (280px), toggle button on map edge
-- [ ] Mobile: Full-screen bottom sheet triggered by filter icon button
-- [ ] Sections:
+- [x] Build `src/components/filter/FilterPanel.tsx`
+- [x] Desktop: Collapsible left sidebar (280px), toggle button on map edge
+- [x] Mobile: Full-screen bottom sheet triggered by filter icon button
+- [x] Sections:
   - **Region**: Multi-select checkboxes (Africa, Central America, South America, Asia-Pacific) with country sub-groups
   - **Processing Method**: Checkboxes (Washed, Natural, Honey, Anaerobic, Wet-Hulled)
   - **Roast Level**: Toggle chips (Light, Medium-Light, Medium, Medium-Dark, Dark)
   - **Altitude**: Dual-handle range slider (500-2500 masl)
-- [ ] "Reset Filters" button, active filter count badge on toggle button
-- [ ] Wire all values to Zustand `filterState`
+- [x] "Reset Filters" button, active filter count badge on toggle button
+- [x] Wire all values to Zustand `filterState`
 
 ### 2.2 Flavor Profile Sliders
-- [ ] Build `src/components/filter/FlavorSliders.tsx`
-- [ ] Dual-handle range sliders for: Acidity, Body, Sweetness, Bitterness (range 1-10)
-- [ ] Use shadcn Slider component (customized for dual handles)
-- [ ] Real-time preview: show count of matching beans as sliders adjust
-- [ ] Add to FilterPanel as a collapsible "Flavor Profile" section
+- [x] Build `src/components/filter/FlavorSliders.tsx`
+- [x] Dual-handle range sliders for: Acidity, Body, Sweetness, Bitterness (range 1-10)
+- [x] Use shadcn Slider component (customized for dual handles)
+- [x] Real-time preview: show count of matching beans as sliders adjust
+- [x] Add to FilterPanel as a collapsible "Flavor Profile" section
 
 ### 2.3 Real-Time Map Filtering
-- [ ] When `filterState` changes, compute `filteredBeans` via Zustand selector
-- [ ] Update GeoJSON source data: set `filtered: false` property on non-matching beans
-- [ ] Map paint expression: matching markers full opacity, non-matching at 0.15 opacity
-- [ ] Animate opacity transition (200ms ease)
-- [ ] Update cluster counts to only include matching beans
-- [ ] Show "X of Y beans" counter on the filter panel
+- [x] When `filterState` changes, compute `filteredBeans` via Zustand selector
+- [x] Update GeoJSON source data: set `filtered: false` property on non-matching beans
+- [x] Map paint expression: matching markers full opacity, non-matching at 0.15 opacity
+- [x] Animate opacity transition (200ms ease)
+- [x] Update cluster counts to only include matching beans
+- [x] Show "X of Y beans" counter on the filter panel
 
 ### 2.4 Search (Cmd+K)
-- [ ] Build `src/components/shared/SearchCommand.tsx` using shadcn Command (cmdk)
-- [ ] Configure Fuse.js index in `/lib/search.ts`:
+- [x] Build `src/components/shared/SearchCommand.tsx` using shadcn Command (cmdk)
+- [x] Configure Fuse.js index in `/lib/search.ts`:
   - Search fields: name, country, region, flavorNotes (weighted: name > region > flavorNotes)
   - Threshold: 0.3 for fuzzy matching
-- [ ] Keyboard shortcut: Cmd+K (Mac) / Ctrl+K (Windows) opens dialog
-- [ ] Results show: bean name, country flag, region, top 2 flavor notes
-- [ ] Selecting a result: close dialog, fly to bean on map, open bean panel
-- [ ] "No results" state with suggestion to adjust search
-- [ ] Recent searches stored in localStorage (last 5)
+- [x] Keyboard shortcut: Cmd+K (Mac) / Ctrl+K (Windows) opens dialog
+- [x] Results show: bean name, country flag, region, top 2 flavor notes
+- [x] Selecting a result: close dialog, fly to bean on map, open bean panel
+- [x] "No results" state with suggestion to adjust search
+- [x] Recent searches stored in localStorage (last 5)
 
 ### 2.5 Brewing Recommendation Cards
-- [ ] Build `src/components/brewing/BrewCard.tsx`
-- [ ] Display: method icon, method name, affinity score (bar or dots), grind size, water temp, ratio, brew time, difficulty stars
-- [ ] Horizontal scrolling row in the bean panel (snap scrolling on mobile)
-- [ ] Cards sorted by affinity score (highest first)
-- [ ] Visual indicator for "Best Match" on highest affinity method
-- [ ] Click card to open brew detail modal
+- [x] Build `src/components/brewing/BrewCard.tsx`
+- [x] Display: method icon, method name, affinity score (bar or dots), grind size, water temp, ratio, brew time, difficulty stars
+- [x] Horizontal scrolling row in the bean panel (snap scrolling on mobile)
+- [x] Cards sorted by affinity score (highest first)
+- [x] Visual indicator for "Best Match" on highest affinity method
+- [x] Click card to open brew detail modal
 
 ### 2.6 Brew Detail Modal
-- [ ] Build `src/components/brewing/BrewDetailModal.tsx` using shadcn Dialog
-- [ ] Full parameter display:
+- [x] Build `src/components/brewing/BrewDetailModal.tsx` using shadcn Dialog
+- [x] Full parameter display:
   - Grind size with visual particle-size reference (illustrated scale from extra-fine to extra-coarse)
   - Water temperature (C and F toggle)
   - Coffee:water ratio with gram amounts
@@ -219,17 +219,17 @@ An interactive world map showcasing coffee beans from around the world, their or
   - Pour stages with water amounts and instructions (pour-over methods)
   - Equipment list
   - Difficulty rating with description
-- [ ] "Why this works" explanation paragraph
-- [ ] Link to full brewing guide (Phase 3)
-- [ ] Integrated dose calculator (see 2.7)
+- [x] "Why this works" explanation paragraph
+- [x] Link to full brewing guide (Phase 3)
+- [x] Integrated dose calculator (see 2.7)
 
 ### 2.7 Dose Calculator
-- [ ] Build `src/components/brewing/BrewCalculator.tsx`
-- [ ] Input: desired output (ml or cups, with cup size selector: 200ml, 250ml, 300ml, 350ml)
-- [ ] Auto-calculates: coffee grams, water ml, maintaining the bean-specific ratio
-- [ ] Persist preferred cup size in localStorage
-- [ ] Clean number display (round to 0.1g for coffee, whole ml for water)
-- [ ] Embedded within BrewDetailModal and also usable standalone
+- [x] Build `src/components/brewing/BrewCalculator.tsx`
+- [x] Input: desired output (ml or cups, with cup size selector: 200ml, 250ml, 300ml, 350ml)
+- [x] Auto-calculates: coffee grams, water ml, maintaining the bean-specific ratio
+- [x] Persist preferred cup size in localStorage
+- [x] Clean number display (round to 0.1g for coffee, whole ml for water)
+- [x] Embedded within BrewDetailModal and also usable standalone
 
 ### 2.8 Seed Data - Beans (Batch 2)
 - [ ] Expand `/data/beans.json` to 150-200 profiles covering:
@@ -243,45 +243,45 @@ An interactive world map showcasing coffee beans from around the world, their or
 - [ ] Ensure no duplicate coordinates (offset overlapping markers slightly)
 
 ### 2.9 Flavor Notes Data
-- [ ] Create `/data/flavor-notes.json` following SCA flavor wheel hierarchy:
+- [x] Create `/data/flavor-notes.json` following SCA flavor wheel hierarchy:
   - ~15 top-level categories (Fruity, Floral, Sweet, Nutty/Cocoa, Spices, Roasted, Cereal, etc.)
   - ~40 subcategories
   - ~100 specific notes with hex color for wheel visualization
-- [ ] Tag each bean in `beans.json` with specific flavor note IDs (replacing plain-text notes)
-- [ ] Update `FlavorNote` type and Zod schema
+- [x] Tag each bean in `beans.json` with specific flavor note IDs (replacing plain-text notes)
+- [x] Update `FlavorNote` type and Zod schema
 
 ### 2.10 Bean List Page
-- [ ] Create `src/app/beans/page.tsx`
-- [ ] Grid view (default): Cards showing bean name, country, key flavor notes, altitude, processing
-- [ ] Table view (toggle): Sortable columns for all key attributes
-- [ ] Reuse filter components from the map view
-- [ ] Each card/row links to bean detail page AND has "Show on Map" button
-- [ ] Pagination or infinite scroll for 150+ beans
+- [x] Create `src/app/beans/page.tsx`
+- [x] Grid view (default): Cards showing bean name, country, key flavor notes, altitude, processing
+- [x] Table view (toggle): Sortable columns for all key attributes
+- [x] Reuse filter components from the map view
+- [x] Each card/row links to bean detail page AND has "Show on Map" button
+- [x] Pagination or infinite scroll for 150+ beans
 
 ### 2.11 Similar Beans Section
-- [ ] Add "Similar Beans" section to BeanPanel and bean detail page
-- [ ] Algorithm: compute Euclidean distance across the 6-axis flavor profile
-- [ ] Show 3 closest beans (excluding same country to encourage exploration)
-- [ ] Display as mini cards with name, country, top 2 flavor notes
-- [ ] Click navigates to that bean on the map
+- [x] Add "Similar Beans" section to BeanPanel and bean detail page
+- [x] Algorithm: compute Euclidean distance across the 6-axis flavor profile
+- [x] Show 3 closest beans (excluding same country to encourage exploration)
+- [x] Display as mini cards with name, country, top 2 flavor notes
+- [x] Click navigates to that bean on the map
 
 ### 2.12 URL State Sync
-- [ ] Install `nuqs` for type-safe URL search parameter management
-- [ ] Sync to URL: selected bean (`?bean=slug`), map viewport (`lat`, `lng`, `zoom`), active filters (`region`, `processing`, `altitude`, `roast`)
-- [ ] On page load, restore state from URL params
-- [ ] Shareable URLs: `brew-map.vercel.app/?bean=ethiopian-yirgacheffe&region=africa&acidity=7-10`
-- [ ] Update URL on state change without full page navigation (shallow routing)
+- [x] Install `nuqs` for type-safe URL search parameter management
+- [x] Sync to URL: selected bean (`?bean=slug`), map viewport (`lat`, `lng`, `zoom`), active filters (`region`, `processing`, `altitude`, `roast`)
+- [x] On page load, restore state from URL params
+- [x] Shareable URLs: `brew-map.vercel.app/?bean=ethiopian-yirgacheffe&region=africa&acidity=7-10`
+- [x] Update URL on state change without full page navigation (shallow routing)
 
 ### Phase 2 Verification
-- [ ] Filters narrow visible markers in real-time with opacity fade
-- [ ] All filter types work: region, processing, altitude range, roast, flavor sliders
-- [ ] Cmd+K search finds beans by name, region, and flavor notes
-- [ ] Brew cards display correctly sorted by affinity in bean panel
-- [ ] Brew detail modal shows all parameters with correct C/F toggle
-- [ ] Dose calculator scales correctly for different cup sizes
-- [ ] Bean list page renders 150+ beans with grid/table toggle
-- [ ] URL state persists: copy URL, open in new tab, same view loads
-- [ ] Mobile: all features accessible via bottom sheets and modals
+- [x] Filters narrow visible markers in real-time with opacity fade
+- [x] All filter types work: region, processing, altitude range, roast, flavor sliders
+- [x] Cmd+K search finds beans by name, region, and flavor notes
+- [x] Brew cards display correctly sorted by affinity in bean panel
+- [x] Brew detail modal shows all parameters with correct C/F toggle
+- [x] Dose calculator scales correctly for different cup sizes
+- [x] Bean list page renders 150+ beans with grid/table toggle
+- [x] URL state persists: copy URL, open in new tab, same view loads
+- [x] Mobile: all features accessible via bottom sheets and modals
 
 ---
 
