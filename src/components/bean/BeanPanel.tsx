@@ -1,15 +1,25 @@
 "use client";
 
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
-import type { CoffeeBean, BrewingMethod } from "@/types";
+import type {
+  CoffeeBean,
+  BrewingMethod,
+  BrewRecommendation,
+  FlavorNotesData,
+} from "@/types";
 import { useBrewMap } from "@/store";
 import {
   cn,
   countryFlagEmoji,
   formatAltitude,
   monthName,
+  flavorNoteLabel,
 } from "@/lib/utils";
+import { findSimilarBeans } from "@/lib/similar";
+import { BrewCard } from "@/components/brewing/BrewCard";
+import { BrewDetailModal } from "@/components/brewing/BrewDetailModal";
 
 const FLAVOR_AXES: Array<{
   key: keyof CoffeeBean["flavorProfile"];
@@ -26,17 +36,37 @@ const FLAVOR_AXES: Array<{
 interface Props {
   beans: CoffeeBean[];
   methods: BrewingMethod[];
+  flavorNotes: FlavorNotesData;
 }
 
-export function BeanPanel({ beans, methods }: Props) {
+export function BeanPanel({ beans, methods, flavorNotes }: Props) {
   const { selectedBeanId, clearSelection, selectBean } = useBrewMap();
   const bean = beans.find((b) => b.id === selectedBeanId);
-  const methodById = new Map(methods.map((m) => [m.id, m]));
+  const methodById = useMemo(
+    () => new Map(methods.map((m) => [m.id, m])),
+    [methods],
+  );
   const isOpen = Boolean(bean);
+
+  const [openRec, setOpenRec] = useState<BrewRecommendation | null>(null);
+
+  const sortedRecs = useMemo(
+    () =>
+      bean
+        ? [...bean.brewingRecommendations].sort(
+            (a, b) => b.affinity - a.affinity,
+          )
+        : [],
+    [bean],
+  );
+
+  const similar = useMemo(
+    () => (bean ? findSimilarBeans(bean, beans, 3) : []),
+    [bean, beans],
+  );
 
   return (
     <>
-      {/* Mobile backdrop */}
       <button
         type="button"
         aria-label="Close panel"
@@ -53,9 +83,7 @@ export function BeanPanel({ beans, methods }: Props) {
         aria-hidden={!isOpen}
         className={cn(
           "fixed z-30 overflow-y-auto bg-background/95 shadow-xl backdrop-blur-sm transition-transform duration-300 ease-out",
-          // mobile: bottom sheet
           "bottom-0 left-0 right-0 max-h-[85vh] rounded-t-2xl border-t border-border",
-          // tablet+: right sheet (50vw); desktop: 420px fixed
           "sm:top-14 sm:right-0 sm:bottom-0 sm:left-auto sm:w-[50vw] sm:max-w-none sm:max-h-none sm:rounded-none sm:border-t-0 sm:border-l lg:w-105",
           isOpen
             ? "translate-y-0 sm:translate-x-0"
@@ -119,12 +147,12 @@ export function BeanPanel({ beans, methods }: Props) {
                 Tasting Notes
               </h3>
               <div className="flex flex-wrap gap-1.5">
-                {bean.flavorNotes.map((note) => (
+                {bean.flavorNotes.map((id) => (
                   <span
-                    key={note}
+                    key={id}
                     className="rounded-full bg-parchment px-2.5 py-0.5 text-xs text-roast-dark dark:bg-roast-dark dark:text-parchment"
                   >
-                    {note}
+                    {flavorNoteLabel(flavorNotes, id)}
                   </span>
                 ))}
               </div>
@@ -157,62 +185,51 @@ export function BeanPanel({ beans, methods }: Props) {
               </div>
             </section>
 
-            <section className="space-y-3 border-t border-border p-5">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Top brewing methods
+            <section className="border-t border-border p-5">
+              <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                Recommended brewing
               </h3>
-              <ul className="space-y-2">
-                {[...bean.brewingRecommendations]
-                  .sort((a, b) => b.affinity - a.affinity)
-                  .slice(0, 3)
-                  .map((rec) => {
-                    const method = methodById.get(rec.methodId);
-                    return (
-                      <li
-                        key={rec.methodId}
-                        className="rounded-md border border-border bg-surface/60 p-3"
-                      >
-                        <div className="flex items-baseline justify-between">
-                          <span className="font-medium">
-                            {method?.name ?? rec.methodId}
-                          </span>
-                          <span className="font-mono text-xs text-muted-foreground">
-                            {rec.ratio} · {rec.waterTempC}°C
-                          </span>
-                        </div>
-                        <div className="mt-1 text-xs text-muted-foreground">
-                          {rec.tastingNotes}
-                        </div>
-                      </li>
-                    );
-                  })}
-              </ul>
+              <div className="-mx-1 flex snap-x gap-2 overflow-x-auto px-1 pb-2">
+                {sortedRecs.map((rec, i) => (
+                  <BrewCard
+                    key={rec.methodId}
+                    recommendation={rec}
+                    method={methodById.get(rec.methodId)}
+                    isBest={i === 0}
+                    onClick={() => setOpenRec(rec)}
+                  />
+                ))}
+              </div>
             </section>
 
-            {bean.relatedBeanIds.length > 0 && (
+            {similar.length > 0 && (
               <section className="border-t border-border p-5">
                 <h3 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
                   Similar beans
                 </h3>
                 <ul className="grid grid-cols-1 gap-2">
-                  {bean.relatedBeanIds
-                    .map((id) => beans.find((b) => b.id === id))
-                    .filter((b): b is CoffeeBean => Boolean(b))
-                    .slice(0, 3)
-                    .map((r) => (
-                      <li key={r.id}>
-                        <button
-                          type="button"
-                          onClick={() => selectBean(r.id)}
-                          className="w-full rounded-md border border-border bg-surface/60 p-2 text-left hover:border-roast-medium"
-                        >
-                          <div className="text-sm font-medium">{r.name}</div>
-                          <div className="text-xs text-muted-foreground">
-                            {r.flavorNotes.slice(0, 2).join(" · ")}
-                          </div>
-                        </button>
-                      </li>
-                    ))}
+                  {similar.map((r) => (
+                    <li key={r.id}>
+                      <button
+                        type="button"
+                        onClick={() => selectBean(r.id)}
+                        className="w-full rounded-md border border-border bg-surface/60 p-2 text-left hover:border-roast-medium"
+                      >
+                        <div className="flex items-baseline justify-between gap-2">
+                          <span className="text-sm font-medium">{r.name}</span>
+                          <span className="text-[10px] text-muted-foreground">
+                            {r.country}
+                          </span>
+                        </div>
+                        <div className="text-xs text-muted-foreground">
+                          {r.flavorNotes
+                            .slice(0, 2)
+                            .map((id) => flavorNoteLabel(flavorNotes, id))
+                            .join(" · ")}
+                        </div>
+                      </button>
+                    </li>
+                  ))}
                 </ul>
               </section>
             )}
@@ -229,6 +246,16 @@ export function BeanPanel({ beans, methods }: Props) {
           </>
         )}
       </aside>
+
+      {bean && openRec && (
+        <BrewDetailModal
+          open={Boolean(openRec)}
+          onOpenChange={(o) => !o && setOpenRec(null)}
+          bean={bean}
+          recommendation={openRec}
+          method={methodById.get(openRec.methodId)}
+        />
+      )}
     </>
   );
 }
