@@ -69,6 +69,12 @@ export interface BrewMapState {
   // events
   fitBoundsRequestId: number;
   requestFitBounds: () => void;
+  flyToRequest: {
+    id: number;
+    coords: [number, number];
+    zoom: number;
+  } | null;
+  requestFlyTo: (coords: [number, number], zoom?: number) => void;
 }
 
 const DEFAULT_FILTERS: FilterState = {
@@ -164,6 +170,16 @@ export const useBrewMap = create<BrewMapState>((set) => ({
   fitBoundsRequestId: 0,
   requestFitBounds: () =>
     set((s) => ({ fitBoundsRequestId: s.fitBoundsRequestId + 1 })),
+
+  flyToRequest: null,
+  requestFlyTo: (coords, zoom = 5) =>
+    set((s) => ({
+      flyToRequest: {
+        id: (s.flyToRequest?.id ?? 0) + 1,
+        coords,
+        zoom,
+      },
+    })),
 }));
 
 export function filterBeans(

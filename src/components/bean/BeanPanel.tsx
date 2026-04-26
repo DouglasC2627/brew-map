@@ -40,7 +40,8 @@ interface Props {
 }
 
 export function BeanPanel({ beans, methods, flavorNotes }: Props) {
-  const { selectedBeanId, clearSelection, selectBean } = useBrewMap();
+  const { selectedBeanId, clearSelection, selectBean, requestFlyTo } =
+    useBrewMap();
   const bean = beans.find((b) => b.id === selectedBeanId);
   const methodById = useMemo(
     () => new Map(methods.map((m) => [m.id, m])),
@@ -212,7 +213,10 @@ export function BeanPanel({ beans, methods, flavorNotes }: Props) {
                     <li key={r.id}>
                       <button
                         type="button"
-                        onClick={() => selectBean(r.id)}
+                        onClick={() => {
+                          selectBean(r.id);
+                          requestFlyTo(r.coordinates, 5);
+                        }}
                         className="w-full rounded-md border border-border bg-surface/60 p-2 text-left hover:border-roast-medium"
                       >
                         <div className="flex items-baseline justify-between gap-2">

@@ -93,11 +93,7 @@ export function SearchCommand({ beans, flavorNotes }: Props) {
     pushRecentSearch(bean.id);
     notifyRecentsChanged();
     useBrewMap.getState().selectBean(bean.id);
-    useBrewMap.getState().setViewport({
-      longitude: bean.coordinates[0],
-      latitude: bean.coordinates[1],
-      zoom: 5,
-    });
+    useBrewMap.getState().requestFlyTo(bean.coordinates, 5);
     setOpen(false);
     setQuery("");
   };

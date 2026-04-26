@@ -128,6 +128,7 @@ export function CoffeeMap({ beans }: Props) {
     filters,
     setHoveredRegion,
     fitBoundsRequestId,
+    flyToRequest,
   } = useBrewMap();
 
   const matchingBeans = useMemo(
@@ -138,6 +139,16 @@ export function CoffeeMap({ beans }: Props) {
     () => new Set(matchingBeans.map((b) => b.id)),
     [matchingBeans],
   );
+
+  // Fly to coords on demand (similar-bean clicks, search selection).
+  useEffect(() => {
+    if (!flyToRequest) return;
+    mapRef.current?.flyTo({
+      center: flyToRequest.coords,
+      zoom: flyToRequest.zoom,
+      duration: 900,
+    });
+  }, [flyToRequest]);
 
   // Fit map to filtered results when a fit-bounds request is dispatched.
   useEffect(() => {
