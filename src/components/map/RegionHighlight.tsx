@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Layer, Source } from "react-map-gl/mapbox";
 import { useBrewMap } from "@/store";
 
@@ -11,6 +11,7 @@ const EMPTY: GeoJSON.FeatureCollection = {
 
 export function RegionHighlight() {
   const hoveredRegionId = useBrewMap((s) => s.hoveredRegionId);
+  const selectedBeanId = useBrewMap((s) => s.selectedBeanId);
   const [regions, setRegions] = useState<GeoJSON.FeatureCollection>(EMPTY);
 
   useEffect(() => {
@@ -26,11 +27,19 @@ export function RegionHighlight() {
     };
   }, []);
 
-  const filtered: GeoJSON.FeatureCollection = hoveredRegionId
+  // Highlight the selected bean's region persistently and any hovered region.
+  const activeIds = useMemo(() => {
+    const ids = new Set<string>();
+    if (selectedBeanId) ids.add(selectedBeanId);
+    if (hoveredRegionId) ids.add(hoveredRegionId);
+    return ids;
+  }, [selectedBeanId, hoveredRegionId]);
+
+  const filtered: GeoJSON.FeatureCollection = activeIds.size
     ? {
         type: "FeatureCollection",
-        features: regions.features.filter(
-          (f) => f.properties?.regionId === hoveredRegionId,
+        features: regions.features.filter((f) =>
+          activeIds.has(f.properties?.regionId as string),
         ),
       }
     : EMPTY;
