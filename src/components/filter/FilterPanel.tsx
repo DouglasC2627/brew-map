@@ -1,6 +1,7 @@
 "use client";
 
 import { useMemo, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 import { Crosshair, SlidersHorizontal, X } from "lucide-react";
 import type { CoffeeBean, ProcessingMethod, RoastLevel } from "@/types";
 import { useBrewMap, filterBeans } from "@/store";
@@ -57,6 +58,10 @@ interface Props {
 }
 
 export function FilterPanel({ beans }: Props) {
+  const router = useRouter();
+  const pathname = usePathname();
+  const onMapPage = pathname === "/";
+
   const {
     filters,
     setRegions,
@@ -70,6 +75,11 @@ export function FilterPanel({ beans }: Props) {
   } = useBrewMap();
 
   const [showFlavor, setShowFlavor] = useState(false);
+
+  const onShowOnMap = () => {
+    requestFitBounds();
+    if (!onMapPage) router.push("/");
+  };
 
   const matching = useMemo(
     () => filterBeans(beans, filters).length,
@@ -188,12 +198,12 @@ export function FilterPanel({ beans }: Props) {
           </div>
           <button
             type="button"
-            onClick={requestFitBounds}
+            onClick={onShowOnMap}
             disabled={matching === 0}
             className="inline-flex items-center gap-1 rounded-md border border-border bg-roast-medium px-2 py-1 text-xs text-cream transition hover:bg-roast-dark disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground"
           >
             <Crosshair className="h-3 w-3" />
-            Show on map
+            {onMapPage ? "Show on map" : "View on map"}
           </button>
         </div>
 

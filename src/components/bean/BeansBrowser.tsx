@@ -11,6 +11,7 @@ import {
   flavorNoteLabel,
   formatAltitude,
 } from "@/lib/utils";
+import { ActiveFilters } from "@/components/filter/ActiveFilters";
 
 type View = "grid" | "table";
 type SortKey =
@@ -83,6 +84,7 @@ export function BeansBrowser({ beans, flavorNotes }: Props) {
 
   return (
     <div>
+      <ActiveFilters beans={beans} className="mb-4" />
       <div className="mb-4 flex items-center justify-between gap-3">
         <div className="text-sm text-muted-foreground">
           {sorted.length} of {beans.length} beans

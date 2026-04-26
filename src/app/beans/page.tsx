@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getBeans, getFlavorNotes } from "@/lib/data";
 import { BeansBrowser } from "@/components/bean/BeansBrowser";
+import { FilterPanel } from "@/components/filter/FilterPanel";
 
 export const metadata: Metadata = {
   title: "All beans · BrewMap",
@@ -12,7 +13,8 @@ export default function BeansPage() {
   const flavorNotes = getFlavorNotes();
   return (
     <div className="mx-auto w-full max-w-screen-2xl px-4 py-6">
-      <header className="mb-6">
+      <FilterPanel beans={beans} />
+      <header className="mb-6 text-center">
         <h1 className="font-display text-3xl">All beans</h1>
         <p className="text-sm text-muted-foreground">
           Browse, sort, and filter every bean profile.
