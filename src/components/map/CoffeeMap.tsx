@@ -119,6 +119,7 @@ export function CoffeeMap({ beans }: Props) {
   const mapRef = useRef<MapRef | null>(null);
   const { resolvedTheme } = useTheme();
   const [cursor, setCursor] = useState<string>("grab");
+  const [mapLoaded, setMapLoaded] = useState(false);
 
   const token = process.env.NEXT_PUBLIC_MAPBOX_TOKEN;
   const {
@@ -140,25 +141,31 @@ export function CoffeeMap({ beans }: Props) {
     [matchingBeans],
   );
 
+  // Refs let the request effects read the latest beans without re-firing
+  // when filters change.
+  const matchingBeansRef = useRef(matchingBeans);
+  matchingBeansRef.current = matchingBeans;
+
   // Fly to coords on demand (similar-bean clicks, search selection).
   useEffect(() => {
-    if (!flyToRequest) return;
+    if (!flyToRequest || !mapLoaded) return;
     mapRef.current?.flyTo({
       center: flyToRequest.coords,
       zoom: flyToRequest.zoom,
       duration: 900,
     });
-  }, [flyToRequest]);
+  }, [flyToRequest, mapLoaded]);
 
   // Fit map to filtered results when a fit-bounds request is dispatched.
   useEffect(() => {
-    if (fitBoundsRequestId === 0) return;
+    if (fitBoundsRequestId === 0 || !mapLoaded) return;
     const map = mapRef.current;
-    if (!map || matchingBeans.length === 0) return;
+    const targets = matchingBeansRef.current;
+    if (!map || targets.length === 0) return;
 
-    if (matchingBeans.length === 1) {
+    if (targets.length === 1) {
       map.flyTo({
-        center: matchingBeans[0].coordinates,
+        center: targets[0].coordinates,
         zoom: 5,
         duration: 900,
       });
@@ -169,7 +176,7 @@ export function CoffeeMap({ beans }: Props) {
       minLat = Infinity,
       maxLng = -Infinity,
       maxLat = -Infinity;
-    for (const b of matchingBeans) {
+    for (const b of targets) {
       const [lng, lat] = b.coordinates;
       if (lng < minLng) minLng = lng;
       if (lat < minLat) minLat = lat;
@@ -183,7 +190,7 @@ export function CoffeeMap({ beans }: Props) {
       ],
       { padding: 80, duration: 900, maxZoom: 6 },
     );
-  }, [fitBoundsRequestId, matchingBeans]);
+  }, [fitBoundsRequestId, mapLoaded]);
 
   const geojson = useMemo(
     () => ({
@@ -290,6 +297,7 @@ export function CoffeeMap({ beans }: Props) {
           setCursor("grab");
           setHoveredRegion(null);
         }}
+        onLoad={() => setMapLoaded(true)}
         cursor={cursor}
         interactiveLayerIds={["bean-clusters", "bean-points"]}
         fog={{
@@ -299,22 +307,26 @@ export function CoffeeMap({ beans }: Props) {
         }}
         style={{ width: "100%", height: "100%" }}
       >
-        <RegionHighlight />
-        <Source
-          id="beans"
-          type="geojson"
-          data={geojson}
-          cluster
-          clusterMaxZoom={6}
-          clusterRadius={45}
-          clusterProperties={{
-            matching: ["+", ["case", ["get", "filtered"], 1, 0]],
-          }}
-        >
-          <Layer {...CLUSTER_LAYER} />
-          <Layer {...CLUSTER_COUNT_LAYER} />
-          <Layer {...POINT_LAYER} />
-        </Source>
+        {mapLoaded && (
+          <>
+            <RegionHighlight />
+            <Source
+              id="beans"
+              type="geojson"
+              data={geojson}
+              cluster
+              clusterMaxZoom={6}
+              clusterRadius={45}
+              clusterProperties={{
+                matching: ["+", ["case", ["get", "filtered"], 1, 0]],
+              }}
+            >
+              <Layer {...CLUSTER_LAYER} />
+              <Layer {...CLUSTER_COUNT_LAYER} />
+              <Layer {...POINT_LAYER} />
+            </Source>
+          </>
+        )}
       </Map>
     </div>
   );
