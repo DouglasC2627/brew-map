@@ -144,7 +144,9 @@ export function CoffeeMap({ beans }: Props) {
   // Refs let the request effects read the latest beans without re-firing
   // when filters change.
   const matchingBeansRef = useRef(matchingBeans);
-  matchingBeansRef.current = matchingBeans;
+  useEffect(() => {
+    matchingBeansRef.current = matchingBeans;
+  }, [matchingBeans]);
 
   // Fly to coords on demand (similar-bean clicks, search selection).
   useEffect(() => {
