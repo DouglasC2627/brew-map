@@ -10,8 +10,8 @@ export function TopNav() {
 
   return (
     <header className="sticky top-0 z-40 h-14 border-b border-border bg-background/70 backdrop-blur-md">
-      <div className="mx-auto flex h-full max-w-screen-2xl items-center justify-between px-4">
-        <Link href="/" className="flex items-center gap-2">
+      <div className="mx-auto grid h-full max-w-screen-2xl grid-cols-[1fr_auto_1fr] items-center px-4">
+        <Link href="/" className="flex items-center gap-2 justify-self-start">
           <Coffee className="h-5 w-5 text-roast-medium" />
           <span className="font-display text-lg tracking-tight">BrewMap</span>
         </Link>
@@ -19,7 +19,7 @@ export function TopNav() {
         <button
           type="button"
           onClick={() => setOpen(true)}
-          className="hidden items-center gap-2 rounded-md border border-border bg-surface/60 px-3 py-1.5 text-sm text-muted-foreground hover:border-roast-medium md:inline-flex"
+          className="hidden items-center gap-2 rounded-md border border-border bg-surface/60 px-3 py-1.5 text-sm text-muted-foreground justify-self-center hover:border-roast-medium md:inline-flex"
           aria-label="Search beans"
         >
           <Search className="h-4 w-4" />
@@ -29,7 +29,7 @@ export function TopNav() {
           </kbd>
         </button>
 
-        <nav className="flex items-center gap-3">
+        <nav className="flex items-center gap-3 justify-self-end">
           <button
             type="button"
             onClick={() => setOpen(true)}
