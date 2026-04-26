@@ -228,20 +228,61 @@ export function CoffeeMap({ beans }: Props) {
           ?.getMap()
           .getSource("beans") as
           | {
-              getClusterExpansionZoom: (id: number) => Promise<number>;
+              getClusterLeaves: (
+                id: number,
+                limit: number,
+                offset: number,
+                callback: (
+                  err: unknown,
+                  features: GeoJSON.Feature[] | null,
+                ) => void,
+              ) => void;
             }
           | undefined;
         if (!source || props.cluster_id == null) return;
-        source
-          .getClusterExpansionZoom(props.cluster_id)
-          .then((zoom) => {
-            mapRef.current?.easeTo({
-              center: coords,
-              zoom: zoom + 0.5,
-              duration: 600,
-            });
-          })
-          .catch(() => {});
+        source.getClusterLeaves(
+          props.cluster_id,
+          Infinity,
+          0,
+          (err, features) => {
+            if (err || !features) return;
+            const points = features
+              .map((f) =>
+                f.geometry.type === "Point"
+                  ? (f.geometry.coordinates as [number, number])
+                  : null,
+              )
+              .filter((p): p is [number, number] => Boolean(p));
+            if (points.length === 0) return;
+
+            if (points.length === 1) {
+              mapRef.current?.flyTo({
+                center: points[0],
+                zoom: 7,
+                duration: 600,
+              });
+              return;
+            }
+
+            let minLng = Infinity,
+              minLat = Infinity,
+              maxLng = -Infinity,
+              maxLat = -Infinity;
+            for (const [lng, lat] of points) {
+              if (lng < minLng) minLng = lng;
+              if (lat < minLat) minLat = lat;
+              if (lng > maxLng) maxLng = lng;
+              if (lat > maxLat) maxLat = lat;
+            }
+            mapRef.current?.fitBounds(
+              [
+                [minLng, minLat],
+                [maxLng, maxLat],
+              ],
+              { padding: 80, duration: 600, maxZoom: 7 },
+            );
+          },
+        );
         return;
       }
 
