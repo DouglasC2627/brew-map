@@ -12,6 +12,7 @@ import {
   formatAltitude,
 } from "@/lib/utils";
 import { ActiveFilters } from "@/components/filter/ActiveFilters";
+import { CompareToggle } from "@/components/compare/CompareToggle";
 
 type View = "grid" | "table";
 type SortKey =
@@ -248,20 +249,23 @@ function BeanCard({
           </span>
         ))}
       </div>
-      <div className="mt-3 flex items-center gap-3">
-        <Link
-          href={`/bean/${bean.slug}`}
-          className="text-xs text-roast-medium hover:underline"
-        >
-          View profile
-        </Link>
-        <Link
-          href={`/?bean=${bean.slug}`}
-          className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-roast-medium"
-        >
-          <MapIcon className="h-3 w-3" />
-          Show on map
-        </Link>
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <div className="flex items-center gap-3">
+          <Link
+            href={`/bean/${bean.slug}`}
+            className="text-xs text-roast-medium hover:underline"
+          >
+            View profile
+          </Link>
+          <Link
+            href={`/?bean=${bean.slug}`}
+            className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-roast-medium"
+          >
+            <MapIcon className="h-3 w-3" />
+            Show on map
+          </Link>
+        </div>
+        <CompareToggle beanId={bean.id} variant="compact" />
       </div>
     </li>
   );
