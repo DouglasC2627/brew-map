@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function InsightsPage() {
   const beans = getBeans();
   return (
-    <div className="mx-auto w-full max-w-(--breakpoint-xl) px-4 py-8 pb-24">
+    <div className="mx-auto w-full max-w-(--breakpoint-xl) overflow-x-hidden px-4 py-8 pb-24">
       <FilterPanel beans={beans} />
       <header className="mb-6 text-center">
         <h1 className="font-display text-3xl">Insights</h1>

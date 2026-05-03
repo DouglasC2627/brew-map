@@ -64,8 +64,8 @@ export function ComparisonTray({ beans, methods, flavorNotes }: Props) {
           )}
         </button>
 
-        <div className="flex items-center gap-3 overflow-x-auto px-4 py-3">
-          <ul className="flex flex-1 gap-2">
+        <div className="flex flex-col gap-3 px-4 py-3 sm:flex-row sm:items-center">
+          <ul className="flex min-w-0 gap-2 overflow-x-auto sm:flex-1">
             {selected.map((bean) => (
               <li
                 key={bean.id}
@@ -88,22 +88,24 @@ export function ComparisonTray({ beans, methods, flavorNotes }: Props) {
             ))}
           </ul>
 
-          <Link
-            href={`/compare?beans=${selected.map((b) => b.slug).join(",")}`}
-            className="inline-flex shrink-0 items-center gap-1 rounded-md border border-border px-2.5 py-1.5 text-xs text-muted-foreground hover:border-roast-medium hover:text-foreground"
-            title="Open as a shareable page"
-          >
-            <ExternalLink className="h-3 w-3" />
-            Share link
-          </Link>
+          <div className="flex shrink-0 items-center justify-end gap-2">
+            <Link
+              href={`/compare?beans=${selected.map((b) => b.slug).join(",")}`}
+              className="inline-flex shrink-0 items-center gap-1 rounded-md border border-border px-2.5 py-1.5 text-xs text-muted-foreground hover:border-roast-medium hover:text-foreground"
+              title="Open as a shareable page"
+            >
+              <ExternalLink className="h-3 w-3" />
+              Share link
+            </Link>
 
-          <button
-            type="button"
-            onClick={() => setShowFull(true)}
-            className="shrink-0 rounded-md bg-roast-medium px-3 py-1.5 text-xs font-medium text-cream hover:bg-roast-dark"
-          >
-            Compare →
-          </button>
+            <button
+              type="button"
+              onClick={() => setShowFull(true)}
+              className="shrink-0 rounded-md bg-roast-medium px-3 py-1.5 text-xs font-medium text-cream hover:bg-roast-dark"
+            >
+              Compare →
+            </button>
+          </div>
         </div>
       </div>
 

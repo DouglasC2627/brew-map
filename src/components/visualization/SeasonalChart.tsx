@@ -86,13 +86,17 @@ export function SeasonalChart({
           {groups.map((group) => (
             <Fragment key={group.key}>
               {groupByRegion && (
-                <tr>
+                <tr className="bg-parchment/50 dark:bg-roast-dark/40">
                   <td
-                    colSpan={13}
-                    className="sticky left-0 z-10 bg-parchment/50 px-2 pt-2 pb-0.5 text-[10px] font-semibold uppercase tracking-wider text-roast-dark dark:bg-roast-dark/40 dark:text-parchment"
+                    className="sticky left-0 z-10 bg-parchment/50 px-2 pt-2 pb-0.5 text-[10px] font-semibold whitespace-nowrap uppercase tracking-wider text-roast-dark dark:bg-roast-dark/40 dark:text-parchment"
                   >
                     {group.label}
                   </td>
+                  <td
+                    colSpan={12}
+                    aria-hidden
+                    className="bg-parchment/50 pt-2 pb-0.5 dark:bg-roast-dark/40"
+                  />
                 </tr>
               )}
               {group.beans.map((bean) => {

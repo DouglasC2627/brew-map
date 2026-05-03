@@ -37,7 +37,7 @@ export function InsightsClient({ beans }: Props) {
             bean on the map.
           </p>
         </header>
-        <div className="rounded-lg border border-border bg-surface/40 p-4">
+        <div className="overflow-hidden rounded-lg border border-border bg-surface/40 p-4">
           <AltitudeChart
             beans={filtered}
             onSelectBean={onSelectBean}
@@ -54,7 +54,7 @@ export function InsightsClient({ beans }: Props) {
             cherry red.
           </p>
         </header>
-        <div className="rounded-lg border border-border bg-surface/40 p-4">
+        <div className="overflow-hidden rounded-lg border border-border bg-surface/40 p-4">
           <SeasonalChart beans={filtered} onSelectBean={onSelectBean} />
         </div>
       </section>

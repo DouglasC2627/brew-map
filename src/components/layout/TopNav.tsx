@@ -1,12 +1,35 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
-import { Coffee, Search } from "lucide-react";
+import { Coffee, Menu, Search, X } from "lucide-react";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { useSearchUi } from "@/components/shared/SearchCommand";
+import { cn } from "@/lib/utils";
 
 export function TopNav() {
   const setOpen = useSearchUi((s) => s.setOpen);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const closeMenu = () => setMenuOpen(false);
+
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onClick = (e: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+        setMenuOpen(false);
+      }
+    };
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMenuOpen(false);
+    };
+    document.addEventListener("mousedown", onClick);
+    document.addEventListener("keydown", onKey);
+    return () => {
+      document.removeEventListener("mousedown", onClick);
+      document.removeEventListener("keydown", onKey);
+    };
+  }, [menuOpen]);
 
   return (
     <header className="sticky top-0 z-40 h-14 border-b border-border bg-background/70 backdrop-blur-md">
@@ -40,13 +63,13 @@ export function TopNav() {
           </button>
           <Link
             href="/"
-            className="rounded-md px-2 py-1 text-sm hover:text-roast-medium"
+            className="hidden rounded-md px-2 py-1 text-sm hover:text-roast-medium sm:inline-block"
           >
             Explore
           </Link>
           <Link
             href="/beans"
-            className="rounded-md px-2 py-1 text-sm hover:text-roast-medium"
+            className="hidden rounded-md px-2 py-1 text-sm hover:text-roast-medium sm:inline-block"
           >
             Beans
           </Link>
@@ -57,6 +80,56 @@ export function TopNav() {
             Insights
           </Link>
           <ThemeToggle />
+
+          <div ref={menuRef} className="relative sm:hidden">
+            <button
+              type="button"
+              onClick={() => setMenuOpen((v) => !v)}
+              aria-label={menuOpen ? "Close menu" : "Open menu"}
+              aria-expanded={menuOpen}
+              className="rounded-md p-1.5 text-muted-foreground hover:text-foreground"
+            >
+              {menuOpen ? (
+                <X className="h-5 w-5" />
+              ) : (
+                <Menu className="h-5 w-5" />
+              )}
+            </button>
+            <div
+              className={cn(
+                "absolute right-0 top-full mt-2 w-44 origin-top-right rounded-md border border-border bg-background/95 p-1 shadow-lg backdrop-blur-md transition",
+                menuOpen
+                  ? "pointer-events-auto scale-100 opacity-100"
+                  : "pointer-events-none scale-95 opacity-0",
+              )}
+              role="menu"
+            >
+              <Link
+                href="/"
+                onClick={closeMenu}
+                className="block rounded-md px-3 py-2 text-sm hover:bg-parchment/60 dark:hover:bg-roast-dark/40"
+                role="menuitem"
+              >
+                Explore
+              </Link>
+              <Link
+                href="/beans"
+                onClick={closeMenu}
+                className="block rounded-md px-3 py-2 text-sm hover:bg-parchment/60 dark:hover:bg-roast-dark/40"
+                role="menuitem"
+              >
+                Beans
+              </Link>
+              <Link
+                href="/explore/insights"
+                onClick={closeMenu}
+                className="block rounded-md px-3 py-2 text-sm hover:bg-parchment/60 dark:hover:bg-roast-dark/40"
+                role="menuitem"
+              >
+                Insights
+              </Link>
+            </div>
+          </div>
         </nav>
       </div>
     </header>
