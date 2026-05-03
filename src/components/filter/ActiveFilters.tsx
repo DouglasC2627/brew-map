@@ -2,7 +2,7 @@
 
 import { X } from "lucide-react";
 import type { CoffeeBean, ProcessingMethod, RoastLevel } from "@/types";
-import { useBrewMap, type FlavorRanges } from "@/store";
+import { useBeanMap, type FlavorRanges } from "@/store";
 import { cn, countryFlagEmoji } from "@/lib/utils";
 
 const PROCESSING_LABELS: Record<ProcessingMethod, string> = {
@@ -42,7 +42,7 @@ export function ActiveFilters({ beans, className }: Props) {
     setAltitudeRange,
     setFlavorRange,
     resetFilters,
-  } = useBrewMap();
+  } = useBeanMap();
 
   const countryNames = new Map<string, string>();
   beans.forEach((b) => {

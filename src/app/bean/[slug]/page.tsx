@@ -26,9 +26,9 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const { slug } = await params;
   const bean = getBeanBySlug(slug);
-  if (!bean) return { title: "Bean not found — BrewMap" };
+  if (!bean) return { title: "Bean not found — BeanMap" };
   return {
-    title: `${bean.name} — BrewMap`,
+    title: `${bean.name} — BeanMap`,
     description: bean.description,
     openGraph: {
       title: `${bean.name} · ${bean.country}`,

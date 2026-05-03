@@ -30,7 +30,7 @@ export interface FilterState {
   flavorRanges: FlavorRanges;
 }
 
-export interface BrewMapState {
+export interface BeanMapState {
   // map
   viewport: ViewportState;
   setViewport: (v: Partial<ViewportState>) => void;
@@ -90,7 +90,7 @@ const DEFAULT_FILTERS: FilterState = {
   },
 };
 
-export const useBrewMap = create<BrewMapState>((set) => ({
+export const useBeanMap = create<BeanMapState>((set) => ({
   viewport: {
     longitude: 15,
     latitude: 5,

@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import Link from "next/link";
 import { LayoutGrid, Map as MapIcon, Table as TableIcon } from "lucide-react";
 import type { CoffeeBean, FlavorNotesData } from "@/types";
-import { useBrewMap, filterBeans } from "@/store";
+import { useBeanMap, filterBeans } from "@/store";
 import {
   cn,
   countryFlagEmoji,
@@ -31,7 +31,7 @@ export function BeansBrowser({ beans, flavorNotes }: Props) {
   const [view, setView] = useState<View>("grid");
   const [sortKey, setSortKey] = useState<SortKey>("name");
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
-  const filters = useBrewMap((s) => s.filters);
+  const filters = useBeanMap((s) => s.filters);
 
   const filtered = useMemo(() => filterBeans(beans, filters), [beans, filters]);
 

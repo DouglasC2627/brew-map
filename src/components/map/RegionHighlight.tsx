@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import { Layer, Source } from "react-map-gl/mapbox";
-import { useBrewMap } from "@/store";
+import { useBeanMap } from "@/store";
 
 const EMPTY: GeoJSON.FeatureCollection = {
   type: "FeatureCollection",
@@ -10,8 +10,8 @@ const EMPTY: GeoJSON.FeatureCollection = {
 };
 
 export function RegionHighlight() {
-  const hoveredRegionId = useBrewMap((s) => s.hoveredRegionId);
-  const selectedBeanId = useBrewMap((s) => s.selectedBeanId);
+  const hoveredRegionId = useBeanMap((s) => s.hoveredRegionId);
+  const selectedBeanId = useBeanMap((s) => s.selectedBeanId);
   const [regions, setRegions] = useState<GeoJSON.FeatureCollection>(EMPTY);
 
   useEffect(() => {

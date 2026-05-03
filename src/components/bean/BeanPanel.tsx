@@ -9,7 +9,7 @@ import type {
   BrewRecommendation,
   FlavorNotesData,
 } from "@/types";
-import { useBrewMap } from "@/store";
+import { useBeanMap } from "@/store";
 import {
   cn,
   countryFlagEmoji,
@@ -41,7 +41,7 @@ interface Props {
 
 export function BeanPanel({ beans, methods, flavorNotes }: Props) {
   const { selectedBeanId, clearSelection, selectBean, requestFlyTo } =
-    useBrewMap();
+    useBeanMap();
   const bean = beans.find((b) => b.id === selectedBeanId);
   const methodById = useMemo(
     () => new Map(methods.map((m) => [m.id, m])),

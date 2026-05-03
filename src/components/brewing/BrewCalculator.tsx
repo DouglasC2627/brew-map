@@ -8,7 +8,7 @@ interface Props {
   recommendation: BrewRecommendation;
 }
 
-const CUP_KEY = "brewmap.preferred-cup-ml";
+const CUP_KEY = "beanmap.preferred-cup-ml";
 const CUP_OPTIONS = [200, 250, 300, 350];
 
 function readSavedCupSize(): number {

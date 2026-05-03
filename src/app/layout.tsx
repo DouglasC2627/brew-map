@@ -22,7 +22,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "BrewMap — Coffee origins, flavors & brewing",
+  title: "BeanMap — Coffee origins, flavors & brewing",
   description:
     "An interactive world map of coffee beans, their origins, flavor profiles, and recommended brewing methods.",
 };

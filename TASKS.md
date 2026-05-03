@@ -1,4 +1,4 @@
-# BrewMap - Project Tasks
+# BeanMap - Project Tasks
 
 An interactive world map showcasing coffee beans from around the world, their origins, flavor profiles, and recommended brewing methods.
 
@@ -118,7 +118,7 @@ An interactive world map showcasing coffee beans from around the world, their or
 ### 1.11 Top Navigation
 - [x] Build `src/components/layout/TopNav.tsx`
 - [x] Fixed position, 56px height, backdrop blur (`backdrop-blur-md`)
-- [x] Left: BrewMap logo (text + coffee bean icon from Lucide)
+- [x] Left: BeanMap logo (text + coffee bean icon from Lucide)
 - [x] Center: Search button placeholder (Cmd+K hint) -- functional search in Phase 2
 - [x] Right: "Explore" link (map), "Learn" link (placeholder), theme toggle button
 - [x] Mobile: Hamburger menu for nav links, search icon
@@ -269,7 +269,7 @@ An interactive world map showcasing coffee beans from around the world, their or
 - [x] Install `nuqs` for type-safe URL search parameter management
 - [x] Sync to URL: selected bean (`?bean=slug`), map viewport (`lat`, `lng`, `zoom`), active filters (`region`, `processing`, `altitude`, `roast`)
 - [x] On page load, restore state from URL params
-- [x] Shareable URLs: `brew-map.vercel.app/?bean=ethiopian-yirgacheffe&region=africa&acidity=7-10`
+- [x] Shareable URLs: `bean-map.vercel.app/?bean=ethiopian-yirgacheffe&region=africa&acidity=7-10`
 - [x] Update URL on state change without full page navigation (shallow routing)
 
 ### Phase 2 Verification
@@ -427,12 +427,12 @@ An interactive world map showcasing coffee beans from around the world, their or
 - [ ] Mobile: Web Share API (`navigator.share()`) with title, text, URL
 - [ ] Desktop fallback: Copy-to-clipboard with "Copied!" toast notification
 - [ ] Add ShareButton to: BeanPanel, bean detail page, ComparisonView, BrewDetailModal
-- [ ] Share text format: "Check out [Bean Name] from [Region] on BrewMap! [URL]"
+- [ ] Share text format: "Check out [Bean Name] from [Region] on BeanMap! [URL]"
 
 ### 4.2 OG Image Generation
 - [ ] Create `src/app/api/og/route.tsx` using `@vercel/og` (Satori)
 - [ ] Dynamic OG images for bean pages: bean name, origin, radar chart preview, key flavor notes, warm coffee-themed background
-- [ ] Dynamic OG images for comparison pages: 2-3 bean names, "Compare on BrewMap"
+- [ ] Dynamic OG images for comparison pages: 2-3 bean names, "Compare on BeanMap"
 - [ ] Update all `metadata` exports to use dynamic OG image URLs
 - [ ] Test with social media debuggers (Twitter Card Validator, Facebook Sharing Debugger)
 
@@ -442,7 +442,7 @@ An interactive world map showcasing coffee beans from around the world, their or
 - [ ] Generate a visually appealing card showing: bean name, brewing method, key parameters (grind, temp, ratio, time)
 - [ ] Option 1: Generate as OG-powered link (dynamic OG image at `/api/og/recipe?bean=X&method=Y`)
 - [ ] Option 2: Generate as downloadable PNG using `html-to-image` library
-- [ ] Card design: clean layout with coffee color palette, BrewMap branding
+- [ ] Card design: clean layout with coffee color palette, BeanMap branding
 
 ### 4.4 Local Favorites
 - [ ] Build `src/components/shared/FavoriteButton.tsx` (heart icon toggle)
@@ -632,7 +632,7 @@ An interactive world map showcasing coffee beans from around the world, their or
 
 ### 5.12 Production Launch
 - [ ] Final deploy to Vercel production environment
-- [ ] Set up custom domain (e.g., brewmap.coffee or brew-map.vercel.app)
+- [ ] Set up custom domain (e.g., beanmap.coffee or bean-map.vercel.app)
 - [ ] Verify all pages load correctly in production
 - [ ] Verify OG images, sitemap, robots.txt in production
 - [ ] Test on real mobile devices (iOS Safari, Android Chrome)

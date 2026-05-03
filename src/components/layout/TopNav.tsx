@@ -13,7 +13,7 @@ export function TopNav() {
       <div className="mx-auto grid h-full max-w-screen-2xl grid-cols-[1fr_auto_1fr] items-center px-4">
         <Link href="/" className="flex items-center gap-2 justify-self-start">
           <Coffee className="h-5 w-5 text-roast-medium" />
-          <span className="font-display text-lg tracking-tight">BrewMap</span>
+          <span className="font-display text-lg tracking-tight">BeanMap</span>
         </Link>
 
         <button

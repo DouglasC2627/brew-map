@@ -1,4 +1,4 @@
-# BrewMap
+# BeanMap
 
 An interactive world map of specialty coffee — origins, flavor profiles, and brewing recommendations tailored to each bean.
 
@@ -33,8 +33,8 @@ An interactive world map of specialty coffee — origins, flavor profiles, and b
 ### Setup
 
 ```bash
-git clone https://github.com/DouglasC2627/brew-map.git
-cd brew-map
+git clone https://github.com/DouglasC2627/bean-map.git
+cd bean-map
 npm install
 cp .env.example .env.local
 # edit .env.local with your Mapbox token (see below)
@@ -68,7 +68,7 @@ All three are inlined into the client bundle at build time — changing them req
 ## Project structure
 
 ```
-brew-map/
+bean-map/
 ├── src/
 │   ├── app/        # Next.js App Router
 │   │   ├── bean/[slug]/          # SSR bean detail page (generateStaticParams)

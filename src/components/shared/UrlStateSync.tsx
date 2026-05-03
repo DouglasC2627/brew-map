@@ -3,7 +3,7 @@
 import { useEffect, useRef } from "react";
 import { useQueryStates, type inferParserType } from "nuqs";
 import { urlParsers } from "@/lib/url-state";
-import { useBrewMap } from "@/store";
+import { useBeanMap } from "@/store";
 import type { CoffeeBean } from "@/types";
 
 type UrlState = inferParserType<typeof urlParsers>;
@@ -25,7 +25,7 @@ export function UrlStateSync({ beans }: Props) {
     if (hydrated.current) return;
     hydrated.current = true;
 
-    const store = useBrewMap.getState();
+    const store = useBeanMap.getState();
 
     if (params.bean) {
       const bean = beans.find((b) => b.slug === params.bean);
@@ -53,7 +53,7 @@ export function UrlStateSync({ beans }: Props) {
   // Store → URL: subscribe to selection + filters and reflect them
   useEffect(() => {
     if (!hydrated.current) return;
-    const unsub = useBrewMap.subscribe((state, prev) => {
+    const unsub = useBeanMap.subscribe((state, prev) => {
       const updates: Partial<UrlState> = {};
 
       if (state.selectedBeanId !== prev.selectedBeanId) {
@@ -90,7 +90,7 @@ export function UrlStateSync({ beans }: Props) {
   useEffect(() => {
     if (!hydrated.current) return;
     let timer: ReturnType<typeof setTimeout> | null = null;
-    const unsub = useBrewMap.subscribe((state, prev) => {
+    const unsub = useBeanMap.subscribe((state, prev) => {
       if (state.viewport === prev.viewport) return;
       if (timer) clearTimeout(timer);
       timer = setTimeout(() => {

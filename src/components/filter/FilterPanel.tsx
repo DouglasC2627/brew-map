@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { Crosshair, SlidersHorizontal, X } from "lucide-react";
 import type { CoffeeBean, ProcessingMethod, RoastLevel } from "@/types";
-import { useBrewMap, filterBeans } from "@/store";
+import { useBeanMap, filterBeans } from "@/store";
 import { Slider } from "@/components/ui/slider";
 import { cn, countryFlagEmoji } from "@/lib/utils";
 import { FlavorSliders } from "./FlavorSliders";
@@ -72,7 +72,7 @@ export function FilterPanel({ beans }: Props) {
     requestFitBounds,
     isFilterPanelOpen,
     setFilterPanelOpen,
-  } = useBrewMap();
+  } = useBeanMap();
 
   const [showFlavor, setShowFlavor] = useState(false);
 

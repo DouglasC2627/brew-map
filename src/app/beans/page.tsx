@@ -4,8 +4,8 @@ import { BeansBrowser } from "@/components/bean/BeansBrowser";
 import { FilterPanel } from "@/components/filter/FilterPanel";
 
 export const metadata: Metadata = {
-  title: "All beans · BrewMap",
-  description: "Browse every coffee bean profile in BrewMap.",
+  title: "All beans · BeanMap",
+  description: "Browse every coffee bean profile in BeanMap.",
 };
 
 export default function BeansPage() {

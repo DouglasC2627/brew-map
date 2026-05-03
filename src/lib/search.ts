@@ -15,7 +15,7 @@ export function createBeanSearch(beans: CoffeeBean[]): Fuse<CoffeeBean> {
   });
 }
 
-export const RECENT_SEARCH_KEY = "brewmap.recent-bean-searches";
+export const RECENT_SEARCH_KEY = "beanmap.recent-bean-searches";
 
 export function getRecentSearches(): string[] {
   if (typeof window === "undefined") return [];

@@ -1,6 +1,6 @@
 "use client";
 
-import { useBrewMap } from "@/store";
+import { useBeanMap } from "@/store";
 import type { FlavorRanges } from "@/store";
 import { Slider } from "@/components/ui/slider";
 
@@ -12,7 +12,7 @@ const AXES: Array<{ key: keyof FlavorRanges; label: string }> = [
 ];
 
 export function FlavorSliders() {
-  const { filters, setFlavorRange } = useBrewMap();
+  const { filters, setFlavorRange } = useBeanMap();
 
   return (
     <div className="space-y-4">

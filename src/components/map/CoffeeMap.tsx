@@ -14,7 +14,7 @@ import type {
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useTheme } from "next-themes";
 import type { CoffeeBean } from "@/types";
-import { useBrewMap, filterBeans } from "@/store";
+import { useBeanMap, filterBeans } from "@/store";
 import { RegionHighlight } from "./RegionHighlight";
 
 const LIGHT_STYLE =
@@ -130,7 +130,7 @@ export function CoffeeMap({ beans }: Props) {
     setHoveredRegion,
     fitBoundsRequestId,
     flyToRequest,
-  } = useBrewMap();
+  } = useBeanMap();
 
   const matchingBeans = useMemo(
     () => filterBeans(beans, filters),

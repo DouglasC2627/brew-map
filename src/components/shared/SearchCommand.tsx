@@ -15,7 +15,7 @@ import {
   getRecentSearches,
   pushRecentSearch,
 } from "@/lib/search";
-import { useBrewMap } from "@/store";
+import { useBeanMap } from "@/store";
 import { countryFlagEmoji, flavorNoteLabel } from "@/lib/utils";
 import type { CoffeeBean, FlavorNotesData } from "@/types";
 
@@ -92,8 +92,8 @@ export function SearchCommand({ beans, flavorNotes }: Props) {
   const onSelect = (bean: CoffeeBean) => {
     pushRecentSearch(bean.id);
     notifyRecentsChanged();
-    useBrewMap.getState().selectBean(bean.id);
-    useBrewMap.getState().requestFlyTo(bean.coordinates, 5);
+    useBeanMap.getState().selectBean(bean.id);
+    useBeanMap.getState().requestFlyTo(bean.coordinates, 5);
     setOpen(false);
     setQuery("");
   };
