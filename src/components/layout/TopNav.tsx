@@ -50,6 +50,12 @@ export function TopNav() {
           >
             Beans
           </Link>
+          <Link
+            href="/explore/insights"
+            className="hidden rounded-md px-2 py-1 text-sm hover:text-roast-medium sm:inline-block"
+          >
+            Insights
+          </Link>
           <ThemeToggle />
         </nav>
       </div>

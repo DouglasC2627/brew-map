@@ -14,6 +14,7 @@ import {
   monthName,
 } from "@/lib/utils";
 import { findSimilarBeans } from "@/lib/similar";
+import { FlavorRadar } from "@/components/visualization/FlavorRadar";
 
 interface Params {
   params: Promise<{ slug: string }>;
@@ -79,14 +80,18 @@ export default async function BeanDetailPage({ params }: Params) {
       <section className="grid gap-6 border-t border-border py-6 sm:grid-cols-2">
         <div>
           <h2 className="font-display text-xl">Flavor profile</h2>
-          <ul className="mt-2 space-y-1 font-mono text-sm">
-            {Object.entries(bean.flavorProfile).map(([k, v]) => (
-              <li key={k} className="flex justify-between">
-                <span className="capitalize">{k}</span>
-                <span>{v}/10</span>
-              </li>
-            ))}
-          </ul>
+          <div className="mt-3">
+            <FlavorRadar
+              series={[
+                {
+                  id: bean.id,
+                  label: bean.name,
+                  profile: bean.flavorProfile,
+                },
+              ]}
+              size={260}
+            />
+          </div>
         </div>
         <div>
           <h2 className="font-display text-xl">Details</h2>
