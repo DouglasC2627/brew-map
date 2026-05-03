@@ -290,12 +290,12 @@ An interactive world map showcasing coffee beans from around the world, their or
 **Goal**: Rich data visualizations, bean comparison, polished animations, and educational content.
 
 ### 3.1 Flavor Radar Chart
-- [ ] Build `src/components/visualization/FlavorRadar.tsx` using Recharts RadarChart
-- [ ] 6 axes: Acidity, Body, Sweetness, Bitterness, Complexity, Fruitiness
-- [ ] Filled polygon with semi-transparent brand color fill
-- [ ] Animated draw-on-enter (Framer Motion + Recharts animation props)
-- [ ] Replace the text-based flavor display in BeanPanel with this chart
-- [ ] Support overlay mode: render 2-3 polygons for comparison (different colors)
+- [x] Build `src/components/visualization/FlavorRadar.tsx` (pure SVG, no Recharts dep)
+- [x] 6 axes: Acidity, Body, Sweetness, Bitterness, Complexity, Fruitiness
+- [x] Filled polygon with semi-transparent brand color fill
+- [x] Animated draw-on-enter (CSS keyframes, respects prefers-reduced-motion)
+- [x] Replace the text-based flavor display in BeanPanel with this chart
+- [x] Support overlay mode: render 2-3 polygons for comparison (different colors)
 
 ### 3.2 Interactive Flavor Wheel
 - [ ] Build `src/components/visualization/FlavorWheel.tsx`
@@ -310,42 +310,42 @@ An interactive world map showcasing coffee beans from around the world, their or
 - [ ] Place on map view as a toggleable overlay or on a dedicated `/explore/flavors` page
 
 ### 3.3 Altitude Chart
-- [ ] Build `src/components/visualization/AltitudeChart.tsx` using Recharts BarChart (horizontal)
-- [ ] Shows altitude ranges for currently visible/filtered beans
-- [ ] Sorted highest to lowest
-- [ ] Color gradient from leaf-green (low) to roast-dark (high)
-- [ ] Click a bar to select that bean on the map
-- [ ] Toggleable overlay on map view or section on bean list page
+- [x] Build `src/components/visualization/AltitudeChart.tsx` (pure SVG/CSS bars)
+- [x] Shows altitude ranges for currently visible/filtered beans
+- [x] Sorted highest to lowest (by midpoint)
+- [x] Color gradient from leaf-green (low) to roast-dark (high)
+- [x] Click a bar to select that bean on the map
+- [x] Lives on `/explore/insights` page
 
 ### 3.4 Harvest Calendar
-- [ ] Build `src/components/visualization/SeasonalChart.tsx`
-- [ ] Gantt-style grid: months as columns (Jan-Dec), beans as rows
-- [ ] Colored cells for harvest months, highlight current month
-- [ ] Group rows by region for easy scanning
-- [ ] Click a row to navigate to that bean
-- [ ] Useful for finding "what's in season now"
+- [x] Build `src/components/visualization/SeasonalChart.tsx`
+- [x] Gantt-style grid: months as columns (Jan-Dec), beans as rows
+- [x] Colored cells for harvest months, highlight current month (cherry-red ring)
+- [x] Group rows by country for easy scanning
+- [x] Click a row to navigate to that bean
+- [x] Useful for finding "what's in season now"
 
 ### 3.5 Comparison Feature
-- [ ] Build `src/components/compare/ComparisonTray.tsx`
-  - Sticky bottom bar (64px height), slides up from bottom
+- [x] Build `src/components/compare/ComparisonTray.tsx`
+  - Sticky bottom bar that collapses to a peek state, slides up from bottom
   - Shows 1-3 selected bean mini cards with X to remove
-  - "+ Add Bean" button that prompts to search/select
-  - "Compare" button opens full comparison view
-- [ ] Build `src/components/compare/ComparisonView.tsx`
+  - "Share link" button -> `/compare?beans=...`
+  - "Compare" button opens full comparison view in a Dialog
+- [x] Build `src/components/compare/ComparisonView.tsx`
   - Side-by-side bean cards (2-3 columns)
   - Overlaid radar chart (all beans on one chart, different colors)
   - Parameter comparison table: altitude, processing, roast, top flavor notes
-  - Brewing recommendation comparison for a selected method
-  - "Best for [method]" highlight
-- [ ] Add "Compare" toggle button to BeanCard and BeanPanel
-- [ ] Store comparison state in Zustand, max 3 beans
+  - Brewing recommendation comparison with method picker
+  - "Best for [method]" highlight (Trophy icon on highest affinity)
+- [x] Add "Compare" toggle button to BeanCard and BeanPanel
+- [x] Store comparison state in Zustand, max 3 beans (already wired pre-Phase-3)
 
 ### 3.6 Comparison Page
-- [ ] Create `src/app/compare/page.tsx`
-- [ ] Read bean IDs from URL params: `/compare?beans=slug1,slug2,slug3`
-- [ ] Render full ComparisonView as a standalone page
-- [ ] Shareable URL for bean comparisons
-- [ ] Empty state with CTA to explore beans
+- [x] Create `src/app/compare/page.tsx`
+- [x] Read bean slugs from URL params: `/compare?beans=slug1,slug2,slug3`
+- [x] Render full ComparisonView as a standalone page
+- [x] Shareable URL for bean comparisons (dynamic metadata: "X vs Y · Compare on BeanMap")
+- [x] Empty state with CTA to explore beans
 
 ### 3.7 Framer Motion Polish
 - [ ] BeanPanel: `AnimatePresence` slide-in from right (desktop) / up (mobile), staggered children entrance
@@ -355,7 +355,7 @@ An interactive world map showcasing coffee beans from around the world, their or
 - [ ] Hero image in bean panel: subtle parallax on scroll
 - [ ] Page transitions: fade between map and list views
 - [ ] Loading skeletons: shimmer animation on data loading states
-- [ ] `prefers-reduced-motion`: disable all animations, instant transitions
+- [x] `prefers-reduced-motion`: disable all animations, instant transitions (global rule in globals.css; chart animations gated on `motion-safe:`)
 
 ### 3.8 Educational Content - Processing Methods
 - [ ] Set up MDX rendering pipeline with `next-mdx-remote`
