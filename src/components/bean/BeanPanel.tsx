@@ -20,18 +20,8 @@ import {
 import { findSimilarBeans } from "@/lib/similar";
 import { BrewCard } from "@/components/brewing/BrewCard";
 import { BrewDetailModal } from "@/components/brewing/BrewDetailModal";
-
-const FLAVOR_AXES: Array<{
-  key: keyof CoffeeBean["flavorProfile"];
-  label: string;
-}> = [
-  { key: "acidity", label: "Acidity" },
-  { key: "body", label: "Body" },
-  { key: "sweetness", label: "Sweetness" },
-  { key: "bitterness", label: "Bitterness" },
-  { key: "complexity", label: "Complexity" },
-  { key: "fruitiness", label: "Fruitiness" },
-];
+import { FlavorRadar } from "@/components/visualization/FlavorRadar";
+import { CompareToggle } from "@/components/compare/CompareToggle";
 
 interface Props {
   beans: CoffeeBean[];
@@ -119,28 +109,21 @@ export function BeanPanel({ beans, methods, flavorNotes }: Props) {
             </div>
 
             <section className="space-y-2 p-5">
-              <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Flavor Profile
-              </h3>
-              <div className="space-y-1.5">
-                {FLAVOR_AXES.map((axis) => {
-                  const value = bean.flavorProfile[axis.key];
-                  return (
-                    <div key={axis.key} className="flex items-center gap-3">
-                      <span className="w-24 text-sm">{axis.label}</span>
-                      <div className="h-2 flex-1 overflow-hidden rounded-full bg-parchment dark:bg-roast-dark">
-                        <div
-                          className="h-full rounded-full bg-roast-medium"
-                          style={{ width: `${(value / 10) * 100}%` }}
-                        />
-                      </div>
-                      <span className="w-6 text-right font-mono text-xs text-muted-foreground">
-                        {value}
-                      </span>
-                    </div>
-                  );
-                })}
+              <div className="flex items-center justify-between">
+                <h3 className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                  Flavor Profile
+                </h3>
+                <CompareToggle beanId={bean.id} />
               </div>
+              <FlavorRadar
+                series={[
+                  {
+                    id: bean.id,
+                    label: bean.name,
+                    profile: bean.flavorProfile,
+                  },
+                ]}
+              />
             </section>
 
             <section className="space-y-2 border-t border-border p-5">
