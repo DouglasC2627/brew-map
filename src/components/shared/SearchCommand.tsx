@@ -14,6 +14,8 @@ import {
   createBeanSearch,
   getRecentSearches,
   pushRecentSearch,
+  removeRecentSearch,
+  clearAllRecentSearches,
 } from "@/lib/search";
 import { useBeanMap } from "@/store";
 import { countryFlagEmoji, flavorNoteLabel } from "@/lib/utils";
@@ -98,6 +100,18 @@ export function SearchCommand({ beans, flavorNotes }: Props) {
     setQuery("");
   };
 
+  const onRemoveRecent = (e: React.MouseEvent, beanId: string) => {
+    e.preventDefault();
+    e.stopPropagation();
+    removeRecentSearch(beanId);
+    notifyRecentsChanged();
+  };
+
+  const onClearAll = () => {
+    clearAllRecentSearches();
+    notifyRecentsChanged();
+  };
+
   return (
     <CommandDialog open={open} onOpenChange={setOpen}>
       <CommandInput
@@ -108,13 +122,28 @@ export function SearchCommand({ beans, flavorNotes }: Props) {
       <CommandList>
         {!query.trim() && recents.length > 0 && (
           <CommandGroup heading="Recent">
+            <div className="flex justify-end px-2 pb-1">
+              <button
+                onClick={onClearAll}
+                className="text-xs text-muted-foreground hover:text-foreground transition-colors"
+              >
+                Clear all
+              </button>
+            </div>
             {recents.map((bean) => (
               <CommandItem
                 key={bean.id}
                 value={`recent-${bean.id}`}
                 onSelect={() => onSelect(bean)}
+                className="my-1"
               >
                 <BeanRow bean={bean} flavorNotes={flavorNotes} />
+                <button
+                  onClick={(e) => onRemoveRecent(e, bean.id)}
+                  className="ml-auto text-xs text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  ✕
+                </button>
               </CommandItem>
             ))}
           </CommandGroup>
@@ -133,6 +162,7 @@ export function SearchCommand({ beans, flavorNotes }: Props) {
                 key={bean.id}
                 value={`${bean.name} ${bean.country} ${bean.region}`}
                 onSelect={() => onSelect(bean)}
+                className="my-1"
               >
                 <BeanRow bean={bean} flavorNotes={flavorNotes} />
               </CommandItem>

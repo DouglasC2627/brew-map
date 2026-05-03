@@ -40,3 +40,14 @@ export function pushRecentSearch(beanId: string) {
     JSON.stringify(current.slice(0, 5)),
   );
 }
+
+export function removeRecentSearch(beanId: string) {
+  if (typeof window === "undefined") return;
+  const current = getRecentSearches().filter((id) => id !== beanId);
+  localStorage.setItem(RECENT_SEARCH_KEY, JSON.stringify(current));
+}
+
+export function clearAllRecentSearches() {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(RECENT_SEARCH_KEY, JSON.stringify([]));
+}
