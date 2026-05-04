@@ -63,9 +63,16 @@ export function AltitudeChart({ beans, onSelectBean, className, maxRows }: Props
 
   return (
     <div className={cn("space-y-1", className)}>
-      <div className="mb-1 flex items-center justify-between text-[10px] font-mono text-muted-foreground">
-        <span>{MIN_ALT}m</span>
-        <span>{MAX_ALT}m</span>
+      <div
+        aria-hidden
+        className="mb-1 grid w-full grid-cols-[minmax(120px,1fr)_minmax(0,3fr)_auto] items-center gap-3 px-2 text-[10px] font-mono text-muted-foreground"
+      >
+        <span />
+        <span className="flex justify-between">
+          <span>{MIN_ALT}m</span>
+          <span>{MAX_ALT}m</span>
+        </span>
+        <span />
       </div>
       <ul className="space-y-1">
         {rows.map((bean, i) => {

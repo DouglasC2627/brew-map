@@ -29,7 +29,12 @@ export function UrlStateSync({ beans }: Props) {
 
     if (params.bean) {
       const bean = beans.find((b) => b.slug === params.bean);
-      if (bean) store.selectBean(bean.id);
+      if (bean) {
+        store.selectBean(bean.id);
+        if (params.lng == null || params.lat == null || params.zoom == null) {
+          store.requestFlyTo(bean.coordinates, 5);
+        }
+      }
     }
     if (params.lng != null && params.lat != null && params.zoom != null) {
       store.setViewport({
