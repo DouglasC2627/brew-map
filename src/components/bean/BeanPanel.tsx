@@ -73,7 +73,7 @@ export function BeanPanel({ beans, methods, flavorNotes }: Props) {
         aria-label={bean ? `Profile of ${bean.name}` : "Bean profile"}
         aria-hidden={!isOpen}
         className={cn(
-          "fixed z-30 overflow-y-auto bg-background/95 shadow-xl backdrop-blur-sm transition-transform duration-300 ease-out",
+          "fixed z-30 overflow-x-hidden overflow-y-auto bg-background/95 shadow-xl backdrop-blur-sm transition-transform duration-300 ease-out",
           "bottom-0 left-0 right-0 max-h-[85vh] rounded-t-2xl border-t border-border",
           "sm:top-14 sm:right-0 sm:bottom-0 sm:left-auto sm:w-[50vw] sm:max-w-none sm:max-h-none sm:rounded-none sm:border-t-0 sm:border-l lg:w-105",
           isOpen

@@ -29,7 +29,7 @@ interface Props {
 
 export function MapView({ beans, methods, flavorNotes }: Props) {
   return (
-    <div className="relative flex flex-1 flex-col">
+    <div className="relative flex flex-1 flex-col overflow-x-clip">
       <Suspense fallback={null}>
         <UrlStateSync beans={beans} />
       </Suspense>
