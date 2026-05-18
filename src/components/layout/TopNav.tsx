@@ -79,6 +79,18 @@ export function TopNav() {
           >
             Insights
           </Link>
+          <Link
+            href="/explore/flavors"
+            className="hidden rounded-md px-2 py-1 text-sm hover:text-roast-medium md:inline-block"
+          >
+            Flavors
+          </Link>
+          <Link
+            href="/learn"
+            className="hidden rounded-md px-2 py-1 text-sm hover:text-roast-medium md:inline-block"
+          >
+            Learn
+          </Link>
           <ThemeToggle />
 
           <div ref={menuRef} className="relative sm:hidden">
@@ -127,6 +139,22 @@ export function TopNav() {
                 role="menuitem"
               >
                 Insights
+              </Link>
+              <Link
+                href="/explore/flavors"
+                onClick={closeMenu}
+                className="block rounded-md px-3 py-2 text-sm hover:bg-parchment/60 dark:hover:bg-roast-dark/40"
+                role="menuitem"
+              >
+                Flavors
+              </Link>
+              <Link
+                href="/learn"
+                onClick={closeMenu}
+                className="block rounded-md px-3 py-2 text-sm hover:bg-parchment/60 dark:hover:bg-roast-dark/40"
+                role="menuitem"
+              >
+                Learn
               </Link>
             </div>
           </div>

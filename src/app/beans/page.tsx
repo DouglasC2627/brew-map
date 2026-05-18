@@ -19,7 +19,7 @@ export default function BeansPage() {
   const methods = getBrewingMethods();
   return (
     <div className="mx-auto w-full max-w-screen-2xl px-4 py-6 pb-24">
-      <FilterPanel beans={beans} />
+      <FilterPanel beans={beans} flavorNotes={flavorNotes} />
       <header className="mb-6 text-center">
         <h1 className="font-display text-3xl">All beans</h1>
         <p className="text-sm text-muted-foreground">
