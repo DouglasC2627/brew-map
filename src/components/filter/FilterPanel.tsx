@@ -3,7 +3,12 @@
 import { useMemo, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 import { Crosshair, SlidersHorizontal, X } from "lucide-react";
-import type { CoffeeBean, ProcessingMethod, RoastLevel } from "@/types";
+import type {
+  CoffeeBean,
+  FlavorNotesData,
+  ProcessingMethod,
+  RoastLevel,
+} from "@/types";
 import { useBeanMap, filterBeans } from "@/store";
 import { Slider } from "@/components/ui/slider";
 import { cn, countryFlagEmoji } from "@/lib/utils";
@@ -55,9 +60,10 @@ const ROASTS: Array<{ id: RoastLevel; label: string }> = [
 
 interface Props {
   beans: CoffeeBean[];
+  flavorNotes?: FlavorNotesData;
 }
 
-export function FilterPanel({ beans }: Props) {
+export function FilterPanel({ beans, flavorNotes }: Props) {
   const router = useRouter();
   const pathname = usePathname();
   const onMapPage = pathname === "/";
@@ -82,8 +88,8 @@ export function FilterPanel({ beans }: Props) {
   };
 
   const matching = useMemo(
-    () => filterBeans(beans, filters).length,
-    [beans, filters],
+    () => filterBeans(beans, filters, flavorNotes).length,
+    [beans, filters, flavorNotes],
   );
 
   const activeCount =

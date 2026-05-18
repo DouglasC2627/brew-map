@@ -13,7 +13,7 @@ import type {
 } from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useTheme } from "next-themes";
-import type { CoffeeBean } from "@/types";
+import type { CoffeeBean, FlavorNotesData } from "@/types";
 import { useBeanMap, filterBeans } from "@/store";
 import { RegionHighlight } from "./RegionHighlight";
 
@@ -113,9 +113,10 @@ const POINT_LAYER: CircleLayerSpecification = {
 
 interface Props {
   beans: CoffeeBean[];
+  flavorNotes: FlavorNotesData;
 }
 
-export function CoffeeMap({ beans }: Props) {
+export function CoffeeMap({ beans, flavorNotes }: Props) {
   const mapRef = useRef<MapRef | null>(null);
   const { resolvedTheme } = useTheme();
   const [cursor, setCursor] = useState<string>("grab");
@@ -133,8 +134,8 @@ export function CoffeeMap({ beans }: Props) {
   } = useBeanMap();
 
   const matchingBeans = useMemo(
-    () => filterBeans(beans, filters),
-    [beans, filters],
+    () => filterBeans(beans, filters, flavorNotes),
+    [beans, filters, flavorNotes],
   );
   const matchingIds = useMemo(
     () => new Set(matchingBeans.map((b) => b.id)),

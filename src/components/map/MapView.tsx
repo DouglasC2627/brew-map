@@ -8,6 +8,7 @@ import { FilterPanel } from "@/components/filter/FilterPanel";
 import { SearchCommand } from "@/components/shared/SearchCommand";
 import { UrlStateSync } from "@/components/shared/UrlStateSync";
 import { ComparisonTray } from "@/components/compare/ComparisonTray";
+import { FlavorWheelOverlay } from "@/components/map/FlavorWheelOverlay";
 
 const CoffeeMap = dynamic(
   () => import("./CoffeeMap").then((m) => m.CoffeeMap),
@@ -33,8 +34,9 @@ export function MapView({ beans, methods, flavorNotes }: Props) {
       <Suspense fallback={null}>
         <UrlStateSync beans={beans} />
       </Suspense>
-      <CoffeeMap beans={beans} />
-      <FilterPanel beans={beans} />
+      <CoffeeMap beans={beans} flavorNotes={flavorNotes} />
+      <FilterPanel beans={beans} flavorNotes={flavorNotes} />
+      <FlavorWheelOverlay beans={beans} flavorNotes={flavorNotes} />
       <BeanPanel beans={beans} methods={methods} flavorNotes={flavorNotes} />
       <SearchCommand beans={beans} flavorNotes={flavorNotes} />
       <ComparisonTray

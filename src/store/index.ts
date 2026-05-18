@@ -3,6 +3,7 @@
 import { create } from "zustand";
 import type {
   CoffeeBean,
+  FlavorNotesData,
   ProcessingMethod,
   RoastLevel,
 } from "@/types";
@@ -28,6 +29,13 @@ export interface FilterState {
   altitudeRange: [number, number];
   roastLevels: RoastLevel[];
   flavorRanges: FlavorRanges;
+  /**
+   * Selected flavor IDs from the Flavor Wheel. Each entry may reference a
+   * category, subcategory, or specific note id. A bean matches if any of its
+   * own note ids — or any of their parent subcategory/category ids — is
+   * present in this list.
+   */
+  flavorNoteIds: string[];
 }
 
 export interface BeanMapState {
@@ -51,6 +59,9 @@ export interface BeanMapState {
   toggleRoast: (r: RoastLevel) => void;
   setAltitudeRange: (range: [number, number]) => void;
   setFlavorRange: (axis: keyof FlavorRanges, range: [number, number]) => void;
+  toggleFlavorNote: (id: string) => void;
+  setFlavorNotes: (ids: string[]) => void;
+  clearFlavorNotes: () => void;
   resetFilters: () => void;
 
   // comparison
@@ -65,6 +76,10 @@ export interface BeanMapState {
   setBeanPanelOpen: (open: boolean) => void;
   isFilterPanelOpen: boolean;
   setFilterPanelOpen: (open: boolean) => void;
+
+  // flavor wheel overlay
+  isFlavorWheelOpen: boolean;
+  setFlavorWheelOpen: (open: boolean) => void;
 
   // events
   fitBoundsRequestId: number;
@@ -88,6 +103,7 @@ const DEFAULT_FILTERS: FilterState = {
     sweetness: [1, 10],
     bitterness: [1, 10],
   },
+  flavorNoteIds: [],
 };
 
 export const useBeanMap = create<BeanMapState>((set) => ({
@@ -146,6 +162,22 @@ export const useBeanMap = create<BeanMapState>((set) => ({
         flavorRanges: { ...s.filters.flavorRanges, [axis]: range },
       },
     })),
+  toggleFlavorNote: (id) =>
+    set((s) => {
+      const has = s.filters.flavorNoteIds.includes(id);
+      return {
+        filters: {
+          ...s.filters,
+          flavorNoteIds: has
+            ? s.filters.flavorNoteIds.filter((x) => x !== id)
+            : [...s.filters.flavorNoteIds, id],
+        },
+      };
+    }),
+  setFlavorNotes: (ids) =>
+    set((s) => ({ filters: { ...s.filters, flavorNoteIds: ids } })),
+  clearFlavorNotes: () =>
+    set((s) => ({ filters: { ...s.filters, flavorNoteIds: [] } })),
   resetFilters: () => set({ filters: DEFAULT_FILTERS }),
 
   comparisonBeanIds: [],
@@ -167,6 +199,9 @@ export const useBeanMap = create<BeanMapState>((set) => ({
   isFilterPanelOpen: false,
   setFilterPanelOpen: (open) => set({ isFilterPanelOpen: open }),
 
+  isFlavorWheelOpen: false,
+  setFlavorWheelOpen: (open) => set({ isFlavorWheelOpen: open }),
+
   fitBoundsRequestId: 0,
   requestFitBounds: () =>
     set((s) => ({ fitBoundsRequestId: s.fitBoundsRequestId + 1 })),
@@ -182,9 +217,45 @@ export const useBeanMap = create<BeanMapState>((set) => ({
     })),
 }));
 
+/**
+ * Build a Set of every ancestor id (subcategory + category) for each leaf note.
+ * Used by `filterBeans` so that selecting a category from the wheel matches
+ * beans tagged with any of its descendant note ids.
+ */
+function buildAncestorIndex(
+  data: FlavorNotesData,
+): Map<string, Set<string>> {
+  const subToCat = new Map<string, string>();
+  for (const s of data.subcategories) subToCat.set(s.id, s.categoryId);
+  const index = new Map<string, Set<string>>();
+  for (const n of data.notes) {
+    const set = new Set<string>([n.id]);
+    set.add(n.subcategoryId);
+    const cat = subToCat.get(n.subcategoryId);
+    if (cat) set.add(cat);
+    index.set(n.id, set);
+  }
+  return index;
+}
+
+let ancestorIndexCache: {
+  data: FlavorNotesData;
+  index: Map<string, Set<string>>;
+} | null = null;
+
+function getAncestorIndex(data: FlavorNotesData): Map<string, Set<string>> {
+  if (ancestorIndexCache && ancestorIndexCache.data === data) {
+    return ancestorIndexCache.index;
+  }
+  const index = buildAncestorIndex(data);
+  ancestorIndexCache = { data, index };
+  return index;
+}
+
 export function filterBeans(
   beans: CoffeeBean[],
   filters: FilterState,
+  flavorNotesData?: FlavorNotesData,
 ): CoffeeBean[] {
   const {
     regions,
@@ -192,7 +263,15 @@ export function filterBeans(
     altitudeRange,
     roastLevels,
     flavorRanges,
+    flavorNoteIds,
   } = filters;
+
+  const ancestorIndex =
+    flavorNoteIds.length > 0 && flavorNotesData
+      ? getAncestorIndex(flavorNotesData)
+      : null;
+  const selectedSet =
+    flavorNoteIds.length > 0 ? new Set(flavorNoteIds) : null;
 
   return beans.filter((b) => {
     if (regions.length && !regions.includes(b.countryCode)) return false;
@@ -219,6 +298,29 @@ export function filterBeans(
       fp.bitterness > flavorRanges.bitterness[1]
     )
       return false;
+
+    if (selectedSet) {
+      let matches = false;
+      for (const noteId of b.flavorNotes) {
+        if (selectedSet.has(noteId)) {
+          matches = true;
+          break;
+        }
+        if (ancestorIndex) {
+          const ancestors = ancestorIndex.get(noteId);
+          if (ancestors) {
+            for (const a of ancestors) {
+              if (selectedSet.has(a)) {
+                matches = true;
+                break;
+              }
+            }
+          }
+        }
+        if (matches) break;
+      }
+      if (!matches) return false;
+    }
 
     return true;
   });

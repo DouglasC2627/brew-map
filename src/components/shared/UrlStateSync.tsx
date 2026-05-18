@@ -53,6 +53,9 @@ export function UrlStateSync({ beans }: Props) {
     if (params.altMin != null && params.altMax != null) {
       store.setAltitudeRange([params.altMin, params.altMax]);
     }
+    if (params.flavorNotes.length) {
+      store.setFlavorNotes(params.flavorNotes);
+    }
   }, [params, beans]);
 
   // Store → URL: subscribe to selection + filters and reflect them
@@ -82,6 +85,9 @@ export function UrlStateSync({ beans }: Props) {
         const isDefault = min === 0 && max === 2500;
         updates.altMin = isDefault ? null : min;
         updates.altMax = isDefault ? null : max;
+      }
+      if (state.filters.flavorNoteIds !== prev.filters.flavorNoteIds) {
+        updates.flavorNotes = state.filters.flavorNoteIds;
       }
 
       if (Object.keys(updates).length > 0) {

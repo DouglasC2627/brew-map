@@ -2,7 +2,7 @@
 
 import { useMemo } from "react";
 import { useRouter } from "next/navigation";
-import type { CoffeeBean } from "@/types";
+import type { CoffeeBean, FlavorNotesData } from "@/types";
 import { useBeanMap, filterBeans } from "@/store";
 import { ActiveFilters } from "@/components/filter/ActiveFilters";
 import { AltitudeChart } from "@/components/visualization/AltitudeChart";
@@ -10,12 +10,16 @@ import { SeasonalChart } from "@/components/visualization/SeasonalChart";
 
 interface Props {
   beans: CoffeeBean[];
+  flavorNotes: FlavorNotesData;
 }
 
-export function InsightsClient({ beans }: Props) {
+export function InsightsClient({ beans, flavorNotes }: Props) {
   const router = useRouter();
   const filters = useBeanMap((s) => s.filters);
-  const filtered = useMemo(() => filterBeans(beans, filters), [beans, filters]);
+  const filtered = useMemo(
+    () => filterBeans(beans, filters, flavorNotes),
+    [beans, filters, flavorNotes],
+  );
 
   const onSelectBean = (bean: CoffeeBean) => {
     router.push(`/?bean=${bean.slug}`);
@@ -23,7 +27,7 @@ export function InsightsClient({ beans }: Props) {
 
   return (
     <div className="space-y-10">
-      <ActiveFilters beans={beans} />
+      <ActiveFilters beans={beans} flavorNotes={flavorNotes} />
 
       <div className="text-sm text-muted-foreground">
         Showing {filtered.length} of {beans.length} beans

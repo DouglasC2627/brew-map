@@ -35,4 +35,5 @@ export const urlParsers = {
   ).withDefault([]),
   altMin: parseAsFloat,
   altMax: parseAsFloat,
+  flavorNotes: parseAsArrayOf(parseAsString).withDefault([]),
 };

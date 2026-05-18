@@ -1,7 +1,12 @@
 "use client";
 
 import { X } from "lucide-react";
-import type { CoffeeBean, ProcessingMethod, RoastLevel } from "@/types";
+import type {
+  CoffeeBean,
+  FlavorNotesData,
+  ProcessingMethod,
+  RoastLevel,
+} from "@/types";
 import { useBeanMap, type FlavorRanges } from "@/store";
 import { cn, countryFlagEmoji } from "@/lib/utils";
 
@@ -30,10 +35,20 @@ const FLAVOR_LABELS: Record<keyof FlavorRanges, string> = {
 
 interface Props {
   beans: CoffeeBean[];
+  flavorNotes?: FlavorNotesData;
   className?: string;
 }
 
-export function ActiveFilters({ beans, className }: Props) {
+function findFlavorLabel(data: FlavorNotesData, id: string): string {
+  return (
+    data.notes.find((n) => n.id === id)?.name ??
+    data.subcategories.find((s) => s.id === id)?.name ??
+    data.categories.find((c) => c.id === id)?.name ??
+    id
+  );
+}
+
+export function ActiveFilters({ beans, flavorNotes, className }: Props) {
   const {
     filters,
     setRegions,
@@ -41,6 +56,7 @@ export function ActiveFilters({ beans, className }: Props) {
     toggleRoast,
     setAltitudeRange,
     setFlavorRange,
+    toggleFlavorNote,
     resetFilters,
   } = useBeanMap();
 
@@ -68,7 +84,8 @@ export function ActiveFilters({ beans, className }: Props) {
     filters.processingMethods.length +
     filters.roastLevels.length +
     (altitudeChanged ? 1 : 0) +
-    changedFlavorAxes.length;
+    changedFlavorAxes.length +
+    filters.flavorNoteIds.length;
 
   if (totalChips === 0) return null;
 
@@ -114,6 +131,13 @@ export function ActiveFilters({ beans, className }: Props) {
           </Chip>
         );
       })}
+
+      {flavorNotes &&
+        filters.flavorNoteIds.map((id) => (
+          <Chip key={`note-${id}`} onRemove={() => toggleFlavorNote(id)}>
+            {findFlavorLabel(flavorNotes, id)}
+          </Chip>
+        ))}
 
       {totalChips > 1 && (
         <button
