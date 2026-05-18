@@ -1,17 +1,20 @@
 # BeanMap
 
-An interactive world map of specialty coffee — origins, flavor profiles, and brewing recommendations tailored to each bean.
+An interactive world map of specialty coffee — origins, flavor profiles, brewing recommendations, and an interactive flavor wheel tailored to each bean.
 
-**Status:** *Still Under Development* — Phase 1 + Phase 2 complete. 30 bean profiles with full SCA flavor-note tagging, custom Mapbox styles, SSR bean pages, responsive panel, dark/light mode, faceted filters, ⌘K search, brewing recommendation cards with dose calculator, /beans browser with grid/table toggle, Euclidean similar-beans, and shareable URLs.
+**Status:** *Still Under Development* — Phases 1 & 2 complete; Phase 3 substantially complete. 30 bean profiles with full SCA flavor-note tagging, custom Mapbox styles, SSR bean pages, responsive panel with a draggable mobile bottom sheet, dark/light mode, faceted filters, ⌘K search, brewing recommendation cards with dose calculator + interactive brew timer, /beans browser with grid/table toggle, Euclidean similar-beans, side-by-side bean comparison, D3 flavor wheel with category/subcategory/note filtering, an MDX-powered Learn section, and shareable URLs.
 
 ## Tech stack
 
 - **Framework:** [Next.js 16](https://nextjs.org/) (App Router, Turbopack) + [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
 - **Map:** [react-map-gl](https://visgl.github.io/react-map-gl/) + [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/) (globe projection, clustering, custom [Mapbox Studio](https://studio.mapbox.com/) styles)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) + custom coffee color palette
+- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/) (on top of [Base UI](https://base-ui.com/)) + custom coffee color palette
 - **State:** [Zustand](https://github.com/pmndrs/zustand)
 - **URL state:** [`nuqs`](https://nuqs.47ng.com/) — type-safe URL search params, shallow routing
 - **Search:** [Fuse.js](https://www.fusejs.io/) (weighted, fuzzy)
+- **Data viz:** [d3-hierarchy](https://github.com/d3/d3-hierarchy) + [d3-shape](https://github.com/d3/d3-shape) (sunburst flavor wheel); pure SVG everywhere else
+- **Gestures:** [`@use-gesture/react`](https://use-gesture.netlify.app/) + [`@react-spring/web`](https://www.react-spring.dev/) (draggable mobile bottom sheet)
+- **Content:** [`next-mdx-remote`](https://github.com/hashicorp/next-mdx-remote) (RSC) + [`gray-matter`](https://github.com/jonschlinkert/gray-matter) for the Learn section
 - **Data:** JSON seed files validated with [Zod](https://zod.dev/) at build time
 - **Theme:** [next-themes](https://github.com/pacocoursey/next-themes) (Mapbox style swaps on toggle)
 - **Deploy:** [Vercel](https://vercel.com/)
@@ -21,7 +24,15 @@ An interactive world map of specialty coffee — origins, flavor profiles, and b
 - **Interactive map** — Mapbox globe with clustered bean markers, on-hover region highlights. Click a marker to fly to the origin and open its profile.
 - **Bean profiles** — Each bean carries a 6-axis flavor profile (acidity, body, sweetness, bitterness, complexity, fruitiness), tagged tasting notes, varieties, processing, harvest months, and an SSR detail page. A similar-beans section uses Euclidean distance over the flavor profile to surface related origins from other countries.
 - **Brewing recommendations** — Per-bean cards sorted by affinity score with a "Best Match" highlight. Open any card for a full recipe — grind-scale visualization, water temperature with °C/°F toggle, ratio, pour schedule, equipment list, and an embedded dose calculator that scales by cup count and persists the user's preferred cup size.
+- **Interactive brew timer** — Drift-free `requestAnimationFrame` timer with circular progress ring, automatic stage advancement, opt-in Web Audio API beep on stage transitions, `Space` to start/pause, and `prefers-reduced-motion` support. Lives inside the brew detail modal and is exposed as `<BrewTimer />` to MDX articles.
+- **SCA flavor wheel** — D3-driven sunburst at [/explore/flavors](http://localhost:3000/explore/flavors) and as a toggleable overlay on the map. Click any segment — category, subcategory, or specific note — to filter beans across the whole app. Includes a screen-reader-only data table and is lazy-loaded so D3 stays out of the initial bundle.
+- **Bean comparison** — Add up to three beans to the comparison tray, then open the side-by-side view with overlaid radar charts, a parameter table, and a "best for [method]" highlight. Shareable via `/compare?beans=slug1,slug2,slug3`.
+- **Insights** — `/explore/insights` shows aggregate visualizations across the (filtered) catalog: an altitude bar chart with green→brown gradient sorted by midpoint elevation, and a Gantt-style harvest calendar that highlights the current month.
+- **Learn section** — MDX-rendered articles at `/learn` for processing methods and brewing guides. Articles can embed `<BrewTimer />` and `<Callout>` components. The pipeline ships with one stub per category (washed processing, V60); the remaining 11 articles are scaffolded as TODOs.
+- **Mobile** — Bean panel becomes a draggable bottom sheet with three snap points (peek, half, full), flick-to-close, and a dimmed backdrop. Filters open as a bottom sheet too.
+- **Search** — ⌘K opens a fuzzy search across name, country, region, and flavor notes. Recent searches persist in `localStorage`.
 - **SCA flavor-notes hierarchy** — 9 categories / 29 subcategories / 84 specific notes in [src/data/flavor-notes.json](src/data/flavor-notes.json), cross-validated against every bean at build time.
+- **Shareable URLs** — `nuqs` syncs selected bean, map viewport, all filters (region, processing, roast, altitude, flavor notes) into the URL with shallow routing.
 
 ## Local development
 
@@ -71,30 +82,48 @@ All three are inlined into the client bundle at build time — changing them req
 bean-map/
 ├── src/
 │   ├── app/        # Next.js App Router
-│   │   ├── bean/[slug]/          # SSR bean detail page (generateStaticParams)
-│   │   ├── beans/                # /beans grid + table browser
-│   │   ├── layout.tsx            # Root layout — fonts, ThemeProvider, NuqsAdapter, TopNav
-│   │   ├── page.tsx              # Home (map view)
-│   │   └── globals.css           # Tailwind v4 theme + coffee palette
+│   │   ├── bean/[slug]/       # SSR bean detail page (generateStaticParams)
+│   │   ├── beans/             # /beans grid + table browser
+│   │   ├── compare/           # /compare?beans=slug1,slug2,slug3
+│   │   ├── explore/
+│   │   │   ├── flavors/            # D3 flavor wheel + matched beans list
+│   │   │   └── insights/           # Altitude chart + harvest calendar
+│   │   ├── learn/
+│   │   │   ├── page.tsx            # Hub listing processing + brewing articles
+│   │   │   ├── processing/[slug]/  # MDX article renderer
+│   │   │   └── brewing/[slug]/     # MDX article renderer
+│   │   ├── layout.tsx         # Root layout — fonts, ThemeProvider, NuqsAdapter, TopNav
+│   │   ├── page.tsx           # Home (map view)
+│   │   └── globals.css        # Tailwind v4 theme + coffee palette
 │   │
 │   ├── components/
-│   │   ├── map/                  # CoffeeMap, MapView, RegionHighlight
-│   │   ├── bean/                 # BeanPanel, BeansBrowser
-│   │   ├── filter/               # FilterPanel, FlavorSliders
-│   │   ├── brewing/              # BrewCard, BrewDetailModal, BrewCalculator
-│   │   ├── layout/               # TopNav
-│   │   ├── shared/               # ThemeProvider, ThemeToggle, SearchCommand, UrlStateSync
-│   │   └── ui/                   # shadcn/ui primitives
+│   │   ├── map/               # CoffeeMap, MapView, RegionHighlight, FlavorWheelOverlay
+│   │   ├── bean/              # BeanPanel, BeansBrowser
+│   │   ├── filter/            # FilterPanel, FlavorSliders, ActiveFilters
+│   │   ├── brewing/           # BrewCard, BrewDetailModal, BrewCalculator, BrewTimer
+│   │   ├── compare/           # ComparisonTray, ComparisonView, CompareToggle
+│   │   ├── visualization/     # FlavorRadar, FlavorWheel(+Lazy), AltitudeChart, SeasonalChart
+│   │   ├── layout/            # TopNav, MobileBottomSheet
+│   │   ├── shared/            # ThemeProvider, ThemeToggle, SearchCommand, UrlStateSync
+│   │   └── ui/                # shadcn/ui primitives (Button, Dialog, Sheet, Slider, …)
+│   │
+│   ├── content/    # MDX articles for the Learn section
+│   │   ├── processing/        # washed.mdx (+ stubs to come)
+│   │   └── brewing/           # v60.mdx (+ stubs to come)
 │   │
 │   ├── lib/
 │   │   ├── data.ts               # Cached bean / method / flavor-notes loaders
 │   │   ├── schemas.ts            # Zod schemas mirroring src/types
 │   │   ├── search.ts             # Fuse.js index + recent-searches helpers
 │   │   ├── similar.ts            # Euclidean distance over flavor profile
+│   │   ├── mdx.ts                # Article frontmatter + content loaders (gray-matter)
+│   │   ├── mdx-components.tsx    # MDX components map (BrewTimer, Callout, prose styles)
 │   │   ├── url-state.ts          # nuqs parsers for filters / viewport / selection
+│   │   ├── altitude-color.ts     # Shared color ramp for altitude visualizations
+│   │   ├── use-media-query.ts    # SSR-safe matchMedia hook + prefers-reduced-motion helper
 │   │   └── utils.ts              # cn(), country flags, formatters, flavor-note label lookup
 │   │
-│   ├── store/      # Zustand store + filter selectors
+│   ├── store/      # Zustand store + filter selectors (includes flavor-note hierarchy match)
 │   ├── types/      # TypeScript interfaces
 │   └── data/       # beans.json, brewing-methods.json, flavor-notes.json, regions.geojson
 │
@@ -116,6 +145,8 @@ bean-map/
 
 ## Contributing data
 
+### Bean profiles
+
 Bean profiles live in [src/data/beans.json](src/data/beans.json). The fastest way to add one:
 
 ```bash
@@ -133,6 +164,31 @@ To add a bean manually:
 5. Run `npm run validate:data` — Zod will catch any missing or malformed fields and the cross-check will flag unknown flavor-note IDs, method IDs, or related-bean IDs.
 
 Region polygons live in [public/data/regions.geojson](public/data/regions.geojson) and are fetched client-side for hover highlights.
+
+### Learn articles
+
+Articles are MDX files in [src/content/](src/content/) under `processing/` or `brewing/`. Each file needs a frontmatter block:
+
+```mdx
+---
+title: Washed Processing
+description: How wet processing strips the coffee cherry to highlight bright, clean acidity.
+summary: Sometimes called wet processing — the fruit is removed before the seed is dried.
+readingTimeMinutes: 6
+---
+
+## Heading
+
+Markdown body. You can also drop in registered components:
+
+<BrewTimer totalSeconds={180} bloomSeconds={30} stages={[...]} />
+
+<Callout title="Note">
+Body text inside an aside.
+</Callout>
+```
+
+Slugs are inferred from the filename. The hub and routes (`/learn`, `/learn/processing/[slug]`, `/learn/brewing/[slug]`) pick up new files automatically — no registry update needed.
 
 ## Deployment
 

@@ -34,7 +34,10 @@ export function BeansBrowser({ beans, flavorNotes }: Props) {
   const [sortDir, setSortDir] = useState<"asc" | "desc">("asc");
   const filters = useBeanMap((s) => s.filters);
 
-  const filtered = useMemo(() => filterBeans(beans, filters), [beans, filters]);
+  const filtered = useMemo(
+    () => filterBeans(beans, filters, flavorNotes),
+    [beans, filters, flavorNotes],
+  );
 
   const sorted = useMemo(() => {
     const arr = [...filtered];
@@ -85,7 +88,11 @@ export function BeansBrowser({ beans, flavorNotes }: Props) {
 
   return (
     <div>
-      <ActiveFilters beans={beans} className="mb-4" />
+      <ActiveFilters
+        beans={beans}
+        flavorNotes={flavorNotes}
+        className="mb-4"
+      />
       <div className="mb-4 flex items-center justify-between gap-3">
         <div className="text-sm text-muted-foreground">
           {sorted.length} of {beans.length} beans

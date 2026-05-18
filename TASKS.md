@@ -298,16 +298,16 @@ An interactive world map showcasing coffee beans from around the world, their or
 - [x] Support overlay mode: render 2-3 polygons for comparison (different colors)
 
 ### 3.2 Interactive Flavor Wheel
-- [ ] Build `src/components/visualization/FlavorWheel.tsx`
-- [ ] D3 sunburst layout using `d3-hierarchy` and `d3-shape`
-- [ ] 3 concentric rings: category -> subcategory -> specific note
-- [ ] Color-coded segments matching the SCA wheel colors
-- [ ] Hover: highlight segment + show tooltip with note name and bean count
-- [ ] Click a segment: filter beans on map to only those with that flavor note
-- [ ] Smooth arc transitions on hover/click
-- [ ] Accessible: include screen-reader-only table listing all notes
-- [ ] Lazy-loaded (dynamic import) to avoid D3 in initial bundle
-- [ ] Place on map view as a toggleable overlay or on a dedicated `/explore/flavors` page
+- [x] Build `src/components/visualization/FlavorWheel.tsx`
+- [x] D3 sunburst layout using `d3-hierarchy` and `d3-shape`
+- [x] 3 concentric rings: category -> subcategory -> specific note
+- [x] Color-coded segments matching the SCA wheel colors
+- [x] Hover: highlight segment + show tooltip with note name and bean count
+- [x] Click a segment: filter beans on map to only those with that flavor note
+- [x] Smooth arc transitions on hover/click
+- [x] Accessible: include screen-reader-only table listing all notes
+- [x] Lazy-loaded (dynamic import) to avoid D3 in initial bundle
+- [x] Place on map view as a toggleable overlay or on a dedicated `/explore/flavors` page
 
 ### 3.3 Altitude Chart
 - [x] Build `src/components/visualization/AltitudeChart.tsx` (pure SVG/CSS bars)
@@ -358,35 +358,36 @@ An interactive world map showcasing coffee beans from around the world, their or
 - [x] `prefers-reduced-motion`: disable all animations, instant transitions (global rule in globals.css; chart animations gated on `motion-safe:`)
 
 ### 3.8 Educational Content - Processing Methods
-- [ ] Set up MDX rendering pipeline with `next-mdx-remote`
-- [ ] Create `src/app/learn/page.tsx` (Learn hub with article grid)
-- [ ] Create `src/app/learn/processing/[slug]/page.tsx` (article renderer)
+- [x] Set up MDX rendering pipeline with `next-mdx-remote`
+- [x] Create `src/app/learn/page.tsx` (Learn hub with article grid)
+- [x] Create `src/app/learn/processing/[slug]/page.tsx` (article renderer)
 - [ ] Write 5 MDX articles in `/content/processing/`:
-  - `washed.mdx` - Washed/wet processing
-  - `natural.mdx` - Natural/dry processing
-  - `honey.mdx` - Honey processing (yellow, red, black)
-  - `anaerobic.mdx` - Anaerobic fermentation
-  - `wet-hulled.mdx` - Wet-hulled (Giling Basah)
+  - [x] `washed.mdx` - Washed/wet processing
+  - [ ] `natural.mdx` - Natural/dry processing
+  - [ ] `honey.mdx` - Honey processing (yellow, red, black)
+  - [ ] `anaerobic.mdx` - Anaerobic fermentation
+  - [ ] `wet-hulled.mdx` - Wet-hulled (Giling Basah)
 - [ ] Each article: overview, step-by-step process, impact on flavor, origin regions that use it, embedded SVG diagrams
 - [ ] Link from bean profiles to relevant processing article
 
 ### 3.9 Educational Content - Brewing Guides
-- [ ] Create `src/app/learn/brewing/[slug]/page.tsx` (article renderer)
+- [x] Create `src/app/learn/brewing/[slug]/page.tsx` (article renderer)
 - [ ] Write 8 MDX guides in `/content/brewing/`:
-  - `v60.mdx`, `chemex.mdx`, `kalita-wave.mdx`, `french-press.mdx`
-  - `aeropress.mdx`, `espresso.mdx`, `cold-brew.mdx`, `moka-pot.mdx`
+  - [x] `v60.mdx`
+  - [ ] `chemex.mdx`, `kalita-wave.mdx`, `french-press.mdx`
+  - [ ] `aeropress.mdx`, `espresso.mdx`, `cold-brew.mdx`, `moka-pot.mdx`
 - [ ] Each guide: equipment list, step-by-step instructions with timing, common mistakes, tips for different beans
-- [ ] Embed interactive `BrewTimer` component within guides
+- [x] Embed interactive `BrewTimer` component within guides
 - [ ] Link from brew detail modal to relevant guide
 
 ### 3.10 Interactive Brew Timer
-- [ ] Build `src/components/brewing/BrewTimer.tsx`
-- [ ] Countdown/count-up timer with start/pause/reset
-- [ ] Pour stage alerts for pour-over methods (visual + optional sound)
-- [ ] Configurable stages based on the brewing method's pour schedule
-- [ ] Circular progress indicator with elapsed/remaining time
-- [ ] `requestAnimationFrame` for smooth rendering
-- [ ] Embeddable in MDX articles and brew detail modal
+- [x] Build `src/components/brewing/BrewTimer.tsx`
+- [x] Countdown/count-up timer with start/pause/reset
+- [x] Pour stage alerts for pour-over methods (visual + optional sound)
+- [x] Configurable stages based on the brewing method's pour schedule
+- [x] Circular progress indicator with elapsed/remaining time
+- [x] `requestAnimationFrame` for smooth rendering
+- [x] Embeddable in MDX articles and brew detail modal
 
 ### 3.11 Altitude Heatmap Layer
 - [ ] Add toggleable terrain/altitude layer to the map
@@ -397,13 +398,13 @@ An interactive world map showcasing coffee beans from around the world, their or
 - [ ] Opacity slider for blending with base map
 
 ### 3.12 Mobile Bottom Sheet
-- [ ] Build `src/components/layout/MobileBottomSheet.tsx`
-- [ ] Replace simple mobile Sheet with a draggable bottom sheet
-- [ ] Three snap points: peek (25% - shows bean name + key stats), half (50%), full (90%)
-- [ ] Gesture-based: drag handle, flick to expand/collapse
-- [ ] Use `@use-gesture/react` for touch handling
-- [ ] Smooth spring animation between snap points
-- [ ] Backdrop: map dims slightly when sheet is at half or full
+- [x] Build `src/components/layout/MobileBottomSheet.tsx`
+- [x] Replace simple mobile Sheet with a draggable bottom sheet
+- [x] Three snap points: peek (25% - shows bean name + key stats), half (50%), full (90%)
+- [x] Gesture-based: drag handle, flick to expand/collapse
+- [x] Use `@use-gesture/react` for touch handling
+- [x] Smooth spring animation between snap points
+- [x] Backdrop: map dims slightly when sheet is at half or full
 
 ### Phase 3 Verification
 - [ ] Radar chart renders correctly for each bean with animated entrance
