@@ -21,6 +21,7 @@ import {
   formatBrewTime,
 } from "@/lib/utils";
 import { BrewCalculator } from "./BrewCalculator";
+import { BrewTimer } from "./BrewTimer";
 
 interface Props {
   open: boolean;
@@ -135,6 +136,13 @@ export function BrewDetailModal({
             first pour.
           </p>
         )}
+
+        <BrewTimer
+          totalSeconds={rec.brewSeconds}
+          bloomSeconds={rec.bloomSeconds}
+          stages={rec.pourStages}
+          methodName={method?.name ?? rec.methodId}
+        />
 
         {rec.pourStages && rec.pourStages.length > 0 && (
           <section>
