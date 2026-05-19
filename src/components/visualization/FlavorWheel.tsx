@@ -9,6 +9,7 @@ import {
 import { arc } from "d3-shape";
 import type { CoffeeBean, FlavorNotesData } from "@/types";
 import { cn } from "@/lib/utils";
+import { categoryIcon } from "@/lib/flavor-icons";
 
 type NodeKind = "root" | "category" | "subcategory" | "note";
 
@@ -30,7 +31,6 @@ interface Props {
   selectedIds: ReadonlySet<string>;
   onToggle: (id: string) => void;
   className?: string;
-  showLabels?: boolean;
 }
 
 const TWO_PI = Math.PI * 2;
@@ -134,15 +134,12 @@ export function FlavorWheel({
   selectedIds,
   onToggle,
   className,
-  showLabels = true,
 }: Props) {
   const [hover, setHover] = useState<{
     id: string;
     name: string;
     kind: NodeKind;
     count: number;
-    x: number;
-    y: number;
   } | null>(null);
 
   const tree = useMemo(() => buildTree(flavorNotes), [flavorNotes]);
@@ -181,18 +178,63 @@ export function FlavorWheel({
     [root],
   );
 
-  const onSegmentEnter = (e: React.MouseEvent<SVGPathElement>, n: WheelRect) => {
-    const rect = (e.currentTarget.ownerSVGElement as SVGSVGElement)
-      .getBoundingClientRect();
+  const onSegmentEnter = (n: WheelRect) => {
     setHover({
       id: n.data.id,
       name: n.data.name,
       kind: n.data.kind,
       count: counts.byId.get(n.data.id) ?? 0,
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
     });
   };
+
+  // d3.arc() puts angle 0 at 12 o'clock and proceeds clockwise. Positions for
+  // icons / labels must use the same convention: x = sin(θ)·r, y = -cos(θ)·r.
+  const polarToXY = (angle: number, r: number): [number, number] => [
+    Math.sin(angle) * r,
+    -Math.cos(angle) * r,
+  ];
+
+  // Highlight set: the selected node, all its ancestors (so the inner rings
+  // stay opaque when a deeper segment is selected), and all its descendants
+  // (so the outer rings stay opaque when a category is selected). `null`
+  // means nothing is selected — everything renders at full opacity.
+  const highlightedIds: Set<string> | null = useMemo(() => {
+    if (selectedIds.size === 0) return null;
+    const out = new Set<string>();
+    const all = root.descendants() as WheelRect[];
+    for (const sel of selectedIds) {
+      for (const node of all) {
+        if (node.data.id !== sel) continue;
+        out.add(node.data.id);
+        let p = node.parent;
+        while (p && p.data.id !== "__root__") {
+          out.add(p.data.id);
+          p = p.parent;
+        }
+        for (const desc of node.descendants() as WheelRect[]) {
+          out.add(desc.data.id);
+        }
+      }
+    }
+    return out;
+  }, [selectedIds, root]);
+
+  const isNodeHighlighted = (id: string): boolean =>
+    highlightedIds === null || highlightedIds.has(id);
+
+  // Category icons sit in the OUTER ring, centered at each category's mid
+  // angle. Size scales with the outer ring's thickness.
+  const categoryIconSize = Math.max(20, (ringStops[3] - ringStops[2]) * 0.55);
+
+  // Hovered label / fallback for center display
+  const centerLabel = hover?.name ?? null;
+  const centerCount = hover?.count ?? null;
+  const centerKind = hover?.kind ?? null;
+  // Long names (e.g. "Tropical Fruit") need a smaller font in the inner disc.
+  const innerR = ringStops[0];
+  const centerFontSize = centerLabel
+    ? Math.min(innerR * 0.28, centerLabel.length > 10 ? innerR * 0.22 : innerR * 0.28)
+    : innerR * 0.22;
 
   return (
     <div
@@ -210,28 +252,34 @@ export function FlavorWheel({
         aria-label="Coffee flavor wheel"
         className="overflow-visible"
       >
-        <g transform={`translate(${center}, ${center}) rotate(-90)`}>
+        <g transform={`translate(${center}, ${center})`}>
           {allNodes.map((n) => {
             const lightenAmount =
               n.depth === 1 ? 0 : n.depth === 2 ? 0.2 : 0.4;
             const isSelected = selectedIds.has(n.data.id);
+            const isHighlighted = isNodeHighlighted(n.data.id);
             const count = counts.byId.get(n.data.id) ?? 0;
             const empty = count === 0;
             const fill = lighten(n.data.baseColor, lightenAmount);
+            const fillOpacity = empty
+              ? 0.15
+              : isHighlighted
+                ? 0.95
+                : 0.18;
 
             return (
               <path
                 key={`${n.data.kind}-${n.data.id}`}
                 d={arcGen(n) ?? undefined}
                 fill={fill}
-                fillOpacity={empty ? 0.25 : 0.95}
+                fillOpacity={fillOpacity}
                 stroke={
                   isSelected ? "var(--color-foreground, #1A0F09)" : "#FAF6F1"
                 }
                 strokeWidth={isSelected ? 2 : 0.5}
-                className="cursor-pointer transition-[fill-opacity,stroke-width] duration-150 hover:fill-opacity-100"
-                onMouseEnter={(e) => onSegmentEnter(e, n)}
-                onMouseMove={(e) => onSegmentEnter(e, n)}
+                strokeOpacity={isHighlighted ? 1 : 0.4}
+                className="cursor-pointer transition-[fill-opacity,stroke-width,stroke-opacity] duration-200"
+                onMouseEnter={() => onSegmentEnter(n)}
                 onClick={() => onToggle(n.data.id)}
                 role="button"
                 tabIndex={0}
@@ -247,31 +295,49 @@ export function FlavorWheel({
             );
           })}
 
-          {showLabels &&
-            allNodes
-              .filter((n) => n.depth === 1)
-              .map((n) => {
-                const mid = (n.x0 + n.x1) / 2;
-                const r = (ringStops[0] + ringStops[1]) / 2;
-                const x = Math.cos(mid) * r;
-                const y = Math.sin(mid) * r;
-                const angle = (mid * 180) / Math.PI;
-                const flip = angle > 90 && angle < 270;
+          {/* Category icon (illustration or emoji fallback) on the outer ring */}
+          {allNodes
+            .filter((n) => n.depth === 1 && (n.value ?? 0) > 0)
+            .map((n) => {
+              const icon = categoryIcon(n.data.id);
+              if (!icon) return null;
+              const mid = (n.x0 + n.x1) / 2;
+              const r = (ringStops[2] + ringStops[3]) / 2;
+              const [x, y] = polarToXY(mid, r);
+              const highlighted = isNodeHighlighted(n.data.id);
+              const iconOpacity = highlighted ? 1 : 0.35;
+              if (icon.type === "image") {
+                const s = categoryIconSize;
                 return (
-                  <text
-                    key={`label-${n.data.id}`}
-                    x={x}
-                    y={y}
-                    textAnchor="middle"
-                    dominantBaseline="middle"
-                    transform={`rotate(${flip ? angle + 180 : angle} ${x} ${y})`}
-                    className="pointer-events-none fill-cream text-[11px] font-semibold uppercase tracking-wide"
-                    style={{ paintOrder: "stroke" }}
-                  >
-                    {n.data.name}
-                  </text>
+                  <image
+                    key={`cat-icon-${n.data.id}`}
+                    href={icon.url}
+                    x={x - s / 2}
+                    y={y - s / 2}
+                    width={s}
+                    height={s}
+                    opacity={iconOpacity}
+                    className="motion-safe:transition-opacity motion-safe:duration-200"
+                    style={{ pointerEvents: "none" }}
+                  />
                 );
-              })}
+              }
+              return (
+                <text
+                  key={`cat-icon-${n.data.id}`}
+                  x={x}
+                  y={y}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fontSize={categoryIconSize}
+                  opacity={iconOpacity}
+                  className="motion-safe:transition-opacity motion-safe:duration-200"
+                  style={{ pointerEvents: "none" }}
+                >
+                  {icon.char}
+                </text>
+              );
+            })}
         </g>
 
         <circle
@@ -282,41 +348,74 @@ export function FlavorWheel({
           stroke="var(--color-border, #D4C4A8)"
           strokeWidth={1}
         />
-        <text
-          x={center}
-          y={center - 4}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          className="fill-muted-foreground text-[10px] uppercase tracking-wider"
-        >
-          Flavor
-        </text>
-        <text
-          x={center}
-          y={center + 10}
-          textAnchor="middle"
-          dominantBaseline="middle"
-          className="fill-foreground font-display text-base"
-        >
-          Wheel
-        </text>
+        {centerLabel ? (
+          <>
+            <text
+              x={center}
+              y={center - innerR * 0.18}
+              textAnchor="middle"
+              dominantBaseline="central"
+              className="fill-muted-foreground text-[10px] uppercase tracking-wider"
+            >
+              {centerKind === "note"
+                ? "Note"
+                : centerKind === "subcategory"
+                  ? "Subcategory"
+                  : "Category"}
+            </text>
+            <text
+              x={center}
+              y={center + innerR * 0.05}
+              textAnchor="middle"
+              dominantBaseline="central"
+              fontSize={centerFontSize}
+              className="fill-foreground font-display"
+            >
+              {centerLabel}
+            </text>
+            <text
+              x={center}
+              y={center + innerR * 0.4}
+              textAnchor="middle"
+              dominantBaseline="central"
+              className="fill-muted-foreground text-[10px] font-mono"
+            >
+              {centerCount} bean{centerCount === 1 ? "" : "s"}
+            </text>
+          </>
+        ) : (
+          <>
+            <text
+              x={center}
+              y={center - innerR * 0.18}
+              textAnchor="middle"
+              dominantBaseline="central"
+              className="fill-muted-foreground text-[10px] uppercase tracking-wider"
+            >
+              Flavor
+            </text>
+            <text
+              x={center}
+              y={center + innerR * 0.12}
+              textAnchor="middle"
+              dominantBaseline="central"
+              fontSize={innerR * 0.3}
+              className="fill-foreground font-display"
+            >
+              Wheel
+            </text>
+            <text
+              x={center}
+              y={center + innerR * 0.5}
+              textAnchor="middle"
+              dominantBaseline="central"
+              className="fill-muted-foreground text-[9px]"
+            >
+              Hover or tap a segment
+            </text>
+          </>
+        )}
       </svg>
-
-      {hover && (
-        <div
-          role="tooltip"
-          className="pointer-events-none absolute z-10 rounded-md border border-border bg-background/95 px-2 py-1 text-xs shadow-md backdrop-blur"
-          style={{
-            left: hover.x + 12,
-            top: hover.y + 12,
-          }}
-        >
-          <div className="font-medium">{hover.name}</div>
-          <div className="text-muted-foreground">
-            {hover.count} bean{hover.count === 1 ? "" : "s"}
-          </div>
-        </div>
-      )}
 
       <table className="sr-only">
         <caption>Coffee flavor wheel — categories, subcategories, and notes</caption>

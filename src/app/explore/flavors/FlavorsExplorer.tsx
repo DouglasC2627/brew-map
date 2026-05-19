@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Crosshair, X } from "lucide-react";
@@ -29,6 +29,7 @@ export function FlavorsExplorer({ beans, flavorNotes }: Props) {
   const {
     filters,
     toggleFlavorNote,
+    setFlavorNotes,
     clearFlavorNotes,
     requestFitBounds,
   } = useBeanMap();
@@ -39,6 +40,19 @@ export function FlavorsExplorer({ beans, flavorNotes }: Props) {
   const matching = useMemo(
     () => filterBeans(beans, filters, flavorNotes),
     [beans, filters, flavorNotes],
+  );
+
+  // Single-select: clicking the currently-selected segment clears the
+  // selection; clicking anything else replaces it with just that id.
+  const selectOne = useCallback(
+    (id: string) => {
+      if (selectedIds.size === 1 && selectedIds.has(id)) {
+        clearFlavorNotes();
+      } else {
+        setFlavorNotes([id]);
+      }
+    },
+    [selectedIds, setFlavorNotes, clearFlavorNotes],
   );
 
   const onShowOnMap = () => {
@@ -55,7 +69,7 @@ export function FlavorsExplorer({ beans, flavorNotes }: Props) {
             flavorNotes={flavorNotes}
             size={560}
             selectedIds={selectedIds}
-            onToggle={toggleFlavorNote}
+            onToggle={selectOne}
           />
         </div>
 

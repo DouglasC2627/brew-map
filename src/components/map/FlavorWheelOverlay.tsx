@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useCallback, useMemo } from "react";
 import { Flower2, X } from "lucide-react";
 import type { CoffeeBean, FlavorNotesData } from "@/types";
 import { useBeanMap } from "@/store";
@@ -17,7 +17,7 @@ export function FlavorWheelOverlay({ beans, flavorNotes }: Props) {
     isFlavorWheelOpen,
     setFlavorWheelOpen,
     filters,
-    toggleFlavorNote,
+    setFlavorNotes,
     clearFlavorNotes,
   } = useBeanMap();
 
@@ -26,6 +26,19 @@ export function FlavorWheelOverlay({ beans, flavorNotes }: Props) {
     [filters.flavorNoteIds],
   );
   const selectionCount = filters.flavorNoteIds.length;
+
+  // Single-select: clicking the currently-selected segment clears the
+  // selection; clicking anything else replaces the selection with just that id.
+  const selectOne = useCallback(
+    (id: string) => {
+      if (selectedIds.size === 1 && selectedIds.has(id)) {
+        clearFlavorNotes();
+      } else {
+        setFlavorNotes([id]);
+      }
+    },
+    [selectedIds, setFlavorNotes, clearFlavorNotes],
+  );
 
   return (
     <>
@@ -85,8 +98,7 @@ export function FlavorWheelOverlay({ beans, flavorNotes }: Props) {
               flavorNotes={flavorNotes}
               size={300}
               selectedIds={selectedIds}
-              onToggle={toggleFlavorNote}
-              showLabels={false}
+              onToggle={selectOne}
             />
           </div>
           <p className="mt-1 text-center text-[10px] text-muted-foreground">
