@@ -99,6 +99,7 @@ export function FlavorWheelOverlay({ beans, flavorNotes }: Props) {
               size={300}
               selectedIds={selectedIds}
               onToggle={selectOne}
+              compactCenter
             />
           </div>
           <p className="mt-1 text-center text-[10px] text-muted-foreground">

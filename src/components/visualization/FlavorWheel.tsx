@@ -7,8 +7,10 @@ import {
   partition,
 } from "d3-hierarchy";
 import { arc } from "d3-shape";
+import { animated, useSpring } from "@react-spring/web";
 import type { CoffeeBean, FlavorNotesData } from "@/types";
 import { cn } from "@/lib/utils";
+import { usePrefersReducedMotion } from "@/lib/use-media-query";
 import { categoryIcon } from "@/lib/flavor-icons";
 
 type NodeKind = "root" | "category" | "subcategory" | "note";
@@ -31,6 +33,12 @@ interface Props {
   selectedIds: ReadonlySet<string>;
   onToggle: (id: string) => void;
   className?: string;
+  /**
+   * When true, the center disc only shows the hovered segment's name —
+   * no "Category / Subcategory / Note" kind label and no bean count.
+   * Designed for the compact map-view overlay where the inner disc is small.
+   */
+  compactCenter?: boolean;
 }
 
 const TWO_PI = Math.PI * 2;
@@ -134,6 +142,7 @@ export function FlavorWheel({
   selectedIds,
   onToggle,
   className,
+  compactCenter = false,
 }: Props) {
   const [hover, setHover] = useState<{
     id: string;
@@ -198,33 +207,41 @@ export function FlavorWheel({
   // stay opaque when a deeper segment is selected), and all its descendants
   // (so the outer rings stay opaque when a category is selected). `null`
   // means nothing is selected — everything renders at full opacity.
-  const highlightedIds: Set<string> | null = useMemo(() => {
+  //
+  // Keys are `${kind}:${id}` rather than raw id, because some ids overlap
+  // across levels (e.g. subcategory "brown-spice" and note "brown-spice").
+  // Without the kind prefix, selecting "cinnamon" would also highlight the
+  // sibling note "brown-spice" because it shares its parent's id.
+  const nodeKey = (n: WheelRect) => `${n.data.kind}:${n.data.id}`;
+
+  const highlightedKeys: Set<string> | null = useMemo(() => {
     if (selectedIds.size === 0) return null;
     const out = new Set<string>();
     const all = root.descendants() as WheelRect[];
     for (const sel of selectedIds) {
       for (const node of all) {
         if (node.data.id !== sel) continue;
-        out.add(node.data.id);
+        out.add(nodeKey(node));
         let p = node.parent;
         while (p && p.data.id !== "__root__") {
-          out.add(p.data.id);
+          out.add(nodeKey(p as WheelRect));
           p = p.parent;
         }
         for (const desc of node.descendants() as WheelRect[]) {
-          out.add(desc.data.id);
+          out.add(nodeKey(desc));
         }
       }
     }
     return out;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedIds, root]);
 
-  const isNodeHighlighted = (id: string): boolean =>
-    highlightedIds === null || highlightedIds.has(id);
+  const isNodeHighlighted = (n: WheelRect): boolean =>
+    highlightedKeys === null || highlightedKeys.has(nodeKey(n));
 
-  // Category icons sit in the OUTER ring, centered at each category's mid
-  // angle. Size scales with the outer ring's thickness.
-  const categoryIconSize = Math.max(20, (ringStops[3] - ringStops[2]) * 0.55);
+  // Category icons straddle the middle/outer ring boundary at each category's
+  // mid angle. Size scales with the outer ring's thickness.
+  const categoryIconSize = Math.max(24, (ringStops[3] - ringStops[2]) * 0.72);
 
   // Hovered label / fallback for center display
   const centerLabel = hover?.name ?? null;
@@ -235,6 +252,28 @@ export function FlavorWheel({
   const centerFontSize = centerLabel
     ? Math.min(innerR * 0.28, centerLabel.length > 10 ? innerR * 0.22 : innerR * 0.28)
     : innerR * 0.22;
+
+  // In compact mode the inner disc is too small (~22px radius at size=300) to
+  // host readable text on its own — instead we use an absolute font size and
+  // back the label with a pill that sits over the wheel so it really pops.
+  const compactFontSize = Math.max(15, size * 0.055);
+  const compactIdleFontSize = Math.max(11, size * 0.04);
+  const compactCharWidth = compactFontSize * 0.58; // approximation
+  const compactRectW = centerLabel
+    ? Math.max(innerR * 2 + 12, centerLabel.length * compactCharWidth + 24)
+    : innerR * 2 + 12;
+  const compactRectH = compactFontSize * 2;
+
+  // Spring the pill's width/x so swapping labels of different lengths
+  // (e.g. "Citrus" → "Tropical Fruit") slides smoothly instead of snapping.
+  const reduceMotion = usePrefersReducedMotion();
+  const compactPillSpring = useSpring({
+    width: compactRectW,
+    x: center - compactRectW / 2,
+    opacity: compactCenter && centerLabel ? 1 : 0,
+    immediate: reduceMotion,
+    config: { tension: 320, friction: 32 },
+  });
 
   return (
     <div
@@ -257,7 +296,7 @@ export function FlavorWheel({
             const lightenAmount =
               n.depth === 1 ? 0 : n.depth === 2 ? 0.2 : 0.4;
             const isSelected = selectedIds.has(n.data.id);
-            const isHighlighted = isNodeHighlighted(n.data.id);
+            const isHighlighted = isNodeHighlighted(n);
             const count = counts.byId.get(n.data.id) ?? 0;
             const empty = count === 0;
             const fill = lighten(n.data.baseColor, lightenAmount);
@@ -302,9 +341,12 @@ export function FlavorWheel({
               const icon = categoryIcon(n.data.id);
               if (!icon) return null;
               const mid = (n.x0 + n.x1) / 2;
-              const r = (ringStops[2] + ringStops[3]) / 2;
+              // Sit at the boundary between the middle (subcategory) and outer
+              // (note) rings, so the icon straddles both — closer to the wheel
+              // center than the mid of the outer ring.
+              const r = ringStops[2];
               const [x, y] = polarToXY(mid, r);
-              const highlighted = isNodeHighlighted(n.data.id);
+              const highlighted = isNodeHighlighted(n);
               const iconOpacity = highlighted ? 1 : 0.35;
               if (icon.type === "image") {
                 const s = categoryIconSize;
@@ -348,7 +390,47 @@ export function FlavorWheel({
           stroke="var(--color-border, #D4C4A8)"
           strokeWidth={1}
         />
-        {centerLabel ? (
+        {compactCenter ? (
+          <>
+            <animated.rect
+              x={compactPillSpring.x}
+              y={center - compactRectH / 2}
+              width={compactPillSpring.width}
+              height={compactRectH}
+              rx={compactRectH / 2}
+              fill="var(--color-background, #FAF6F1)"
+              stroke="var(--color-roast-medium, #6F4E37)"
+              strokeWidth={1.5}
+              opacity={compactPillSpring.opacity}
+              style={{ pointerEvents: "none" }}
+            />
+            {centerLabel ? (
+              <text
+                x={center}
+                y={center}
+                textAnchor="middle"
+                dominantBaseline="central"
+                fontSize={compactFontSize}
+                className="fill-foreground font-display font-medium"
+                style={{ pointerEvents: "none" }}
+              >
+                {centerLabel}
+              </text>
+            ) : (
+              <text
+                x={center}
+                y={center}
+                textAnchor="middle"
+                dominantBaseline="central"
+                fontSize={compactIdleFontSize}
+                className="fill-muted-foreground font-display"
+                style={{ pointerEvents: "none" }}
+              >
+                Flavors
+              </text>
+            )}
+          </>
+        ) : centerLabel ? (
           <>
             <text
               x={center}
