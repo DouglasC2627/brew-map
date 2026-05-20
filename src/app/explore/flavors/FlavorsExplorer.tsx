@@ -3,7 +3,7 @@
 import { useCallback, useMemo } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Crosshair, X } from "lucide-react";
+import { Crosshair } from "lucide-react";
 import type { CoffeeBean, FlavorNotesData } from "@/types";
 import { useBeanMap, filterBeans } from "@/store";
 import { FlavorWheelLazy } from "@/components/visualization/FlavorWheelLazy";
@@ -14,21 +14,73 @@ interface Props {
   flavorNotes: FlavorNotesData;
 }
 
-function findLabel(data: FlavorNotesData, id: string): string {
+interface SelectionPath {
+  /** Most specific level chosen — what the user actually clicked. */
+  level: "category" | "subcategory" | "note";
+  categoryId: string;
+  categoryName: string;
+  categoryColor: string;
+  subcategoryId?: string;
+  subcategoryName?: string;
+  noteId?: string;
+  noteName?: string;
+}
+
+/**
+ * Resolve a selected flavor id to its full hierarchy path. Prefers the deepest
+ * match (note > subcategory > category) when ids overlap across levels.
+ */
+function resolveSelection(
+  data: FlavorNotesData,
+  id: string,
+): SelectionPath | null {
   const note = data.notes.find((n) => n.id === id);
-  if (note) return note.name;
+  if (note) {
+    const sub = data.subcategories.find((s) => s.id === note.subcategoryId);
+    const cat = sub
+      ? data.categories.find((c) => c.id === sub.categoryId)
+      : undefined;
+    if (!sub || !cat) return null;
+    return {
+      level: "note",
+      categoryId: cat.id,
+      categoryName: cat.name,
+      categoryColor: cat.color,
+      subcategoryId: sub.id,
+      subcategoryName: sub.name,
+      noteId: note.id,
+      noteName: note.name,
+    };
+  }
   const sub = data.subcategories.find((s) => s.id === id);
-  if (sub) return sub.name;
+  if (sub) {
+    const cat = data.categories.find((c) => c.id === sub.categoryId);
+    if (!cat) return null;
+    return {
+      level: "subcategory",
+      categoryId: cat.id,
+      categoryName: cat.name,
+      categoryColor: cat.color,
+      subcategoryId: sub.id,
+      subcategoryName: sub.name,
+    };
+  }
   const cat = data.categories.find((c) => c.id === id);
-  if (cat) return cat.name;
-  return id;
+  if (cat) {
+    return {
+      level: "category",
+      categoryId: cat.id,
+      categoryName: cat.name,
+      categoryColor: cat.color,
+    };
+  }
+  return null;
 }
 
 export function FlavorsExplorer({ beans, flavorNotes }: Props) {
   const router = useRouter();
   const {
     filters,
-    toggleFlavorNote,
     setFlavorNotes,
     clearFlavorNotes,
     requestFitBounds,
@@ -41,6 +93,12 @@ export function FlavorsExplorer({ beans, flavorNotes }: Props) {
     () => filterBeans(beans, filters, flavorNotes),
     [beans, filters, flavorNotes],
   );
+
+  const selectionPath = useMemo<SelectionPath | null>(() => {
+    const id = filters.flavorNoteIds[0];
+    if (!id) return null;
+    return resolveSelection(flavorNotes, id);
+  }, [filters.flavorNoteIds, flavorNotes]);
 
   // Single-select: clicking the currently-selected segment clears the
   // selection; clicking anything else replaces it with just that id.
@@ -82,42 +140,52 @@ export function FlavorsExplorer({ beans, flavorNotes }: Props) {
               <span className="font-mono">{matching.length}</span>{" "}
               <span className="text-muted-foreground">of {beans.length}</span>
             </p>
-            {selectedIds.size > 0 && (
-              <button
-                type="button"
-                onClick={clearFlavorNotes}
-                className="mt-2 text-xs text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
-              >
-                Clear flavor selection
-              </button>
-            )}
-          </section>
 
-          {selectedIds.size > 0 && (
-            <section className="rounded-lg border border-border bg-surface/60 p-4">
-              <h2 className="mb-2 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
-                Selected
-              </h2>
-              <div className="flex flex-wrap gap-1.5">
-                {Array.from(selectedIds).map((id) => (
-                  <span
-                    key={id}
-                    className="inline-flex items-center gap-1 rounded-full border border-border bg-parchment px-2 py-0.5 text-xs text-roast-dark dark:bg-roast-dark dark:text-parchment"
-                  >
-                    {findLabel(flavorNotes, id)}
+            {selectionPath ? (
+              <>
+                <div className="mt-4 border-t border-border pt-4">
+                  <div className="mb-2 flex items-center justify-between">
+                    <span className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+                      Selection
+                    </span>
                     <button
                       type="button"
-                      onClick={() => toggleFlavorNote(id)}
-                      aria-label={`Remove ${findLabel(flavorNotes, id)}`}
-                      className="rounded-full p-0.5 text-muted-foreground hover:bg-roast-medium/20 hover:text-foreground"
+                      onClick={clearFlavorNotes}
+                      className="text-[10px] text-muted-foreground underline-offset-2 hover:text-foreground hover:underline"
                     >
-                      <X className="h-3 w-3" />
+                      Clear
                     </button>
-                  </span>
-                ))}
-              </div>
-            </section>
-          )}
+                  </div>
+                  <ul className="space-y-1.5 text-sm">
+                    <SelectionRow
+                      label="Category"
+                      value={selectionPath.categoryName}
+                      swatchColor={selectionPath.categoryColor}
+                      active={selectionPath.level === "category"}
+                    />
+                    {selectionPath.subcategoryName && (
+                      <SelectionRow
+                        label="Subcategory"
+                        value={selectionPath.subcategoryName}
+                        active={selectionPath.level === "subcategory"}
+                      />
+                    )}
+                    {selectionPath.noteName && (
+                      <SelectionRow
+                        label="Note"
+                        value={selectionPath.noteName}
+                        active={selectionPath.level === "note"}
+                      />
+                    )}
+                  </ul>
+                </div>
+              </>
+            ) : (
+              <p className="mt-3 text-xs text-muted-foreground">
+                Click a segment on the wheel to filter.
+              </p>
+            )}
+          </section>
 
           <button
             type="button"
@@ -171,7 +239,7 @@ export function FlavorsExplorer({ beans, flavorNotes }: Props) {
         )}
       </section>
 
-      <section className="rounded-lg border border-border bg-surface/60 p-5">
+      <section className="rounded-lg border border-border bg-surface/60 p-5" id="about">
         <h2 className="font-display text-xl">About the Coffee Flavor Wheel</h2>
         <div className="mt-2 space-y-3 text-sm leading-relaxed">
           <p>
@@ -201,5 +269,43 @@ export function FlavorsExplorer({ beans, flavorNotes }: Props) {
         </div>
       </section>
     </div>
+  );
+}
+
+function SelectionRow({
+  label,
+  value,
+  active,
+  swatchColor,
+}: {
+  label: string;
+  value: string;
+  active: boolean;
+  swatchColor?: string;
+}) {
+  return (
+    <li className="flex items-baseline justify-between gap-3">
+      <div className="flex items-center gap-2">
+        {swatchColor && (
+          <span
+            aria-hidden
+            className="inline-block h-2.5 w-2.5 rounded-full border border-border"
+            style={{ background: swatchColor }}
+          />
+        )}
+        <span className="text-[10px] uppercase tracking-wider text-muted-foreground">
+          {label}
+        </span>
+      </div>
+      <span
+        className={
+          active
+            ? "text-right font-medium text-foreground"
+            : "text-right text-muted-foreground"
+        }
+      >
+        {value}
+      </span>
+    </li>
   );
 }
